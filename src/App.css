@@ -1,1 +1,29 @@
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo {
+
+}
+.header__search {
+  width: 500px;
+  background-color: #F0F8FA;
+  border: none;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+.header__search:focus {
+  border-color: #CCC9C9;
+}
+.header__search::placeholder {
+  color: #CCC9C9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: 16px;
+}
+.header__menu {
+  display: flex;
+  column-gap: 20px;
+}
