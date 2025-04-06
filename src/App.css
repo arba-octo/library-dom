@@ -27,3 +27,6 @@
   display: flex;
   column-gap: 20px;
 }
+.pic-main {
+  border-radius: 23px;
+}
