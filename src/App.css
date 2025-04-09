@@ -16,44 +16,54 @@
 .header__search:focus {
   border-color: #CCC9C9;
 }
-.header__search::placeholder {
-  color: #CCC9C9;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  font-size: 16px;
-}
 .header__menu {
   display: flex;
   column-gap: 20px;
 }
+/*------------------------------ CONTENT ----------------------------------*/
 .content {
-  display: grid;
-  grid-template-columns: 310px 1fr;
-  column-gap: 20px;
-  color: #787878;
+  display: flex;
+  column-gap: 30px;
+  color: #434343;
 }
+/*---------------------- SIDE BAR  --------------------------*/
 .side-bar {
   width: 310px;
-}
-.side-bar__search {
   display: flex;
-  column-gap: 10px;
-  align-items: center;
-  font-size: 16px;
-  color: #787878;
+  flex-direction: column;
+  row-gap: 20px;
 }
-.books-pre__text {
-  color: #787878;
-  font-size: 16px;
+.side-bar__item {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  font-size: 18px;
+  color: #434343;
+  margin-top: 20px;
+}
+.side-bar__title {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 10px;
+}
+.side-bar__title img {
+  display: block;
+  padding-top: 10px;
 }
 .side-bar__inputs {
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
+}
+.side-bar__input-wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .side-bar__label {
-  margin-top: 10px;
-  margin-bottom: 5px;
+
 }
 .side-bar__input {
   padding: 5px;
@@ -64,4 +74,19 @@
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   font-size: 16px;
+  margin-top: 5px;
+}
+.side-bar__title_add-book {
+  margin-bottom: -5px;
+}
+/*------------------------ BOOKs ------------------------*/
+.books {
+  margin-top: 20px;
+}
+.books__title {
+ margin-top: 30px;
+}
+.books__catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
