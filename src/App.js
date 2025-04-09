@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import LineSeparate from "./components/LineSeparate";
 import SideBar from "./components/SideBar/SideBar";
-import BooksPre from "./components/BooksPre";
-import SideBarInputs from "./components/SideBar/SideBarInputs";
+import Books from "./components/Books";
 
 function App() {
   return (
@@ -13,8 +11,7 @@ function App() {
       <LineSeparate />
       <div className="section content">
           <SideBar />
-          <BooksPre />
-          <SideBarInputs />
+          <Books />
       </div>
 
     </div>
