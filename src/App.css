@@ -76,6 +76,9 @@
   font-size: 16px;
   margin-top: 5px;
 }
+.side-bar__slider {
+  margin-top: 10px;
+}
 .side-bar__title_add-book {
   margin-bottom: -5px;
 }

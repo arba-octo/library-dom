@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { ageChangeReducer } from './features/age/ageSlice';
+import {filtersReducer} from "./features/filters-slice";
 
 export const store = configureStore({
     reducer: {
-        age: ageChangeReducer,
+        filters: filtersReducer,
     },
 })

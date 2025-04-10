@@ -1,11 +1,24 @@
-import {useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux';
+import {
+    selectAge, setAgeAction,
+    changeValueAction,
+    selectValue
+} from '../../features/filters-slice';
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
 
 function SideBarSearch() {
-    const [data, setData] = useState([0, 18]);
+    const dispatch = useDispatch();
+    const age = useSelector(selectAge);
+    const handleChange = (evt) => {
+        dispatch(changeValueAction({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
+    };
+
     const marks = [
-                {
+        {
             value: 6,
             label: '6 лет'
         },
@@ -23,8 +36,8 @@ function SideBarSearch() {
             <Slider
                 aria-labelledby="age"
                 getAriaLabel={() => 'Возраст читателя'}
-                value={data} // Определяет активный дефолтный диапазон значений
-                onChange={(event, value) => setData(value)}
+                value={age} // Определяет активный дефолтный диапазон значений
+                onChange={(event, value) => dispatch(setAgeAction(value))}
                 step={1}
                 min={0}
                 max={18}
@@ -36,12 +49,16 @@ function SideBarSearch() {
                 id="title"
                 type="text"
                 placeholder="приключения"
+                value={selectValue()}
+                onChange={handleChange}
             />
             <SideBarInput
                 label="Автор"
                 id="author"
                 type="text"
                 placeholder="сутеев"
+                value={selectValue()}
+                onChange={handleChange}
             />
         </div>
     )
