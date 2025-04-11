@@ -1,22 +1,26 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {
     selectAge, setAgeAction,
+    selectTitle,
+    selectAuthor,
     changeValueAction,
-    selectValue
-} from '../../features/filters-slice';
+    removeFilterAction,
+    clearAllFiltersAction
+} from '../../features/search/search-slice';
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
     const age = useSelector(selectAge);
-    const handleChange = (evt) => {
+    const title = useSelector(selectTitle);
+    const author = useSelector(selectAuthor);
+    const handleBlurValue = (evt) => {
         dispatch(changeValueAction({
             id: evt.target.id,
             value: evt.target.value
         }))
     };
-
     const marks = [
         {
             value: 6,
@@ -36,30 +40,39 @@ function SideBarSearch() {
             <Slider
                 aria-labelledby="age"
                 getAriaLabel={() => 'Возраст читателя'}
-                value={age} // Определяет активный дефолтный диапазон значений
-                onChange={(event, value) => dispatch(setAgeAction(value))}
+                value={age}
+                onChange={(evt) => {dispatch(setAgeAction(age))}}
                 step={1}
                 min={0}
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
+                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
             />
             <SideBarInput
                 label="Название / Ключевое слово в названии"
                 id="title"
                 type="text"
                 placeholder="приключения"
-                value={selectValue()}
-                onChange={handleChange}
+                value={title}
+                onChange={handleBlurValue}
+                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
             />
             <SideBarInput
                 label="Автор"
                 id="author"
                 type="text"
                 placeholder="сутеев"
-                value={selectValue()}
-                onChange={handleChange}
+                value={author}
+                onChange={handleBlurValue}
+                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
             />
+            <button
+                className="clear side-bar__clear-button"
+                onClick={(evt) => {
+                    dispatch(clearAllFiltersAction())
+                }}
+            >Очистить фильтр</button>
         </div>
     )
 }

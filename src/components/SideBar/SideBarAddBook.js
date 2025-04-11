@@ -1,9 +1,16 @@
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
-import {useState} from "react";
+import {
+    selectAge,
+    selectAuthor,
+    selectTitle,
+    setAgeAction,
+    setAuthorAction,
+    setTitleAction
+} from "../../features/search/search-slice";
+import {useValue} from "../../features/search/use-value";
 
 function SideBarAddBook() {
-    const [data, setData] = useState([3, 8]);
     const marks = [
         {
             value: 6,
@@ -15,6 +22,10 @@ function SideBarAddBook() {
         }
     ]
 
+    const [age, handleChangeAge] = useValue(selectAge, setAgeAction);
+    const [title, handleChangeTitle] = useValue(selectTitle, setTitleAction);
+    const [author, handleChangeAuthor] = useValue(selectAuthor, setAuthorAction);
+
     return (
         <div className="side-bar__inputs">
             <SideBarInput
@@ -22,12 +33,16 @@ function SideBarAddBook() {
                 type="text"
                 placeholder="Автор"
                 classInput="side-bar__input_add-book"
+                value={author}
+                onChange={handleChangeAuthor}
             />
             <SideBarInput
                 id="add-book__title"
                 type="text"
                 placeholder="Название"
                 classInput="side-bar__input_add-book"
+                value={title}
+                onChange={handleChangeTitle}
             />
             <div className="side-bar__slider">
                 <Typography id="age" gutterBottom>
@@ -36,8 +51,8 @@ function SideBarAddBook() {
                 <Slider
                     aria-labelledby="age"
                     getAriaLabel={() => 'Возраст читателя'}
-                    value={data} // Определяет активный дефолтный диапазон значений
-                    onChange={(event, value) => setData(value)}
+                    value={age} // Определяет активный дефолтный диапазон значений
+                    onChange={handleChangeAge}
                     step={1}
                     min={0}
                     max={18}
