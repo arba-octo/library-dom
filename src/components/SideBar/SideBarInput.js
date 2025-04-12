@@ -10,6 +10,7 @@ function SideBarInput(props) {
                 value={props.value}
                 placeholder={props.placeholder}
                 onChange={props.onChange}
+                onBlur={props.onBlur}
             />
         </div>
 

@@ -5,22 +5,14 @@ import {
     selectAuthor,
     changeValueAction,
     removeFilterAction,
-    clearAllFiltersAction
+    clearAllFiltersAction,
+    setActiveFilter
 } from '../../features/search/search-slice';
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
-    const age = useSelector(selectAge);
-    const title = useSelector(selectTitle);
-    const author = useSelector(selectAuthor);
-    const handleBlurValue = (evt) => {
-        dispatch(changeValueAction({
-            id: evt.target.id,
-            value: evt.target.value
-        }))
-    };
     const marks = [
         {
             value: 6,
@@ -31,6 +23,24 @@ function SideBarSearch() {
             label: '12 лет'
         }
     ]
+    const age = useSelector(selectAge);
+    const title = useSelector(selectTitle);
+    const author = useSelector(selectAuthor);
+
+    const handleChangeValue = (evt) => {
+        dispatch(changeValueAction({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
+    };
+
+    const handleBlur = (evt) => {
+        console.log('evt.target.value')
+        dispatch(setActiveFilter({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
+    };
 
     return (
         <div className="side-bar__inputs">
@@ -41,13 +51,13 @@ function SideBarSearch() {
                 aria-labelledby="age"
                 getAriaLabel={() => 'Возраст читателя'}
                 value={age}
-                onChange={(evt) => {dispatch(setAgeAction(age))}}
                 step={1}
                 min={0}
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
-                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
+                onChange={(evt) => {dispatch(setAgeAction(evt.target.value))}}
+                onClick={(evt) => dispatch(setActiveFilter({id: "age", value: age}))}
             />
             <SideBarInput
                 label="Название / Ключевое слово в названии"
@@ -55,8 +65,8 @@ function SideBarSearch() {
                 type="text"
                 placeholder="приключения"
                 value={title}
-                onChange={handleBlurValue}
-                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
+                onChange={handleChangeValue}
+                onBlur={handleBlur}
             />
             <SideBarInput
                 label="Автор"
@@ -64,8 +74,8 @@ function SideBarSearch() {
                 type="text"
                 placeholder="сутеев"
                 value={author}
-                onChange={handleBlurValue}
-                onClick={(evt) => dispatch(removeFilterAction(evt.target))}
+                onChange={handleChangeValue}
+                onBlur={handleBlur}
             />
             <button
                 className="clear side-bar__clear-button"

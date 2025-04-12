@@ -7,41 +7,41 @@ import {
     selectAuthor, setAuthorAction,
     removeFilterAction,
     clearAllFiltersAction,
-    selectActiveFilters
+    setActiveFilter,
+    selectActiveFilters,
 } from "../features/search/search-slice";
 
 function FiltersPanel() {
-    console.log('Зашли в FiltersPanel');
+    // console.log('Зашли в FiltersPanel');
     const dispatch = useDispatch();
     const activeFilters = useSelector(selectActiveFilters);
-    console.log('activeFilters в FiltersPanel  = ', activeFilters);
-    const [age, handleBlurAge] = useValue(selectAge, setAgeAction);
-    const [title, handleBlurTitle] = useValue(selectTitle, setTitleAction);
-    const [author, handleBlurAuthor] = useValue(selectAuthor, setAuthorAction);
+    // console.log('activeFilters в FiltersPanel  = ', activeFilters);
+    const age = useSelector(selectAge);
+    const title = useSelector(selectTitle);
+    const author = useSelector(selectAuthor);
     const filters = {
         ageFilter: {
             id: "age",
             name: "Возраст",
-            handleBlur: {handleBlurAge},
             value: {age},
             type: "slider"
         },
         titleFilter: {
             id: "title",
             name: "Название",
-            handleBlur: {handleBlurTitle},
             value: {title},
             type: "input-text"
         },
         authorFilter: {
             id: "author",
             name: "Автор",
-            handleBlur: {handleBlurAuthor},
             value: {author},
             type: "input-text"
         },
     };
 
+    console.log('activeFilters', activeFilters)
+    console.log('filters.ageFilter.value = ', filters.ageFilter.value)
     return (
         <div className="filters-panel">
             {activeFilters.map((filterItem) => {
@@ -53,10 +53,11 @@ function FiltersPanel() {
                 return (
                     <Filter
                         key={currentFilter.id}
-                        onBlur={currentFilter.handleBlur}
-                        onClick={dispatch(removeFilterAction(currentFilter))}
+                        id={currentFilter.id}
                         filterName={currentFilter.name}
                         filterValue={currentFilter.value}
+                        onClick={() => dispatch(removeFilterAction(currentFilter.id))}
+                        filterType={currentFilter.type}
                     />
                 )
             })}

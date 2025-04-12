@@ -11,11 +11,14 @@ const searchSlice = createSlice({
     name: "@@search",
     initialState,
     reducers: {
+        setActiveFilter(state, { payload }) {
+            console.log('payload (зашли в setActiveFilter) = ', payload);
+            let set = new Set();
+            set.add({ id: payload.id, value: payload.value });
+            state.activeFilters = [...set]
+        },
         setAgeAction: (state, action) => {
             state.age = action.payload;
-            console.log('action.payload в setAgeAction = ', action.payload)
-            if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-            console.log('activeFilters в setAgeAction (после push фильтра) = ', state.activeFilters)
         },
         setTitleAction: (state, action) => {
             state.title = action.payload;
@@ -25,8 +28,9 @@ const searchSlice = createSlice({
             state.author = action.payload;
             if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
         },
-        changeValueAction: (state, action) => {
-            if (action.payload.id === 'age') {
+        changeValueAction: (state, { payload }) => {
+            state[payload.id] = payload.value;
+            /*if (action.payload.id === 'age') {
                 state.age = action.payload.value;
                 if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
             }
@@ -37,21 +41,11 @@ const searchSlice = createSlice({
             if (action.payload.id === 'author') {
                 state.author = action.payload.value;
                 if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-            }
+            }*/
         },
         removeFilterAction: (state, action) => {
-            if (action.payload.id === 'age') {
-                state.age = initialState.age;
-                state.activeFilters = state.activeFilters.filter((item) => item.id !== "age")
-            }
-            if (action.payload.id === 'title') {
-                state.title = initialState.title;
-                state.activeFilters = state.activeFilters.filter((item) => item.id !== "title")
-            }
-            if (action.payload.id === 'author') {
-                state.author = initialState.author
-                state.activeFilters = state.activeFilters.filter((item) => item.id !== "author")
-            }
+            state[action.payload] = initialState[action.payload];
+            state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload)
         },
         clearAllFiltersAction: (state, action) => {
             state.activeFilters = initialState.activeFilters
@@ -65,7 +59,8 @@ export const {
     setAuthorAction,
     changeValueAction,
     removeFilterAction,
-    clearAllFiltersAction
+    clearAllFiltersAction,
+    setActiveFilter,
 } = searchSlice.actions;
 export const searchReducer = searchSlice.reducer;
 
