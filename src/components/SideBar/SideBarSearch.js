@@ -1,22 +1,18 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {
     selectAge, setAgeAction,
+    selectTitle,
+    selectAuthor,
     changeValueAction,
-    selectValue
-} from '../../features/filters-slice';
+    removeFilterAction,
+    clearAllFiltersAction,
+    setActiveFilter
+} from '../../features/search/search-slice';
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
-    const age = useSelector(selectAge);
-    const handleChange = (evt) => {
-        dispatch(changeValueAction({
-            id: evt.target.id,
-            value: evt.target.value
-        }))
-    };
-
     const marks = [
         {
             value: 6,
@@ -27,6 +23,24 @@ function SideBarSearch() {
             label: '12 лет'
         }
     ]
+    const age = useSelector(selectAge);
+    const title = useSelector(selectTitle);
+    const author = useSelector(selectAuthor);
+
+    const handleChangeValue = (evt) => {
+        dispatch(changeValueAction({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
+    };
+
+    const handleBlur = (evt) => {
+        console.log('evt.target.value')
+        dispatch(setActiveFilter({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
+    };
 
     return (
         <div className="side-bar__inputs">
@@ -36,30 +50,39 @@ function SideBarSearch() {
             <Slider
                 aria-labelledby="age"
                 getAriaLabel={() => 'Возраст читателя'}
-                value={age} // Определяет активный дефолтный диапазон значений
-                onChange={(event, value) => dispatch(setAgeAction(value))}
+                value={age}
                 step={1}
                 min={0}
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
+                onChange={(evt) => {dispatch(setAgeAction(evt.target.value))}}
+                onClick={(evt) => dispatch(setActiveFilter({id: "age", value: age}))}
             />
             <SideBarInput
                 label="Название / Ключевое слово в названии"
                 id="title"
                 type="text"
                 placeholder="приключения"
-                value={selectValue()}
-                onChange={handleChange}
+                value={title}
+                onChange={handleChangeValue}
+                onBlur={handleBlur}
             />
             <SideBarInput
                 label="Автор"
                 id="author"
                 type="text"
                 placeholder="сутеев"
-                value={selectValue()}
-                onChange={handleChange}
+                value={author}
+                onChange={handleChangeValue}
+                onBlur={handleBlur}
             />
+            <button
+                className="clear side-bar__clear-button"
+                onClick={(evt) => {
+                    dispatch(clearAllFiltersAction())
+                }}
+            >Очистить фильтр</button>
         </div>
     )
 }

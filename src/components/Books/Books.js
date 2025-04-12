@@ -1,9 +1,11 @@
 import BooksCatalogPreview from "./BooksCatalogPreview";
+import FiltersPanel from "../FiltersPanel";
 
 function Books() {
     return (
         <div className="books">
-            <h2 className="books__title">Новые книги в каталоге: возраст 1 - 18 лет</h2>
+            <h2 className="books__title">Книги в каталоге:</h2>
+            <FiltersPanel />
             <BooksCatalogPreview />
         </div>
     )
