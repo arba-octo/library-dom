@@ -20,6 +20,7 @@ function FiltersPanel() {
     const filters = {
         ageFilter: {
             id: "age",
+            idToFilter: "ageToFilter",
             name: "Возраст",
             value: age,
             valueToFilter: ageToFilter,
@@ -47,17 +48,30 @@ function FiltersPanel() {
                 if (filterItem.id === "title") {currentFilter = filters.titleFilter}
                 if (filterItem.id === "author") {currentFilter = filters.authorFilter}
 
-                return (
+                if (currentFilter.id === "age") {
+                    return (
                     <Filter
-                        key={currentFilter.id}
-                        id={currentFilter.id}
+                        key={currentFilter.idToFilter}
+                        id={currentFilter.idToFilter}
                         filterName={currentFilter.name}
                         filterValue={currentFilter.value}
                         filterSliderValue={currentFilter.valueToFilter}
-                        onClick={() => dispatch(removeFilterAction(currentFilter.id))}
+                        onClick={() => dispatch(removeFilterAction(currentFilter.idToFilter))}
                         filterType={currentFilter.type}
                     />
-                )
+                )} else {
+                    return (
+                        <Filter
+                            key={currentFilter.id}
+                            id={currentFilter.id}
+                            filterName={currentFilter.name}
+                            filterValue={currentFilter.value}
+                            filterSliderValue={currentFilter.valueToFilter}
+                            onClick={() => dispatch(removeFilterAction(currentFilter.id))}
+                            filterType={currentFilter.type}
+                        />
+                    )
+                }
             })}
         </div>
     )
