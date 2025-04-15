@@ -2,20 +2,23 @@ import {createSlice} from "@reduxjs/toolkit";
 
 export const initialState = {
     age: [0, 18],
+    ageToFilter: [0, 18], // Отделили от age, чтобы в фильтре панели фильтров изменения отображались только после отпускания мыши со слайдера
     title: '',
     author: '',
-    activeFilters: []
+    activeFilters: [] // массив объектов, где каждый объект = фильтр для панели фильтров с id и value
 };
+//let mapFilters = new Map();
 
 const searchSlice = createSlice({
     name: "@@search",
     initialState,
     reducers: {
         setActiveFilter(state, { payload }) {
-            console.log('payload (зашли в setActiveFilter) = ', payload);
-            let set = new Set();
-            set.add({ id: payload.id, value: payload.value });
-            state.activeFilters = [...set]
+            state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
+            const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
+            if (idx === -1) {
+                state.activeFilters = state.activeFilters.concat(payload)
+            }
         },
         setAgeAction: (state, action) => {
             state.age = action.payload;
@@ -30,18 +33,6 @@ const searchSlice = createSlice({
         },
         changeValueAction: (state, { payload }) => {
             state[payload.id] = payload.value;
-            /*if (action.payload.id === 'age') {
-                state.age = action.payload.value;
-                if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-            }
-            if (action.payload.id === 'title') {
-                state.title = action.payload.value;
-                if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-            }
-            if (action.payload.id === 'author') {
-                state.author = action.payload.value;
-                if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-            }*/
         },
         removeFilterAction: (state, action) => {
             state[action.payload] = initialState[action.payload];
@@ -65,6 +56,7 @@ export const {
 export const searchReducer = searchSlice.reducer;
 
 export const selectAge = (state) => state.search.age;
+export const selectAgeToFilter = (state) => state.search.ageToFilter;
 export const selectTitle = (state) => state.search.title;
 export const selectAuthor = (state) => state.search.author;
 export const selectActiveFilters = (state) => state.search.activeFilters
