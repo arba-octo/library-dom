@@ -4,14 +4,13 @@ function Filter(props) {
     return (
         <div
             className="clear filter-panel__filter"
-            key={props.key}
             id={props.id}
             onClick={props.onClick}
         >
             {props.filterName}:
             &ensp;
             {props.filterType === "slider" && (
-                <span>{props.filterValue.id[0]} - {props.filterValue.id[1]}</span>
+                <span>{props.filterSliderValue[0]} - {props.filterSliderValue[1]}</span>
             )}
             {props.filterType === "input-text" && (
                 <span>{props.filterValue}</span>

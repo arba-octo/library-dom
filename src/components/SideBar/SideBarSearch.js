@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {
     selectAge, setAgeAction,
+    selectAgeToFilter,
     selectTitle,
     selectAuthor,
     changeValueAction,
@@ -24,10 +25,12 @@ function SideBarSearch() {
         }
     ]
     const age = useSelector(selectAge);
+    const ageToFilter = useSelector(selectAgeToFilter);
     const title = useSelector(selectTitle);
     const author = useSelector(selectAuthor);
 
     const handleChangeValue = (evt) => {
+        console.log('зашли в handleChangeValue')
         dispatch(changeValueAction({
             id: evt.target.id,
             value: evt.target.value
@@ -35,11 +38,11 @@ function SideBarSearch() {
     };
 
     const handleBlur = (evt) => {
-        console.log('evt.target.value')
         dispatch(setActiveFilter({
             id: evt.target.id,
             value: evt.target.value
         }))
+        console.log('Внутри handleBlur evt.target.id = ', evt.target.id, 'evt.target.value = ', evt.target.value)
     };
 
     return (
@@ -57,7 +60,7 @@ function SideBarSearch() {
                 valueLabelDisplay="auto"
                 marks={marks}
                 onChange={(evt) => {dispatch(setAgeAction(evt.target.value))}}
-                onClick={(evt) => dispatch(setActiveFilter({id: "age", value: age}))}
+                onClick={(evt) => dispatch(setActiveFilter({id: "ageToFilter", value: age}))}
             />
             <SideBarInput
                 label="Название / Ключевое слово в названии"
