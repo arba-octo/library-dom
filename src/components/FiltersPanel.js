@@ -47,7 +47,6 @@ function FiltersPanel() {
                 if (filterItem.id === AGE_TO_FILTER) {currentFilter = filters.ageFilter}
                 if (filterItem.id === TITLE) {currentFilter = filters.titleFilter}
                 if (filterItem.id === AUTHOR) {currentFilter = filters.authorFilter}
-                console.log('currentFilter (перед отрисовкой Filter) = ', currentFilter)
 
                 if (currentFilter.type === "slider") {
                     return (

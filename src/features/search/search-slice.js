@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {AGE_TO_FILTER} from "../../data/constants";
 
 export const initialState = {
     age: [0, 18],
@@ -18,31 +19,21 @@ const searchSlice = createSlice({
             if (idx === -1) {
                 state.activeFilters = state.activeFilters.concat(payload)
             }
-            console.log('state.activeFilters (на выходе setActiveFilter) = ', state.activeFilters)
-        },
-        setAgeAction: (state, action) => {
-            state.age = action.payload;
-        },
-        setTitleAction: (state, action) => {
-            state.title = action.payload;
-            if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
-        },
-        setAuthorAction: (state, action) => {
-            state.author = action.payload;
-            if (!state.activeFilters.includes(action.payload)) {state.activeFilters.push(action.payload)}
         },
         changeValueAction: (state, { payload }) => {
             state[payload.id] = payload.value;
-            console.log('state.activeFilters (на выходе changeValueAction) = ', state.activeFilters)
         },
         removeFilterAction: (state, action) => {
             state[action.payload] = initialState[action.payload];
-            console.log('action.payload (в removeFilterAction) = ', action.payload)
-            if (action.payload === "ageToFilter") {console.log('Зашли в if в removeFilterAction'); state.age = initialState.age}
+            if (action.payload === "ageToFilter") {state.age = initialState.age}
             state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload)
-            console.log('state.activeFilters (на выходе removeFilterAction) = ', state.activeFilters)
         },
         clearAllFiltersAction: (state, action) => {
+
+            state.activeFilters.map((item) => {
+                if (item.id === AGE_TO_FILTER) {state.age = initialState.age}
+                state[item.id] = initialState[item.id]
+            })
             state.activeFilters = initialState.activeFilters
         }
     },

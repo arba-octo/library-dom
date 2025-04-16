@@ -11,6 +11,7 @@ import {
 } from '../../features/search/search-slice';
 import SideBarInput from "./SideBarInput";
 import {Slider, Typography} from "@mui/material";
+import {useValue} from "../../features/search/use-value";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
@@ -24,25 +25,17 @@ function SideBarSearch() {
             label: '12 лет'
         }
     ]
-    const age = useSelector(selectAge);
-    const ageToFilter = useSelector(selectAgeToFilter);
-    const title = useSelector(selectTitle);
-    const author = useSelector(selectAuthor);
+    const [age, handleChangeAge] = useValue(selectAge, changeValueAction);
+    const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
+    const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
 
-    const handleChangeValue = (evt) => {
-        console.log('зашли в handleChangeValue')
-        dispatch(changeValueAction({
-            id: evt.target.id,
-            value: evt.target.value
-        }))
-    };
+    //const age = useSelector(selectAge);
 
     const handleBlur = (evt) => {
         dispatch(setActiveFilter({
             id: evt.target.id,
             value: evt.target.value
         }))
-        console.log('Внутри handleBlur evt.target.id = ', evt.target.id, 'evt.target.value = ', evt.target.value)
     };
 
     return (
@@ -59,7 +52,7 @@ function SideBarSearch() {
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
-                onChange={(evt) => {dispatch(setAgeAction(evt.target.value))}}
+                onChange={(evt) => dispatch(changeValueAction({id: "age", value: evt.target.value}))}
                 onClick={(evt) => dispatch(setActiveFilter({id: "ageToFilter", value: age}))}
             />
             <SideBarInput
@@ -68,7 +61,7 @@ function SideBarSearch() {
                 type="text"
                 placeholder="приключения"
                 value={title}
-                onChange={handleChangeValue}
+                onChange={handleChangeTitle}
                 onBlur={handleBlur}
             />
             <SideBarInput
@@ -77,7 +70,7 @@ function SideBarSearch() {
                 type="text"
                 placeholder="сутеев"
                 value={author}
-                onChange={handleChangeValue}
+                onChange={handleChangeAuthor}
                 onBlur={handleBlur}
             />
             <button
