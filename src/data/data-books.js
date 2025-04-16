@@ -1,27 +1,35 @@
 import roboltsToc from '../images/books/robolts_toc.jpg';
 import roboltsExamp from '../images/books/robolts_examp.jpg'
 import roboltsFace from '../images/books/robolts_face.jpg';
+import roboltsPreview from '../images/books/robolts_preview.jpg';
 import dragonsEncicFace from '../images/books/dragons_first-ciclopedia_face.jpg';
+import dragonsEncicPreview from '../images/books/dragons_first-ciclopedia_preview.jpg';
 import dragonsEncicExamp from '../images/books/dragons_first-ciclopedia_examp.jpg';
 import talesAndPicFace from '../images/books/tales-and-pictures_suteev_face.jpg';
+import talesAndPicPreview from '../images/books/tales-and-pictures_suteev_preview.jpg';
 import talesAndPicToc from '../images/books/tales-and-pictures_suteev_toc.jpg';
 import talesAndPicExamp from '../images/books/tales-and-pictures_suteev_examp.jpg';
 import mumytrollsFace from '../images/books/mumy-trolls_face.jpg';
+import mumytrollsPreview from '../images/books/mumy-trolls_preview.jpg';
 import mumytrollsToc from '../images/books/mumy-trolls_toc.jpg';
 import mumytrollsExamp from '../images/books/mumy-trolls_examp.jpg';
 import harmAdviceOsterFace from '../images/books/400-harm-advice_oster_face.jpg';
+import harmAdviceOsterPreview from '../images/books/400-harm-advice_oster_preview.jpg';
 import harmAdviceOsterExamp from '../images/books/400-harm-advice_oster_examp.jpg';
 import kiplingFace from '../images/books/kipling_face.jpg';
+import kiplingPreview from '../images/books/kipling_preview.jpg';
 import kiplingToc from '../images/books/kipling_toc.jpg';
 import kiplingExamp from '../images/books/kipling_examp.jpg';
 
 export const dataBooks = [
     {
+        id: 1,
         title: 'Роболты. Улётная история!!!',
         author: 'Матюшкина Катя, Сильвер Саша',
         collection: 'Роболты',
         pages: 192,
         age: [4, 10],
+        previwImg: roboltsPreview,
         faceImg: roboltsFace,
         tocImg: roboltsToc,
         exampleImg: roboltsExamp,
@@ -39,11 +47,13 @@ export const dataBooks = [
         ]
     },
     {
+        id: 2,
         title: 'Драконы. Твоя первая энциклопедия',
         author: '',
         collection: null,
         pages: 128,
         age: [3, 8],
+        previwImg: dragonsEncicPreview,
         faceImg: dragonsEncicFace,
         tocImg: dragonsEncicExamp,
         exampleImg: null,
@@ -61,11 +71,13 @@ export const dataBooks = [
         ]
     },
     {
+        id: 3,
         title: 'Сказки и картинки',
         author: 'Сутеев В.',
         collection: null,
         pages: 124,
         age: [1, 7],
+        previwImg: talesAndPicPreview,
         faceImg: talesAndPicFace,
         tocImg: talesAndPicToc,
         exampleImg: talesAndPicExamp,
@@ -83,10 +95,12 @@ export const dataBooks = [
         ]
     },
     {
+        id: 4,
         title: 'Всё-всё-всё о муми-троллях для малышей',
         author: 'Янссон Т.',
         pages: 224,
         age: [2, 7],
+        previwImg: mumytrollsPreview,
         faceImg: mumytrollsFace,
         tocImg: mumytrollsToc,
         exampleImg: mumytrollsExamp,
@@ -97,10 +111,12 @@ export const dataBooks = [
         comments: []
     },
     {
+        id: 5,
         title: '400 самых дюбимых вредных советов',
         author: 'Остер Г.',
         pages: 414,
         age: [7, 13],
+        previwImg: harmAdviceOsterPreview,
         faceImg: harmAdviceOsterFace,
         tocImg: null,
         exampleImg: harmAdviceOsterExamp,
@@ -118,10 +134,13 @@ export const dataBooks = [
         ]
     },
     {
+        id: 6,
         title: 'Повесть Маугли и сказки',
         author: 'Киплинг Р.',
         pages: 384,
         age: [6, 13],
+        previwImg: kiplingPreview,
+        altText: "Изображение",
         faceImg: kiplingFace,
         tocImg: kiplingToc,
         exampleImg: kiplingExamp,
