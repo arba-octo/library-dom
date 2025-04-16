@@ -52,6 +52,7 @@ function SideBarSearch() {
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
+                color="#DAF605"
                 onChange={(evt) => dispatch(changeValueAction({id: "age", value: evt.target.value}))}
                 onClick={(evt) => dispatch(setActiveFilter({id: "ageToFilter", value: age}))}
             />
