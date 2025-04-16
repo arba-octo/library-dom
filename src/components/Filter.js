@@ -1,6 +1,5 @@
 
 function Filter(props) {
-    console.log('props (зашли в Filter) = ', props);
     return (
         <div
             className="clear filter-panel__filter"

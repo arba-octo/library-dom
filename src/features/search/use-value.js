@@ -4,7 +4,10 @@ export const useValue = (selector, action) => {
     const dispatch = useDispatch();
     const value = useSelector(selector);
     const handleChangeValue = (evt) => {
-        dispatch(action(evt.target.value))
+        dispatch(action({
+            id: evt.target.id,
+            value: evt.target.value
+        }))
     };
     return [value, handleChangeValue];
 }
