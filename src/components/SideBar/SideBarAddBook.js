@@ -28,6 +28,7 @@ function SideBarAddBook() {
             collection: valueCollection,
             pages: valuePages,
             age: valueAge,
+            altText: "Изображение",
             faceImg: '',
             tocImg: '',
             exampImg: '',
