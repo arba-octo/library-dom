@@ -12,6 +12,8 @@ function BooksCatalogPreview() {
                             title={itemBook.title}
                             author={itemBook.author}
                             pages={itemBook.pages}
+                            collection={itemBook.collection}
+                            faceImg={itemBook.faceImg}
                         />
                     )
             })}

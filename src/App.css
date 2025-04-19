@@ -26,9 +26,9 @@
   column-gap: 30px;
   color: #434343;
 }
-/*---------------------- SIDE BAR  --------------------------*/
+/*------------------------------------- SIDE BAR  -------------------------------------*/
 .side-bar {
-  width: 310px;
+  width: 540px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -52,6 +52,7 @@
   display: block;
   padding-top: 10px;
 }
+/*---------------------- SIDE BAR INPUTS--------------------*/
 .side-bar__inputs {
   display: flex;
   flex-direction: column;
@@ -63,24 +64,46 @@
   flex-direction: column;
 }
 .side-bar__label {
-
+  margin-top: 10px;
+  font-size: 17px;
 }
 .side-bar__input {
-  padding: 5px;
-  border: solid 1px #787878;
-  border-radius: 5px;
-  color: #020202;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   font-size: 16px;
-  margin-top: 5px;
+}
+.side-bar__input-loading {
+  margin-top: -7px;
 }
 .side-bar__slider {
   margin-top: 10px;
 }
+.side-bar__add-book {
+  margin-top: 50px;
+}
 .side-bar__title_add-book {
   margin-bottom: -5px;
+  cursor: pointer;
+}
+.side-bar__add-book_line {
+  width: 100%;
+  border-color: #CBE21D;
+  color: #CBE21D;
+  position: relative;
+}
+.side-bar__add-book_line:after {
+  content: "";
+  background-image: url("./images/add-book_open.svg");
+  background-size: cover;
+  width: 51px;
+  height: 27px;
+  position: absolute;
+  top: 10px;
+  left: 50%
+}
+.side-bar__add-book-form {
+  display: none;
 }
 .side-bar__clear-button {
   color: #ED2124;
@@ -133,12 +156,13 @@
   flex-direction: column;
   align-items: center;
   padding: 0 5px 5px 5px;
+  cursor: pointer;
 }
 .book__preview {
   width: 139px;
 }
 .book__title {
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 0;
   font-size: 18px;
   color: #020202;
@@ -148,10 +172,39 @@
   font-size: 16px;
   color: #787878;
   text-align: center;
-  margin: 0;
+  margin: 5px 0 0 0;
 }
 .book__pages {
   font-size: 16px;
   color: #787878;
-  margin: 0;
+  margin: 5px 0 0 0;
+}
+/* -------------------- BOOK CARD -----------------------*/
+.book__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 35px;
+  padding: 0 35px;
+}
+.book__descript {
+  width: 100%;
+  display: flex;
+}
+.book__descript-mainImg {
+  max-width: 635px;
+}
+.book__descript-content {
+  display: flex;
+  flex-direction: column;
+  padding: 42px 35px 25px 25px;
+}
+.book__title {
+  font-size: 21px;
+  color: #787878;
+}
+.book_author {
+
+}
+.book__text-descript {
+
 }

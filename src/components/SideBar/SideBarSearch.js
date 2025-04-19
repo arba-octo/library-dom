@@ -10,8 +10,9 @@ import {
     setActiveFilter
 } from '../../features/search/search-slice';
 import SideBarInput from "./SideBarInput";
-import {Slider, Typography} from "@mui/material";
+import {Slider, TextField, Typography} from "@mui/material";
 import {useValue} from "../../features/search/use-value";
+import {styles} from "../../data/mui-styles";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
@@ -52,24 +53,22 @@ function SideBarSearch() {
                 max={18}
                 valueLabelDisplay="auto"
                 marks={marks}
-                color="#DAF605"
+                sx={{color: styles.color.green}}
                 onChange={(evt) => dispatch(changeValueAction({id: "age", value: evt.target.value}))}
                 onClick={(evt) => dispatch(setActiveFilter({id: "ageToFilter", value: age}))}
             />
-            <SideBarInput
-                label="Название / Ключевое слово в названии"
+            <TextField
                 id="title"
-                type="text"
-                placeholder="приключения"
+                variant="standard"
+                label="Название / ключевое слово"
                 value={title}
                 onChange={handleChangeTitle}
                 onBlur={handleBlur}
             />
-            <SideBarInput
-                label="Автор"
+            <TextField
                 id="author"
-                type="text"
-                placeholder="сутеев"
+                variant="standard"
+                label="Автор"
                 value={author}
                 onChange={handleChangeAuthor}
                 onBlur={handleBlur}

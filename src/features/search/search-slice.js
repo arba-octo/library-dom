@@ -17,7 +17,7 @@ const searchSlice = createSlice({
             state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
             const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
             if (idx === -1) {
-                state.activeFilters = state.activeFilters.concat(payload)
+                if (payload.value !== '') {state.activeFilters = state.activeFilters.concat(payload)}
             }
         },
         changeValueAction: (state, { payload }) => {

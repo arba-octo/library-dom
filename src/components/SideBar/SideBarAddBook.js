@@ -1,139 +1,162 @@
 import {useState} from "react";
-import {Slider, Typography} from "@mui/material";
+import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button} from "@mui/material";
 import SideBarInput from "./SideBarInput";
-import useValueAddbook from "../../features/use-value-addbook";
-import {dataBooks} from "../../data/data-books";
+import {styles} from "../../data/mui-styles";
+
+const marks = [
+    {
+        value: 6,
+        label: '6 лет'
+    },
+    {
+        value: 12,
+        label: '12 лет'
+    }
+];
+const initialState = {
+    author: "",
+    title: "",
+    age: [0, 18],
+    collection: "",
+    pages: "",
+    previwImg: "",
+    faceImg: "",
+    tocImg: [],
+    exampleImg: "",
+    statusFree: true,
+    occupiedTo: null,
+    owner: "",
+    firstSelfReading: false,
+    comments: []
+}
 
 function SideBarAddBook() {
-    const marks = [
-        {
-            value: 6,
-            label: '6 лет'
-        },
-        {
-            value: 12,
-            label: '12 лет'
-        }
-    ];
-    const [valueAuthor, handleChangeAuthor] = useValueAddbook("add-book__author");
-    const [valueTitle, handleChangeTitle] = useValueAddbook("add-book__title");
-    const [valueAge, handleChangeAge] = useValueAddbook("add-book__age");
-    const [valueCollection, handleChangeCollection] = useValueAddbook("add-book__collection");
-    const [valuePages, handleChangePages] = useValueAddbook("add-book__pages");
-
+    // Отображение данных набираемых в полях input типа text и number
+    const [value, setValue] = useState(initialState);
+    const handleChange = (field, newdata) => {
+        setValue({
+            ...value,
+            [field]: newdata,
+        })
+    };
     const handleClickAddBook = () => {
         const newBook = {
-            title: valueTitle,
-            author: valueAuthor,
-            collection: valueCollection,
-            pages: valuePages,
-            age: valueAge,
-            altText: "Изображение",
-            faceImg: '',
-            tocImg: '',
-            exampImg: '',
+            title: value.title,
+            author: value.author,
+            age: value.age,
+            collection: value.collection,
+            pages: value.pages,
+            faceImg: value.faceImg,
+            tocImg: [value.tocImg],
+            exampleImg: value.exampleImg,
             statusFree: true,
             occupiedTo: null,
-            owner: 'DanaArb',
+            owner: "",
             firstSelfReading: false,
             comments: []
         }
-        dataBooks.concat(newBook);
-    }
-    const [check, setCheck] = useState('')
-    const handleChangeRadio = () => {
-
+    };
+    const handleClickClear = () => {
+        setValue(initialState);
     }
 
     return (
         <form className="side-bar__inputs side-bar__add-book-form" action="mailto:nevarus@yandex.ru" method="POST">
 
-            <SideBarInput
-                id="add-book__author"
-                type="text"
-                placeholder="Автор"
-                classInput="side-bar__input_add-book"
-                value={valueAuthor}
-                onChange={handleChangeAuthor}
-            />
-            <SideBarInput
-                id="add-book__title"
-                type="text"
-                placeholder="Название"
-                classInput="side-bar__input_add-book"
-                value={valueTitle}
-                onChange={handleChangeTitle}
-            />
             <div className="side-bar__slider">
                 <Typography id="age" gutterBottom>
                     Возраст читателя
                 </Typography>
                 <Slider
-                    aria-labelledby="age"
+                    aria-labelledby="add-book__age"
                     getAriaLabel={() => 'Возраст читателя'}
-                    value={valueAge}
-                    onChange={handleChangeAge}
+                    value={value.age}
+                    onChange={(evt) => handleChange('age', evt.target.value)}
                     step={1}
                     min={0}
                     max={18}
+                    sx={{color: styles.color.green}}
                     valueLabelDisplay="auto"
                     marks={marks}
                 />
             </div>
-            <SideBarInput
+            <TextField
+                id="add-book__author"
+                variant="standard"
+                label="Автор*"
+                sx={{fontFamily: styles.font.fontFamily, placeholder: styles.font.fontFamily, fontSize: styles.font.fontSize.small}}
+                value={value.author}
+                onChange={(evt) => handleChange('author', evt.target.value)}
+            />
+            <TextField
                 id="add-book__collection"
-                type="text"
-                placeholder="Коллекция (например: Роболты)"
-                classInput="side-bar__input_add-book"
-                value={valueCollection}
-                onChange={handleChangeCollection}
+                variant="standard"
+                label="Название*"
+                sx={{fontFamily: styles.font.fontFamily}}
+                value={value.title}
+                onChange={(evt) => handleChange('title', evt.target.value)}
             />
-            <SideBarInput
+            <TextField
+                id="add-book__collection"
+                variant="standard"
+                label="Серия книг"
+                sx={{fontFamily: styles.font.fontFamily, fontSize: styles.font.fontSize.medium}}
+                value={value.collection}
+                onChange={(evt) => handleChange('collection', evt.target.value)}
+            />
+            <TextField
                 id="add-book__pages"
-                type="number"
-                placeholder="Количество страниц (например: 129)"
-                classInput="side-bar__input_add-book"
-                value={valuePages}
-                onChange={handleChangePages}
+                variant="standard"
+                label="Количество страниц*"
+                sx={{fontFamily: styles.font.fontFamily}}
+                value={value.pages}
+                onChange={(evt) => handleChange('pages', evt.target.value)}
             />
-            <label htmlFor="add-book__face-img">Добавьте изображение (фото) обложки, сделанной на белом фоне:</label>
+            <label htmlFor="add-book__face-img" className="side-bar__label">Фото обложки*:</label>
             <SideBarInput
                 id="add-book__face-img"
                 name="add-book__face-img"
                 type="file"
                 accept="image/*"
-                classInput="side-bar__input_add-book"
+                classInput="side-bar__input_add-book side-bar__input-loading"
             />
-            <label htmlFor="add-book__toc-img">Добавьте изображение (фото) оглавления, если имеется:</label>
+            <label htmlFor="add-book__toc-img" className="side-bar__label">Фото оглавления:</label>
             <SideBarInput
                 id="add-book__toc-img"
                 name="add-book__toc-img"
                 type="file"
                 accept="image/*"
-                classInput="side-bar__input_add-book"
+                classInput="side-bar__input_add-book side-bar__input-loading"
             />
-            <label htmlFor="add-book__examp-img">Добавьте изображение (фото) типового разворота на белом фоне:</label>
+            <label htmlFor="add-book__examp-img" className="side-bar__label ">Фото разворота*:</label>
             <SideBarInput
                 id="add-book__examp-img"
                 name="add-book__examp-img"
                 type="file"
                 accept="image/*"
-                classInput="side-bar__input_add-book"
+                classInput="side-bar__input_add-book side-bar__input-loading"
             />
-            <div>
-                <p>Подходит ли книга для первого самостоятельного чтения?</p>
-                <input type="radio" id="yes" name="add-book__first-self-reading" value="да" onChange={handleChangeRadio}/>
-                <label htmlFor="yes">Да</label>
-                <input type="radio" id="no" name="add-book__first-self-reading" value="нет" checked onChange={handleChangeRadio}/>
-                <label htmlFor="no">Нет</label>
-            </div>
+            <FormControl>
+                <FormLabel
+                    id="demo-radio-buttons-group-label"
+                    sx={{mt: '10px', fontSize: styles.font.fontSize.medium}}
+                >Подходит для первого самостоятельного чтения?
+                </FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="no"
+                    name="radio-buttons-group"
+                    sx={{display: "flex", flexDirection: "row", mt: '-10px'}}
+                >
+                    <FormControlLabel value="no" control={<Radio />} label="Нет" />
+                    <FormControlLabel value="yes" control={<Radio />} label="Да" />
+                </RadioGroup>
+            </FormControl>
 
-            <button
-                type="submit"
-                className="side-bar__add-button"
-                onClick={handleClickAddBook}
-            >Добавить книгу
-            </button>
+            <ButtonGroup variant="contained" aria-label="Basic button group">
+                <Button sx={{width: '50%', bgcolor: styles.color.green}} onClick={handleClickAddBook}>Добавить</Button>
+                <Button sx={{width: '50%', bgcolor: styles.color.greyDark}} onClick={handleClickClear}>Очистить</Button>
+            </ButtonGroup>
         </form>
     )
 }
