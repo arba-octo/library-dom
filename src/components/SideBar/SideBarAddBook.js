@@ -61,7 +61,7 @@ function SideBarAddBook() {
     }
 
     return (
-        <form className="side-bar__inputs side-bar__add-book-form" action="mailto:nevarus@yandex.ru" method="POST">
+        <form className="side-bar__inputs side-bar__add-book-form" action="mailto:nevarus@yandex.ru">
 
             <div className="side-bar__slider">
                 <Typography id="age" gutterBottom>
