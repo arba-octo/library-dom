@@ -5,15 +5,9 @@ import SideBarSearch from "./SideBarSearch";
 import SideBarAddBook from "./SideBarAddBook";
 
 function SideBar() {
-    const [isOpen, setIsOpen] = useState({
-        line: true,
-        inputs: false
-    });
+    const [isOpen, setIsOpen] = useState(false);
     const handleOpenAddBook = () => {
-        setIsOpen({
-            line: true,
-            inputs: false
-        });
+        setIsOpen(true);
     }
 
     return (
@@ -30,11 +24,10 @@ function SideBar() {
                     <img src={addBook} alt="Добавить"/>
                     <h2>Добавить свою книгу в БиблиоDом</h2>
                 </div>
-                <hr className="side-bar__add-book_line visible-block"/>
-                <SideBarAddBook />
+                {isOpen === false && <hr className="side-bar__add-book_line"/>}
+                {isOpen === true && <SideBarAddBook/>}
             </div>
         </div>
-
     )
 }
 
