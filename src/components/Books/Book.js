@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import BookCard from "../BookCard";
+import BookCard from "./BookCard";
 
 const style = {
     position: 'absolute',
@@ -53,6 +53,7 @@ function Book(props) {
                         collection={props.collection}
                         pages={props.pages}
                         faceImg={props.faceImg}
+                        age={props.age}
                     />
                 </Box>
             </Modal>

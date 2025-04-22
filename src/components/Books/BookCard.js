@@ -16,6 +16,14 @@ function BookCard(props) {
                             <td>Страниц</td>
                             <td>{props.pages}</td>
                         </tr>
+                        <tr>
+                            <td>Возраст</td>
+                            <td>{props.age}</td>
+                        </tr>
+                        <tr>
+                            <td>Для первого самост. чтения</td>
+                            <td>{props.firstSelfReading === true ? 'да' : 'нет'}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

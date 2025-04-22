@@ -32,10 +32,11 @@ function SideBarSearch() {
 
     //const age = useSelector(selectAge);
 
-    const handleBlur = (evt) => {
+    const handleBlur = (evt, type) => {
         dispatch(setActiveFilter({
             id: evt.target.id,
-            value: evt.target.value
+            value: evt.target.value,
+            type
         }))
     };
 
@@ -63,7 +64,7 @@ function SideBarSearch() {
                 label="Название / ключевое слово"
                 value={title}
                 onChange={handleChangeTitle}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, 'input-text')}
             />
             <TextField
                 id="author"
@@ -71,7 +72,7 @@ function SideBarSearch() {
                 label="Автор"
                 value={author}
                 onChange={handleChangeAuthor}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, 'input-text')}
             />
             <button
                 className="clear side-bar__clear-button"

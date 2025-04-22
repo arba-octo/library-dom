@@ -94,8 +94,8 @@
 }
 .side-bar__add-book_line:after {
   content: "";
-  background-image: url("data:image/svg+xml;utf8,<svg width="45" height="21" viewBox="0 0 45 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.5 21L0.41635 0.750004L44.5836 0.75L22.5 21Z" fill="#CBE21D"/></svg>");
-  background-size: cover;
+  background-image: url("./images/add-book_open.svg");
+  background-size: 51px 27px;
   width: 51px;
   height: 27px;
   position: absolute;
