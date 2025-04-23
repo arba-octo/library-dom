@@ -15,9 +15,11 @@ const toDisplayBooks = (state, payload) => {
     if (payload.id === "ageToFilter") {
         return state.books.filter((bookItem) => bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0])
     }
-    console.log('payload.type', payload.type)
     if (payload.type === "input-text") {
-        return state.books.filter((bookItem) => bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase()));
+        return state.books.filter((bookItem) => {
+            if (bookItem[payload.id] !== null) {return bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())}
+            return false;
+        });
     }
 }
 
@@ -27,10 +29,7 @@ const searchSlice = createSlice({
     reducers: {
         setActiveFilter(state, { payload }) {
             state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
-
-            console.log(toDisplayBooks(state, payload));
             state.books = toDisplayBooks(state, payload);
-
             const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
             if (idx === -1) {
                 if (payload.value !== '') {
@@ -43,17 +42,23 @@ const searchSlice = createSlice({
             state[payload.id] = payload.value;
         },
         removeFilterAction: (state, action) => {
-            state[action.payload] = initialState[action.payload];
-            if (action.payload === "ageToFilter") {state.age = initialState.age}
-            state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload)
+            state[action.payload.id] = initialState[action.payload.id];
+            if (action.payload.id === "ageToFilter") {state.age = initialState.age};
+            state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload.id);
+            state.books = dataBooks.filter((bookItem) => {
+                return state.activeFilters.map((filterItem) => {
+                    if (filterItem.type === "input-text") { return bookItem[filterItem.id].includes(filterItem.value) };
+                    return bookItem.age[0] <= filterItem.value[1] && bookItem.age[1] >= filterItem.value[0]
+                });
+            });
         },
         clearAllFiltersAction: (state, action) => {
-
             state.activeFilters.map((item) => {
                 if (item.id === AGE_TO_FILTER) {state.age = initialState.age}
                 state[item.id] = initialState[item.id]
             })
-            state.activeFilters = initialState.activeFilters
+            state.activeFilters = initialState.activeFilters;
+            state.books = dataBooks;
         }
     },
 });
