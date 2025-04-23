@@ -56,7 +56,7 @@ function FiltersPanel() {
                         filterName={currentFilter.name}
                         filterValue={currentFilter.value}
                         filterSliderValue={currentFilter.valueToFilter}
-                        onClick={() => dispatch(removeFilterAction(currentFilter.idToFilter))}
+                        onClick={() => dispatch(removeFilterAction(currentFilter))}
                         filterType={currentFilter.type}
                     />
                 )} else {
@@ -67,7 +67,7 @@ function FiltersPanel() {
                             filterName={currentFilter.name}
                             filterValue={currentFilter.value}
                             filterSliderValue={currentFilter.valueToFilter}
-                            onClick={() => dispatch(removeFilterAction(currentFilter.id))}
+                            onClick={() => dispatch(removeFilterAction(currentFilter))}
                             filterType={currentFilter.type}
                         />
                     )
