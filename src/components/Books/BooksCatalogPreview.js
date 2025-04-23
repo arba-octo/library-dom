@@ -11,17 +11,7 @@ function BooksCatalogPreview() {
                 return (
                         <Book
                             key={itemBook.id}
-                            previwImg={itemBook.previwImg}
-                            title={itemBook.title}
-                            author={itemBook.author}
-                            pages={itemBook.pages}
-                            collection={itemBook.collection}
-                            faceImg={itemBook.faceImg}
-                            age={itemBook.age}
-                            firstSelfReading={itemBook.firstSelfReading}
-                            statusFree={itemBook.statusFree}
-                            occupiedTo={itemBook.occupiedTo}
-                            owner={itemBook.owner}
+                            id={itemBook.id}
                         />
                     )
             })}

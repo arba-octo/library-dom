@@ -1,74 +1,107 @@
 import roboltsToc from '../images/books/robolts_toc.jpg';
-import roboltsExamp from '../images/books/robolts_examp.jpg'
+import roboltsTocSm from '../images/books/robolts_toc_sm.jpg';
+import roboltsExamp from '../images/books/robolts_examp.jpg';
+import roboltsExampSm from '../images/books/robolts_examp_sm.jpg';
 import roboltsFace from '../images/books/robolts_face.jpg';
 import roboltsPreview from '../images/books/robolts_preview.jpg';
 import dragonsEncicFace from '../images/books/dragons_first-ciclopedia_face.jpg';
 import dragonsEncicPreview from '../images/books/dragons_first-ciclopedia_preview.jpg';
 import dragonsEncicExamp from '../images/books/dragons_first-ciclopedia_examp.jpg';
+import dragonsEncicExampSm from '../images/books/dragons_first-ciclopedia_examp_sm.jpg';
 import talesAndPicFace from '../images/books/tales-and-pictures_suteev_face.jpg';
 import talesAndPicPreview from '../images/books/tales-and-pictures_suteev_preview.jpg';
 import talesAndPicToc from '../images/books/tales-and-pictures_suteev_toc.jpg';
+import talesAndPicTocSm from '../images/books/tales-and-pictures_suteev_toc_sm.jpg';
 import talesAndPicExamp from '../images/books/tales-and-pictures_suteev_examp.jpg';
+import talesAndPicExampSm from '../images/books/tales-and-pictures_suteev_examp_sm.jpg';
 import mumytrollsFace from '../images/books/mumy-trolls_face.jpg';
 import mumytrollsPreview from '../images/books/mumy-trolls_preview.jpg';
 import mumytrollsToc from '../images/books/mumy-trolls_toc.jpg';
+import mumytrollsTocSm from '../images/books/mumy-trolls_toc_sm.jpg';
 import mumytrollsExamp from '../images/books/mumy-trolls_examp.jpg';
+import mumytrollsExampSm from '../images/books/mumy-trolls_examp_sm.jpg';
 import harmAdvice400OsterFace from '../images/books/400-harm-advice_oster_face.jpg';
 import harmAdvice400OsterPreview from '../images/books/400-harm-advice_oster_preview.jpg';
 import harmAdviceOsterExamp from '../images/books/400-harm-advice_oster_examp.jpg';
+import harmAdviceOsterExampSm from '../images/books/400-harm-advice_oster_examp_sm.jpg';
 import kiplingFace from '../images/books/kipling_face.jpg';
 import kiplingPreview from '../images/books/kipling_preview.jpg';
 import kiplingToc from '../images/books/kipling_toc.jpg';
+import kiplingTocSm from '../images/books/kipling_toc_sm.jpg';
 import kiplingExamp from '../images/books/kipling_examp.jpg';
+import kiplingExampSm from '../images/books/kipling_examp_sm.jpg';
 import childEncicDinosaurusPreview from '../images/books/child-encic-dinosaurs_preview.jpg';
 import childEncicDinosaurusFace from '../images/books/child-encic-dinosaurs_face.jpg';
 import childEncicDinosaurusToc from '../images/books/child-encic-dinosaurs_toc.jpg';
+import childEncicDinosaurusTocSm from '../images/books/child-encic-dinosaurs_toc_sm.jpg';
 import childEncicDinosaurusExamp from '../images/books/child-encic-dinosaurs_examp.jpg';
+import childEncicDinosaurusExampSm from '../images/books/child-encic-dinosaurs_examp_sm.jpg';
 import harmAdvOsterPreview from '../images/books/harm-advices-oster_preview.jpg';
 import harmAdvOsterFace from '../images/books/harm-advices-oster_face.jpg';
 import harmAdvOsterExamp from '../images/books/harm-advices-oster_examp.jpg';
+import harmAdvOsterExampSm from '../images/books/harm-advices-oster_examp_sm.jpg';
 import meiziSecretBoyFromJungPreview from '../images/books/meizi-secret-boy-from-jungles_preview.jpg';
 import meiziSecretBoyFromJungFace from '../images/books/meizi-secret-boy-from-jungles_face.jpg';
 import meiziSecretBoyFromJungExamp from '../images/books/meizi-secret-boy-from-jungles_examp.jpg';
+import meiziSecretBoyFromJungExampSm from '../images/books/meizi-secret-boy-from-jungles_examp_sm.jpg';
 import myEmotions20TalesPreview from '../images/books/my-emotions-20-tales_preview.jpg';
 import myEmotions20TalesFace from '../images/books/my-emotions-20-tales_face.jpg';
 import myEmotions20TalesToc from '../images/books/my-emotions-20-tales_toc.jpg';
+import myEmotions20TalesTocSm from '../images/books/my-emotions-20-tales_toc_sm.jpg';
 import myEmotions20TalesExamp from '../images/books/my-emotions-20-tales_examp.jpg';
+import myEmotions20TalesExampSm from '../images/books/my-emotions-20-tales_examp_sm.jpg';
 import newChildEncicPreview from '../images/books/new-child-encic_preview.jpg';
 import newChildEncicFace from '../images/books/new-child-encic_face.jpg';
 import newChildEncicToc1 from '../images/books/new-child-encic_toc1.jpg';
+import newChildEncicToc1Sm from '../images/books/new-child-encic_toc1_sm.jpg';
 import newChildEncicToc2 from '../images/books/new-child-encic_toc2.jpg';
+import newChildEncicToc2Sm from '../images/books/new-child-encic_toc2_sm.jpg';
 import newChildEncicToc3 from '../images/books/new-child-encic_toc3.jpg';
+import newChildEncicToc3Sm from '../images/books/new-child-encic_toc3_sm.jpg';
 import newChildEncicToc4 from '../images/books/new-child-encic_toc4.jpg';
+import newChildEncicToc4Sm from '../images/books/new-child-encic_toc4_sm.jpg';
 import newChildEncicExamp from '../images/books/new-child-encic_examp.jpg';
+import newChildEncicExampSm from '../images/books/new-child-encic_examp_sm.jpg';
 import peroSleepBeautyAndCatInBootsPreview from '../images/books/pero-sleep-beauty-cat-in-boots_preview.jpg';
 import peroSleepBeautyAndCatInBootsFace from '../images/books/pero-sleep-beauty-cat-in-boots_face.jpg';
 import peroSleepBeautyAndCatInBootsToc from '../images/books/pero-sleep-beauty-cat-in-boots_toc.jpg';
+import peroSleepBeautyAndCatInBootsTocSm from '../images/books/pero-sleep-beauty-cat-in-boots_toc_sm.jpg';
 import peroSleepBeautyAndCatInBootsExamp from '../images/books/pero-sleep-beauty-cat-in-boots_examp.jpg';
+import peroSleepBeautyAndCatInBootsExampSm from '../images/books/pero-sleep-beauty-cat-in-boots_examp_sm.jpg';
 import shmyakSeaHistPreview from '../images/books/shmyak-sea-histories_preview.jpg';
 import shmyakSeaHistFace from '../images/books/shmyak-sea-histories_face.jpg';
 import shmyakSeaHistExamp from '../images/books/shmyak-sea-histories_examp.jpg';
+import shmyakSeaHistExampSm from '../images/books/shmyak-sea-histories_examp_sm.jpg';
 import shmyakToDoctorPreview from '../images/books/shmyak-to-doctor_preview.jpg';
 import shmyakToDoctorFace from '../images/books/shmyak-to-doctor_face.jpg';
 import shmyakToDoctorExamp from '../images/books/shmyak-to-doctor_examp.jpg';
+import shmyakToDoctorExampSm from '../images/books/shmyak-to-doctor_examp_sm.jpg';
 import shmyakGoodNightPreview from '../images/books/shmyak-good-night_preview.jpg';
 import shmyakGoodNightFace from '../images/books/shmyak-good-night_face.jpg'
 import shmyakGoodNightExamp from '../images/books/shmyak-good-night_examp.jpg';
+import shmyakGoodNightExampSm from '../images/books/shmyak-good-night_examp_sm.jpg';
 import tripToFlfsKingdomPreview from '../images/books/trip-to-elfs-kingdom_preview.jpg';
 import tripToFlfsKingdomFace from '../images/books/trip-to-elfs-kingdom_face.jpg';
 import tripToFlfsKingdomExamp from '../images/books/trip-to-elfs-kingdom_examp.jpg';
+import tripToFlfsKingdomExampSm from '../images/books/trip-to-elfs-kingdom_examp_sm.jpg';
 import zemlFeya3WildbPreview from '../images/books/zeml-feya-3wildb_preview.jpg';
 import zemlFeya3WildbFace from '../images/books/zeml-feya-3wildb_face.jpg';
 import zemlFeya3WildbToc from '../images/books/zeml-feya-3wildb_toc.jpg';
+import zemlFeya3WildbTocSm from '../images/books/zeml-feya-3wildb_toc_sm.jpg';
 import zemlFeya3WildbExamp from '../images/books/zeml-feya-3wildb_examp.jpg';
+import zemlFeya3WildbExampSm from '../images/books/zeml-feya-3wildb_examp_sm.jpg';
 import zemlFeyaAmazingSpellsPreview from '../images/books/zeml-feya-amazing-spells_preview.jpg';
 import zemlFeyaAmazingSpellsFace from '../images/books/zeml-feya-amazing-spells_fase.jpg';
 import zemlFeyaAmazingSpellsToc from '../images/books/zeml-feya-amazing-spells_toc.jpg';
+import zemlFeyaAmazingSpellsTocSm from '../images/books/zeml-feya-amazing-spells_toc_sm.jpg';
 import zemlFeyaAmazingSpellsExamp from '../images/books/zeml-feya-amazing-spells_examp.jpg';
+import zemlFeyaAmazingSpellsExampSm from '../images/books/zeml-feya-amazing-spells_examp_sm.jpg';
 import zokiBadaPreview from '../images/books/zokies-and-bada_preview.jpg';
 import zokiBadaFace from '../images/books/zokies-and-bada_face.jpg';
 import zokiBadaToc from '../images/books/zokies-and-bada_toc.jpg';
+import zokiBadaTocSm from '../images/books/zokies-and-bada_toc_sm.jpg';
 import zokiBadaExamp from '../images/books/zokies-and-bada_toc.jpg';
+import zokiBadaExampSm from '../images/books/zokies-and-bada_toc_sm.jpg';
 
 export const dataBooks = [
     {
@@ -81,7 +114,9 @@ export const dataBooks = [
         previwImg: roboltsPreview,
         faceImg: roboltsFace,
         tocImg: [roboltsToc],
+        tocImgSmall: [roboltsTocSm],
         exampleImg: roboltsExamp,
+        exampleImgSmall: roboltsExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -104,8 +139,9 @@ export const dataBooks = [
         age: [3, 8],
         previwImg: dragonsEncicPreview,
         faceImg: dragonsEncicFace,
-        tocImg: [dragonsEncicExamp],
-        exampleImg: null,
+        tocImg: null,
+        exampleImg: dragonsEncicExamp,
+        exampleImgSmall: dragonsEncicExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -129,7 +165,9 @@ export const dataBooks = [
         previwImg: talesAndPicPreview,
         faceImg: talesAndPicFace,
         tocImg: [talesAndPicToc],
+        tocImgSmall: [talesAndPicTocSm],
         exampleImg: talesAndPicExamp,
+        exampleImgSmall: talesAndPicExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -153,7 +191,9 @@ export const dataBooks = [
         previwImg: mumytrollsPreview,
         faceImg: mumytrollsFace,
         tocImg: [mumytrollsToc],
+        tocImgSmall: [mumytrollsTocSm],
         exampleImg: mumytrollsExamp,
+        exampleImgSmall: mumytrollsExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -171,6 +211,7 @@ export const dataBooks = [
         faceImg: harmAdvice400OsterFace,
         tocImg: null,
         exampleImg: harmAdviceOsterExamp,
+        exampleImgSmall: harmAdviceOsterExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -195,7 +236,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: kiplingFace,
         tocImg: [kiplingToc],
+        tocImgSmall: [kiplingTocSm],
         exampleImg: kiplingExamp,
+        exampleImgSmall: kiplingExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -213,7 +256,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: zemlFeyaAmazingSpellsFace,
         tocImg: [zemlFeyaAmazingSpellsToc],
+        tocImgSmall: [zemlFeyaAmazingSpellsTocSm],
         exampleImg: zemlFeyaAmazingSpellsExamp,
+        exampleImgSmall: zemlFeyaAmazingSpellsExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -231,7 +276,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: zemlFeya3WildbFace,
         tocImg: [zemlFeya3WildbToc],
+        tocImgSmall: [zemlFeya3WildbTocSm],
         exampleImg: zemlFeya3WildbExamp,
+        exampleImgSmall: zemlFeya3WildbExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -250,6 +297,7 @@ export const dataBooks = [
         faceImg: shmyakToDoctorFace,
         tocImg: null,
         exampleImg: shmyakToDoctorExamp,
+        exampleImgSmall: shmyakToDoctorExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -267,7 +315,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: newChildEncicFace,
         tocImg: [newChildEncicToc1, newChildEncicToc2, newChildEncicToc3, newChildEncicToc4],
+        tocImgSmall: [newChildEncicToc1Sm, newChildEncicToc2Sm, newChildEncicToc3Sm, newChildEncicToc4Sm],
         exampleImg: newChildEncicExamp,
+        exampleImgSmall: newChildEncicExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -285,7 +335,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: myEmotions20TalesFace,
         tocImg: [myEmotions20TalesToc],
+        tocImgSmall: [myEmotions20TalesTocSm],
         exampleImg: myEmotions20TalesExamp,
+        exampleImgSmall: myEmotions20TalesExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -304,6 +356,7 @@ export const dataBooks = [
         faceImg: shmyakGoodNightFace,
         tocImg: null,
         exampleImg: shmyakGoodNightExamp,
+        exampleImgSmall: shmyakGoodNightExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -321,7 +374,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: childEncicDinosaurusFace,
         tocImg: [childEncicDinosaurusToc],
+        tocImgSmall: [childEncicDinosaurusTocSm],
         exampleImg: childEncicDinosaurusExamp,
+        exampleImgSmall: childEncicDinosaurusExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -340,6 +395,7 @@ export const dataBooks = [
         faceImg: harmAdvOsterFace,
         tocImg: null,
         exampleImg: harmAdvOsterExamp,
+        exampleImgSmall: harmAdvOsterExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -358,6 +414,7 @@ export const dataBooks = [
         faceImg: meiziSecretBoyFromJungFace,
         tocImg: null,
         exampleImg: meiziSecretBoyFromJungExamp,
+        exampleImgSmall: meiziSecretBoyFromJungExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -375,7 +432,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: zokiBadaFace,
         tocImg: [zokiBadaToc],
+        tocImgSmall: [zokiBadaTocSm],
         exampleImg: zokiBadaExamp,
+        exampleImgSmall: zokiBadaExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -394,6 +453,7 @@ export const dataBooks = [
         faceImg: tripToFlfsKingdomFace,
         tocImg: null,
         exampleImg: tripToFlfsKingdomExamp,
+        exampleImgSmall: tripToFlfsKingdomExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -412,6 +472,7 @@ export const dataBooks = [
         faceImg: shmyakSeaHistFace,
         tocImg: null,
         exampleImg: shmyakSeaHistExamp,
+        exampleImgSmall: shmyakSeaHistExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
@@ -429,7 +490,9 @@ export const dataBooks = [
         altText: "Изображение",
         faceImg: peroSleepBeautyAndCatInBootsFace,
         tocImg: [peroSleepBeautyAndCatInBootsToc],
+        tocImgSmall: [peroSleepBeautyAndCatInBootsTocSm],
         exampleImg: peroSleepBeautyAndCatInBootsExamp,
+        exampleImgSmall: peroSleepBeautyAndCatInBootsExampSm,
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
