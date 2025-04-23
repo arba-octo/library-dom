@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import BookCard from "./BookCard";
+import {useSelector} from "react-redux";
+import {selectBooks} from "../../features/search/search-slice";
 
 const style = {
     position: 'absolute',
@@ -15,13 +16,16 @@ const style = {
     p: 4,
 };
 
+
+
 function Book(props) {
+    const book = useSelector(selectBooks).find(bookItem => props.id === bookItem.id);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
-        <div>
+        <div className="book">
                 <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -34,26 +38,19 @@ function Book(props) {
                         }}
                      onClick={handleOpen}
                 >
-                    <img className="book__preview" src={props.previwImg} alt="Изображение"/>
-                    <Box sx={{fontSize: '18px', color: '#020202', textAlign: 'center'}}>{props.title}</Box>
-                    <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center'}}>{props.author}</Box>
-                    <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center', mt: '5px'}}>{props.pages} стр.</Box>
+                    <img className="book__preview" src={book.previwImg} alt="Изображение"/>
+                    <Box sx={{fontSize: '18px', color: '#020202', textAlign: 'center'}}>{book.title}</Box>
+                    <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center'}}>{book.author}</Box>
+                    <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center', mt: '5px'}}>{book.pages} стр.</Box>
                 </Box>
 
             <Modal
                 open={open}
                 onClose={handleClose}
-                //aria-labelledby="modal-modal-title"
-                //aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
                     <BookCard
-                        title={props.title}
-                        author={props.author}
-                        collection={props.collection}
-                        pages={props.pages}
-                        faceImg={props.faceImg}
-                        age={props.age}
+                        id={book.id}
                     />
                 </Box>
             </Modal>
