@@ -12,15 +12,25 @@ export const initialState = {
 };
 
 const toDisplayBooks = (state, payload) => {
-    if (payload.id === "ageToFilter") {
-        return state.books.filter((bookItem) => bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0])
-    }
-    if (payload.type === "input-text") {
-        return state.books.filter((bookItem) => {
-            if (bookItem[payload.id] !== null) {return bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())}
-            return false;
+    let result = true;
+    return state.books = dataBooks.filter((bookItem) => {
+        state.activeFilters.forEach((filterItem) => {
+            if (filterItem.id === "ageToFilter") {
+                return result = bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0];
+            }
+            if (filterItem.type === "input-text") {
+                if (bookItem[payload.id] !== null) {
+                    console.log('bookItem[payload.id] = ', bookItem[payload.id]);
+                    console.log('итог проверки = ', bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase()));
+                    return result = bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())
+                }
+                return result = false;
+            }
+            return result = false;
         });
-    }
+        console.log('result = ', result)
+        return result;
+    })
 }
 
 const searchSlice = createSlice({
@@ -30,6 +40,7 @@ const searchSlice = createSlice({
         setActiveFilter(state, { payload }) {
             state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
             state.books = toDisplayBooks(state, payload);
+            console.log('state.books = ', state.books);
             const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
             if (idx === -1) {
                 if (payload.value !== '') {
