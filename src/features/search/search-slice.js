@@ -14,7 +14,7 @@ export const initialState = {
 const toDisplayBooks = (state, payload) => {
     return state.books = dataBooks.filter((bookItem) => {
         return !state.activeFilters.some((filterItem) => {
-            if (payload.id === "ageToFilter") { return !bookItem[payload.id][0] <= payload.value[1] &&  bookItem[payload.id][1] >= payload.value[0] }
+            if (payload.id === "ageToFilter") { return !(bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0]) }
             if (bookItem[payload.id] !== null) {return !bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())}
             return false;
         });
@@ -28,7 +28,6 @@ const searchSlice = createSlice({
         setActiveFilter(state, { payload }) {
             state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
             state.books = toDisplayBooks(state, payload);
-            console.log('state.books = ', state.books);
             const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
             if (idx === -1) {
                 if (payload.value !== '') {
