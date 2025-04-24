@@ -133,7 +133,7 @@ export const dataBooks = [
     {
         id: 2,
         title: 'Драконы. Твоя первая энциклопедия',
-        author: '',
+        author: null,
         collection: null,
         pages: 128,
         age: [3, 8],
@@ -347,7 +347,7 @@ export const dataBooks = [
     {
         id: 12,
         title: 'Спокойной ночи, Шмяк!',
-        author: 'Скоттон Р.',
+        author: 'Скотт Р.',
         collection: 'Котенок Шмяк',
         pages: 31,
         age: [1, 7],

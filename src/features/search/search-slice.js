@@ -12,24 +12,12 @@ export const initialState = {
 };
 
 const toDisplayBooks = (state, payload) => {
-    let result = true;
     return state.books = dataBooks.filter((bookItem) => {
-        state.activeFilters.forEach((filterItem) => {
-            if (filterItem.id === "ageToFilter") {
-                return result = bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0];
-            }
-            if (filterItem.type === "input-text") {
-                if (bookItem[payload.id] !== null) {
-                    console.log('bookItem[payload.id] = ', bookItem[payload.id]);
-                    console.log('итог проверки = ', bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase()));
-                    return result = bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())
-                }
-                return result = false;
-            }
-            return result = false;
+        return !state.activeFilters.some((filterItem) => {
+            if (payload.id === "ageToFilter") { return !bookItem[payload.id][0] <= payload.value[1] &&  bookItem[payload.id][1] >= payload.value[0] }
+            if (bookItem[payload.id] !== null) {return !bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())}
+            return false;
         });
-        console.log('result = ', result)
-        return result;
     })
 }
 
