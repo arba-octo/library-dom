@@ -1,15 +1,12 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {
-    selectAge, setAgeAction,
-    selectAgeToFilter,
+    setFilter,
+    selectAge,
     selectTitle,
     selectAuthor,
     changeValueAction,
-    removeFilterAction,
     clearAllFiltersAction,
-    setActiveFilter
 } from '../../features/search/search-slice';
-import SideBarInput from "./SideBarInput";
 import {Slider, TextField, Typography} from "@mui/material";
 import {useValue} from "../../features/search/use-value";
 import {styles} from "../../data/mui-styles";
@@ -30,15 +27,14 @@ function SideBarSearch() {
     const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
     const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
 
-    //const age = useSelector(selectAge);
 
-    const handleBlur = (evt, type) => {
+    /*const handleBlur = (evt, type) => {
         dispatch(setActiveFilter({
             id: evt.target.id,
             value: evt.target.value,
             type
         }))
-    };
+    };*/
 
     return (
         <div className="side-bar__inputs">
@@ -56,7 +52,7 @@ function SideBarSearch() {
                 marks={marks}
                 sx={{color: styles.color.green}}
                 onChange={(evt) => dispatch(changeValueAction({id: "age", value: evt.target.value}))}
-                onClick={(evt) => dispatch(setActiveFilter({id: "ageToFilter", value: age}))}
+                onClick={(evt) => dispatch(setFilter({id: "ageToFilter", value: age}))}
             />
             <TextField
                 id="title"
@@ -64,7 +60,7 @@ function SideBarSearch() {
                 label="Название / ключевое слово"
                 value={title}
                 onChange={handleChangeTitle}
-                onBlur={(e) => handleBlur(e, 'input-text')}
+                onBlur={(evt) => dispatch(setFilter({id: "title", value: title}))}
             />
             <TextField
                 id="author"
@@ -72,7 +68,7 @@ function SideBarSearch() {
                 label="Автор"
                 value={author}
                 onChange={handleChangeAuthor}
-                onBlur={(e) => handleBlur(e, 'input-text')}
+                onBlur={(evt) => dispatch(setFilter({id: "author", value: author}))}
             />
             <button
                 className="clear side-bar__clear-button"

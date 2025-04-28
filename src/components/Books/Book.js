@@ -10,7 +10,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1030,
+    width: 1250,
     bgcolor: '#EFEDED',
     borderRadius: '35px',
     p: 4,
@@ -38,7 +38,7 @@ function Book(props) {
                         }}
                      onClick={handleOpen}
                 >
-                    <img className="book__preview" src={book.previwImg} alt="Изображение"/>
+                    <img className="book__preview" src={book.faceImg[0]} alt="Изображение"/>
                     <Box sx={{fontSize: '18px', color: '#020202', textAlign: 'center'}}>{book.title}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center'}}>{book.author}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center', mt: '5px'}}>{book.pages} стр.</Box>

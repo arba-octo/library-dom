@@ -11,12 +11,14 @@ export const initialState = {
     books: dataBooks
 };
 
-const toDisplayBooks = (state, payload) => {
-    return state.books = dataBooks.filter((bookItem) => {
-        return !state.activeFilters.some((filterItem) => {
-            if (payload.id === "ageToFilter") { return !(bookItem.age[0] <= payload.value[1] && bookItem.age[1] >= payload.value[0]) }
-            if (bookItem[payload.id] !== null) {return !bookItem[payload.id].toLowerCase().includes(payload.value.toLowerCase())}
-            return false;
+const toDisplayBooks = (activeFilters) => {
+    return dataBooks.filter((bookItem) => {
+        return !activeFilters.some((filterItem) => {
+            if (filterItem.id === "ageToFilter") {
+                return !(bookItem.age[0] <= filterItem.value[1] && bookItem.age[1] >= filterItem.value[0]);
+            }
+            if (bookItem[filterItem.id] !== null) {return !bookItem[filterItem.id].toLowerCase().includes(filterItem.value.toLowerCase())}
+            return true;
         });
     })
 }
@@ -25,30 +27,31 @@ const searchSlice = createSlice({
     name: "@@search",
     initialState,
     reducers: {
-        setActiveFilter(state, { payload }) {
-            state[payload.id] = payload.value; // Обновили значение у фильтра (если возраст то ageToFilter)
-            state.books = toDisplayBooks(state, payload);
-            const idx = state.activeFilters.findIndex(item => item.id === payload.id); // Ищем на панели фильтров есть ли уже такой фильтр
-            if (idx === -1) {
-                if (payload.value !== '') {
-                    state.activeFilters = state.activeFilters.concat(payload)
-                }
-                toDisplayBooks(state, payload);
+        // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel
+        setFilter(state, { payload }) {
+            if (!state.activeFilters.some(filterItem => filterItem.id === payload.id)) {
+                state.activeFilters = state.activeFilters.concat(payload);
+            } else {
+                state.activeFilters = state.activeFilters.map(item => {
+                    if (item.id === payload.id) {
+                        return { ...item, value: payload.value };
+                    }
+                    return item;
+                })
             }
+            state.books = toDisplayBooks(state.activeFilters);
         },
+
+        // Обрабатывает отображение value в поляз SideBarSearch
         changeValueAction: (state, { payload }) => {
             state[payload.id] = payload.value;
         },
         removeFilterAction: (state, action) => {
             state[action.payload.id] = initialState[action.payload.id];
-            if (action.payload.id === "ageToFilter") {state.age = initialState.age};
+            if (action.payload.id === "ageToFilter") {state.age = initialState.age; state.ageToFilter = initialState.ageToFilter};
             state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload.id);
-            state.books = dataBooks.filter((bookItem) => {
-                return state.activeFilters.map((filterItem) => {
-                    if (filterItem.type === "input-text") { return bookItem[filterItem.id].includes(filterItem.value) };
-                    return bookItem.age[0] <= filterItem.value[1] && bookItem.age[1] >= filterItem.value[0]
-                });
-            });
+            console.log('state.activeFilters = ', state.activeFilters);
+            state.books = toDisplayBooks(state.activeFilters);
         },
         clearAllFiltersAction: (state, action) => {
             state.activeFilters.map((item) => {
@@ -62,11 +65,10 @@ const searchSlice = createSlice({
 });
 
 export const {
-    setAgeAction,
+    setFilter,
     changeValueAction,
     removeFilterAction,
     clearAllFiltersAction,
-    setActiveFilter,
 } = searchSlice.actions;
 export const searchReducer = searchSlice.reducer;
 
