@@ -18,12 +18,18 @@ function FiltersPanel() {
     const title = useSelector(selectTitle);
     const author = useSelector(selectAuthor);
     const filters = {
+        // Фильтр-слайдер для Side-Bar Search
         ageFilter: {
             id: AGE,
-            idToFilter: AGE_TO_FILTER,
             name: "Возраст",
             value: age,
-            valueToFilter: ageToFilter,
+            type: "slider"
+        },
+        // Фильтр-слайдер для FilterPanel
+        ageFilterToPanel: {
+            id: AGE_TO_FILTER,
+            name: "Возраст",
+            value: ageToFilter,
             type: "slider"
         },
         titleFilter: {
@@ -44,29 +50,27 @@ function FiltersPanel() {
         <div className="filters-panel">
             {activeFilters.map((filterItem) => {
                 let currentFilter = {};
-                if (filterItem.id === AGE_TO_FILTER) {currentFilter = filters.ageFilter}
+                if (filterItem.id === AGE_TO_FILTER) {currentFilter = filters.ageFilterToPanel}
                 if (filterItem.id === TITLE) {currentFilter = filters.titleFilter}
                 if (filterItem.id === AUTHOR) {currentFilter = filters.authorFilter}
 
                 if (currentFilter.type === "slider") {
                     return (
                     <Filter
-                        key={currentFilter.idToFilter}
-                        id={currentFilter.idToFilter}
+                        key={filterItem.id}
+                        id={filterItem.id}
                         filterName={currentFilter.name}
-                        filterValue={currentFilter.value}
-                        filterSliderValue={currentFilter.valueToFilter}
+                        filterValue={filterItem.value}
                         onClick={() => dispatch(removeFilterAction(currentFilter))}
                         filterType={currentFilter.type}
                     />
                 )} else {
                     return (
                         <Filter
-                            key={currentFilter.id}
-                            id={currentFilter.id}
+                            key={filterItem.id}
+                            id={filterItem.id}
                             filterName={currentFilter.name}
-                            filterValue={currentFilter.value}
-                            filterSliderValue={currentFilter.valueToFilter}
+                            filterValue={filterItem.value}
                             onClick={() => dispatch(removeFilterAction(currentFilter))}
                             filterType={currentFilter.type}
                         />

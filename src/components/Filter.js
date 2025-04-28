@@ -9,7 +9,7 @@ function Filter(props) {
             {props.filterName}:
             &ensp;
             {props.filterType === "slider" && (
-                <span>{props.filterSliderValue[0]} - {props.filterSliderValue[1]}</span>
+                <span>{props.filterValue[0]} - {props.filterValue[1]}</span>
             )}
             {props.filterType === "input-text" && (
                 <span>{props.filterValue}</span>
