@@ -6,9 +6,9 @@ import {
     selectTitle,
     selectAuthor,
     removeFilterAction,
-    selectActiveFilters,
+    selectActiveFilters, selectSeries,
 } from "../features/search/search-slice";
-import {AGE_TO_FILTER, AGE, TITLE, AUTHOR} from "../data/constants";
+import {AGE_TO_FILTER, AGE, TITLE, SERIES, AUTHOR} from "../data/constants";
 
 function FiltersPanel() {
     const dispatch = useDispatch();
@@ -16,6 +16,7 @@ function FiltersPanel() {
     const age = useSelector(selectAge);
     const ageToFilter = useSelector(selectAgeToFilter);
     const title = useSelector(selectTitle);
+    const series = useSelector(selectSeries);
     const author = useSelector(selectAuthor);
     const filters = {
         // Фильтр-слайдер для Side-Bar Search
@@ -38,6 +39,12 @@ function FiltersPanel() {
             value: title,
             type: "input-text"
         },
+        seriesFilter: {
+            id: SERIES,
+            name: "Серия",
+            value: series,
+            type: "input-text"
+        },
         authorFilter: {
             id: AUTHOR,
             name: "Автор",
@@ -52,6 +59,7 @@ function FiltersPanel() {
                 let currentFilter = {};
                 if (filterItem.id === AGE_TO_FILTER) {currentFilter = filters.ageFilterToPanel}
                 if (filterItem.id === TITLE) {currentFilter = filters.titleFilter}
+                if (filterItem.id === SERIES) {currentFilter = filters.seriesFilter}
                 if (filterItem.id === AUTHOR) {currentFilter = filters.authorFilter}
 
                 if (currentFilter.type === "slider") {

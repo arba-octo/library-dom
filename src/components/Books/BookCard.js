@@ -21,7 +21,7 @@ function BookCard(props) {
                             <tbody>
                             <tr>
                                 <td className="table__first-column">Серия</td>
-                                <td>{book.collection}</td>
+                                <td>{book.series}</td>
                             </tr>
                             <tr>
                                 <td>Страниц</td>

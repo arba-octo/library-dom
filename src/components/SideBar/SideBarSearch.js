@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {
     setFilter,
@@ -5,9 +6,9 @@ import {
     selectTitle,
     selectAuthor,
     changeValueAction,
-    clearAllFiltersAction,
+    clearAllFiltersAction, selectSeries,
 } from '../../features/search/search-slice';
-import {Slider, TextField, Typography} from "@mui/material";
+import {Slider, TextField, Typography, Select, MenuItem, FormControl, InputLabel} from "@mui/material";
 import {useValue} from "../../features/search/use-value";
 import {styles} from "../../data/mui-styles";
 
@@ -26,7 +27,12 @@ function SideBarSearch() {
     const [age, handleChangeAge] = useValue(selectAge, changeValueAction);
     const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
     const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
+    const [series, handleChangeSeries] = useValue(selectSeries, changeValueAction);
 
+    const [ser, setSer] = useState('');
+    const handleChangeSer = (evt) => {
+        setSer(evt.target.value);
+    };
 
     /*const handleBlur = (evt, type) => {
         dispatch(setActiveFilter({
@@ -61,7 +67,26 @@ function SideBarSearch() {
                 value={title}
                 onChange={handleChangeTitle}
                 onBlur={(evt) => dispatch(setFilter({id: "title", value: title}))}
+                sx={{ mt: 1, minWidth: 120 }}
             />
+            <FormControl variant="standard" sx={{ mt: 1, minWidth: 120 }}>
+                <InputLabel id="demo-simple-select-standard-label">Серия книг</InputLabel>
+                <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={series}
+                    onChange={handleChangeSeries}
+                    onBlur={(evt) => dispatch(setFilter({id: "series", value: series}))}
+                    label="Series"
+                >
+                    <MenuItem value="">
+                        <em>Без серии</em>
+                    </MenuItem>
+                    <MenuItem value="Котенок Шмяк">Котенок Шмяк</MenuItem>
+                    <MenuItem value="Мейзи Хитчинс. Приключения девочки-детектива">Мейзи Хитчинс</MenuItem>
+                    <MenuItem value="Земляничная Фея">Земляничная Фея</MenuItem>
+                </Select>
+            </FormControl>
             <TextField
                 id="author"
                 variant="standard"
@@ -69,6 +94,7 @@ function SideBarSearch() {
                 value={author}
                 onChange={handleChangeAuthor}
                 onBlur={(evt) => dispatch(setFilter({id: "author", value: author}))}
+                sx={{ mt: 1, minWidth: 120 }}
             />
             <button
                 className="clear side-bar__clear-button"
