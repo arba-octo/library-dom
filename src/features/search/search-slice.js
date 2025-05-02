@@ -7,8 +7,10 @@ export const initialState = {
     ageToFilter: [0, 18], // Отделили от age, чтобы в фильтре панели фильтров изменения отображались только после отпускания мыши со слайдера
     title: '',
     author: '',
+    series: '',
     activeFilters: [], // массив объектов, где каждый объект = фильтр для панели фильтров с id и value
-    books: dataBooks
+    books: dataBooks,
+    search: '',
 };
 
 const toDisplayBooks = (activeFilters) => {
@@ -21,7 +23,16 @@ const toDisplayBooks = (activeFilters) => {
             return true;
         });
     })
-}
+};
+const toDisplayBooksBySearch = (value) => {
+  return dataBooks.filter((bookItem) => {
+      console.log('bookItem.title.toLowerCase() = ', bookItem.title.toLowerCase());
+      if (bookItem.author) {
+          return bookItem.title.toLowerCase().includes(value.toLowerCase()) || bookItem.author.toLowerCase().includes(value.toLowerCase());
+      } else {return bookItem.title.toLowerCase().includes(value.toLowerCase())}
+
+  })
+};
 
 const searchSlice = createSlice({
     name: "@@search",
@@ -29,7 +40,7 @@ const searchSlice = createSlice({
     reducers: {
         // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel
         setFilter(state, { payload }) {
-            if (!state.activeFilters.some(filterItem => filterItem.id === payload.id)) {
+            if (!state.activeFilters.some(filterItem => filterItem.id === payload.id) && payload.value !== "") {
                 state.activeFilters = state.activeFilters.concat(payload);
             } else {
                 state.activeFilters = state.activeFilters.map(item => {
@@ -41,7 +52,10 @@ const searchSlice = createSlice({
             }
             state.books = toDisplayBooks(state.activeFilters);
         },
-
+        // Обрабатывает отображение книг в соответствии с заданным value поиска
+        setSearch(state, { payload }) {
+            state.books = toDisplayBooksBySearch(payload)
+        },
         // Обрабатывает отображение value в поляз SideBarSearch
         changeValueAction: (state, { payload }) => {
             state[payload.id] = payload.value;
@@ -66,6 +80,7 @@ const searchSlice = createSlice({
 
 export const {
     setFilter,
+    setSearch,
     changeValueAction,
     removeFilterAction,
     clearAllFiltersAction,
@@ -75,6 +90,8 @@ export const searchReducer = searchSlice.reducer;
 export const selectAge = (state) => state.search.age;
 export const selectAgeToFilter = (state) => state.search.ageToFilter;
 export const selectTitle = (state) => state.search.title;
+export const selectSeries = (state) => state.search.series;
 export const selectAuthor = (state) => state.search.author;
 export const selectActiveFilters = (state) => state.search.activeFilters;
 export const selectBooks = (state) => state.search.books;
+export const selectSearch = (state) => state.search.search;
