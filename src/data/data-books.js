@@ -117,6 +117,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: [
             {
@@ -140,6 +141,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: [
             {
@@ -163,6 +165,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: true,
         comments: [
             {
@@ -186,6 +189,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: true,
         comments: []
     },
@@ -202,6 +206,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: [
             {
@@ -225,6 +230,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
@@ -241,6 +247,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
@@ -257,13 +264,14 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
     {
         id: 9,
         title: 'Котенок Шмяк идёт к доктору',
-        author: 'Скотт. Р.',
+        author: 'Скоттон Р.',
         series: 'Котенок Шмяк',
         pages: 32,
         age: [1, 7],
@@ -273,6 +281,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: true,
         comments: []
     },
@@ -289,6 +298,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
@@ -305,13 +315,14 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
     {
         id: 12,
         title: 'Спокойной ночи, Шмяк!',
-        author: 'Скотт Р.',
+        author: 'Скоттон Р.',
         series: 'Котенок Шмяк',
         pages: 31,
         age: [1, 7],
@@ -401,6 +412,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },
@@ -417,6 +429,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: true,
         comments: []
     },
@@ -433,6 +446,7 @@ export const dataBooks = [
         statusFree: true,
         occupiedTo: null,
         owner: 'DanaArb',
+        user: 'DanaArb',
         firstSelfReading: false,
         comments: []
     },

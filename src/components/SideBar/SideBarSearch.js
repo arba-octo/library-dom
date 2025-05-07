@@ -29,17 +29,9 @@ function SideBarSearch() {
     const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
     const [series, handleChangeSeries] = useValue(selectSeries, changeValueAction);
 
-    const [ser, setSer] = useState('');
+    /*const [ser, setSer] = useState('');
     const handleChangeSer = (evt) => {
         setSer(evt.target.value);
-    };
-
-    /*const handleBlur = (evt, type) => {
-        dispatch(setActiveFilter({
-            id: evt.target.id,
-            value: evt.target.value,
-            type
-        }))
     };*/
 
     return (
@@ -69,13 +61,13 @@ function SideBarSearch() {
                 onBlur={(evt) => dispatch(setFilter({id: "title", value: title}))}
                 sx={{ mt: 1, minWidth: 120 }}
             />
-            <FormControl variant="standard" sx={{ mt: 1, minWidth: 120 }}>
+            <FormControl id="series" variant="standard" sx={{ mt: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-standard-label">Серия книг</InputLabel>
                 <Select
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
                     value={series}
-                    onChange={handleChangeSeries}
+                    onChange={(evt) => dispatch(changeValueAction({id: "series", value: evt.target.value}))}
                     onBlur={(evt) => dispatch(setFilter({id: "series", value: series}))}
                     label="Series"
                 >
