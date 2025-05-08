@@ -9,7 +9,7 @@ export const initialState = {
     author: '',
     series: '',
     activeFilters: [], // массив объектов, где каждый объект = фильтр для панели фильтров с id и value
-    books: dataBooks,
+    filteredBooks: dataBooks,
     search: '',
 };
 
@@ -50,11 +50,11 @@ const searchSlice = createSlice({
                     return item;
                 })
             }
-            state.books = toDisplayBooks(state.activeFilters);
+            state.filteredBooks = toDisplayBooks(state.activeFilters);
         },
         // Обрабатывает отображение книг в соответствии с заданным value поиска
         setSearch(state, { payload }) {
-            state.books = toDisplayBooksBySearch(payload)
+            state.filteredBooks = toDisplayBooksBySearch(payload)
         },
         // Обрабатывает отображение value в поляз SideBarSearch
         changeValueAction: (state, { payload }) => {
@@ -65,7 +65,7 @@ const searchSlice = createSlice({
             if (action.payload.id === "ageToFilter") {state.age = initialState.age; state.ageToFilter = initialState.ageToFilter};
             state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload.id);
             console.log('state.activeFilters = ', state.activeFilters);
-            state.books = toDisplayBooks(state.activeFilters);
+            state.filteredBooks = toDisplayBooks(state.activeFilters);
         },
         clearAllFiltersAction: (state, action) => {
             state.activeFilters.map((item) => {
@@ -73,7 +73,7 @@ const searchSlice = createSlice({
                 state[item.id] = initialState[item.id]
             })
             state.activeFilters = initialState.activeFilters;
-            state.books = dataBooks;
+            state.filteredBooks = dataBooks;
         }
     },
 });
@@ -93,5 +93,5 @@ export const selectTitle = (state) => state.search.title;
 export const selectSeries = (state) => state.search.series;
 export const selectAuthor = (state) => state.search.author;
 export const selectActiveFilters = (state) => state.search.activeFilters;
-export const selectBooks = (state) => state.search.books;
+export const selectFilteredBooks = (state) => state.search.filteredBooks;
 export const selectSearch = (state) => state.search.search;

@@ -4,24 +4,6 @@ import {selectBooks} from "../../features/search/search-slice";
 import {Box, ButtonGroup, Button, createTheme} from "@mui/material";
 import {addFavourBook} from "../../features/favourites/favourites-slice";
 
-/*const theme = createTheme({
-    palette: {
-        background: {
-            paper: '#fff',
-        },
-        text: {
-            primary: '#173A5E',
-            secondary: '#46505A',
-        },
-        action: {
-            active: '#001E3C',
-        },
-        success: {
-            dark: '#009688',
-        },
-    },
-});*/
-
 function BookCard(props) {
     const dispatch = useDispatch();
     const book = useSelector(selectBooks).find(bookItem => bookItem.id === props.id);

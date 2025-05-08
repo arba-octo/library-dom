@@ -21,8 +21,8 @@ function Header() {
                 onBlur={() => dispatch(setSearch(search))}
             />
             <div className="header__menu">
-                <HeaderMenuItem name={'Войти / Зарегистрироваться'} />
-                <HeaderMenuItem name={'Избранное'} />
+                <HeaderMenuItem name={'Войти / Зарегистрироваться'} href="#" />
+                <HeaderMenuItem name={'Избранное'} href="#" />
             </div>
         </header>
     )
