@@ -20,11 +20,12 @@ const initialState = {
     series: null,
     pages: "",
     faceImg: ["", ""],
-    tocImg: [],
+    tocImg: [[""], [""]],
     exampleImg: ["", ""],
     statusFree: true,
     occupiedTo: null,
     owner: "",
+    user: null,
     firstSelfReading: false,
     comments: []
 }
