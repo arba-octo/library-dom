@@ -6,7 +6,9 @@ const booksSlice = createSlice({
     initialState: dataBooks,
     reducers: {
         addBook: (state, action) => {
-            state.books.some(bookItem => bookItem.id === action.payload.id );
+            if (!state.books.some(bookItem => bookItem.id === action.payload.id)) {
+                state.books.concat(action.payload);
+            };
         }
     }
 });
