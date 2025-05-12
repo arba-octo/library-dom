@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import BookCard from "./BookCard";
 import {useSelector} from "react-redux";
-import {selectBooks} from "../../features/search/search-slice";
+import {selectFilteredBooks} from "../../features/search/search-slice";
 
 const style = {
     position: 'absolute',
@@ -19,7 +19,7 @@ const style = {
 
 
 function Book(props) {
-    const book = useSelector(selectBooks).find(bookItem => props.id === bookItem.id);
+    const book = useSelector(selectFilteredBooks).find(bookItem => props.id === bookItem.id);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

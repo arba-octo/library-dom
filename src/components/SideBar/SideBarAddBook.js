@@ -2,6 +2,9 @@ import {useState} from "react";
 import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button} from "@mui/material";
 import SideBarInput from "./SideBarInput";
 import {styles} from "../../data/mui-styles";
+import {useDispatch} from "react-redux";
+import {addBook} from "../../features/books-slice";
+import {dataBooks} from "../../data/data-books";
 
 const marks = [
     {
@@ -14,11 +17,12 @@ const marks = [
     }
 ];
 const initialState = {
-    author: "",
+    id: dataBooks.at[-1].id + 1,
     title: "",
-    age: [0, 18],
+    author: "",
     series: null,
     pages: "",
+    age: [0, 18],
     faceImg: ["", ""],
     tocImg: [[""], [""]],
     exampleImg: ["", ""],
@@ -32,6 +36,7 @@ const initialState = {
 
 function SideBarAddBook() {
     // Отображение данных набираемых в полях input типа text и number
+    const dispatch = useDispatch();
     const [value, setValue] = useState(initialState);
     const handleChange = (field, newdata) => {
         setValue({
@@ -40,21 +45,12 @@ function SideBarAddBook() {
         })
     };
     const handleClickAddBook = () => {
-        const newBook = {
-            title: value.title,
-            author: value.author,
-            age: value.age,
-            series: value.series,
-            pages: value.pages,
-            faceImg: value.faceImg,
-            tocImg: [value.tocImg],
-            exampleImg: value.exampleImg,
-            statusFree: true,
-            occupiedTo: null,
-            owner: "",
-            firstSelfReading: false,
-            comments: []
-        }
+        dispatch(addBook(
+            {
+               ...value,
+                owner: "DanaArb"
+            }
+        ))
     };
     const handleClickClear = () => {
         setValue(initialState);
