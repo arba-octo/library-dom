@@ -1,12 +1,12 @@
 import {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {selectBooks} from "../../features/search/search-slice";
+import {selectFilteredBooks} from "../../features/search/search-slice";
 import {Box, ButtonGroup, Button, createTheme} from "@mui/material";
 import {addFavourBook} from "../../features/favourites/favourites-slice";
 
 function BookCard(props) {
     const dispatch = useDispatch();
-    const book = useSelector(selectBooks).find(bookItem => bookItem.id === props.id);
+    const book = useSelector(selectFilteredBooks).find(bookItem => bookItem.id === props.id);
     const [mainImg, setMainImg] = useState(book.faceImg[1]);
     const handleClickToChangeImg = (type) => { setMainImg(type) };
     const [comments, setComments] = useState(false);

@@ -2,6 +2,8 @@ import {useState} from "react";
 import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button} from "@mui/material";
 import SideBarInput from "./SideBarInput";
 import {styles} from "../../data/mui-styles";
+import {useDispatch} from "react-redux";
+import {addBook} from "../../features/books-slice";
 
 const marks = [
     {
@@ -14,14 +16,15 @@ const marks = [
     }
 ];
 const initialState = {
-    author: "",
+    id: null,
     title: "",
-    age: [0, 18],
+    author: "",
     series: null,
     pages: "",
-    faceImg: ["", ""],
-    tocImg: [[""], [""]],
-    exampleImg: ["", ""],
+    age: [0, 18],
+    faceImg: "",
+    tocImg: "",
+    exampleImg: "",
     statusFree: true,
     occupiedTo: null,
     owner: "",
@@ -32,32 +35,16 @@ const initialState = {
 
 function SideBarAddBook() {
     // Отображение данных набираемых в полях input типа text и number
-    const [value, setValue] = useState(initialState);
-    const handleChange = (field, newdata) => {
-        setValue({
-            ...value,
-            [field]: newdata,
+    const dispatch = useDispatch();
+    const [book, setBook] = useState(initialState);
+    const handleChange = (bookField, newdata) => {
+        setBook({
+            ...book,
+            [bookField]: newdata,
         })
     };
-    const handleClickAddBook = () => {
-        const newBook = {
-            title: value.title,
-            author: value.author,
-            age: value.age,
-            series: value.series,
-            pages: value.pages,
-            faceImg: value.faceImg,
-            tocImg: [value.tocImg],
-            exampleImg: value.exampleImg,
-            statusFree: true,
-            occupiedTo: null,
-            owner: "",
-            firstSelfReading: false,
-            comments: []
-        }
-    };
     const handleClickClear = () => {
-        setValue(initialState);
+        setBook(initialState);
     }
 
     return (
@@ -70,7 +57,7 @@ function SideBarAddBook() {
                 <Slider
                     aria-labelledby="add-book__age"
                     getAriaLabel={() => 'Возраст читателя'}
-                    value={value.age}
+                    value={book.age}
                     onChange={(evt) => handleChange('age', evt.target.value)}
                     step={1}
                     min={0}
@@ -85,7 +72,7 @@ function SideBarAddBook() {
                 variant="standard"
                 label="Автор*"
                 sx={{fontFamily: styles.font.fontFamily, placeholder: styles.font.fontFamily, fontSize: styles.font.fontSize.small}}
-                value={value.author}
+                value={book.author}
                 onChange={(evt) => handleChange('author', evt.target.value)}
             />
             <TextField
@@ -93,7 +80,7 @@ function SideBarAddBook() {
                 variant="standard"
                 label="Название*"
                 sx={{fontFamily: styles.font.fontFamily}}
-                value={value.title}
+                value={book.title}
                 onChange={(evt) => handleChange('title', evt.target.value)}
             />
             <TextField
@@ -101,7 +88,7 @@ function SideBarAddBook() {
                 variant="standard"
                 label="Серия книг"
                 sx={{fontFamily: styles.font.fontFamily, fontSize: styles.font.fontSize.medium}}
-                value={value.collection}
+                value={book.collection}
                 onChange={(evt) => handleChange('collection', evt.target.value)}
             />
             <TextField
@@ -109,7 +96,7 @@ function SideBarAddBook() {
                 variant="standard"
                 label="Количество страниц*"
                 sx={{fontFamily: styles.font.fontFamily}}
-                value={value.pages}
+                value={book.pages}
                 onChange={(evt) => handleChange('pages', evt.target.value)}
             />
             <label htmlFor="add-book__face-img" className="side-bar__label">Фото обложки*:</label>
@@ -119,6 +106,7 @@ function SideBarAddBook() {
                 type="file"
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
+                onChange={(evt) => handleChange('faceImg', evt.target.value)}
             />
             <label htmlFor="add-book__toc-img" className="side-bar__label">Фото оглавления:</label>
             <SideBarInput
@@ -127,6 +115,7 @@ function SideBarAddBook() {
                 type="file"
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
+                multiple
             />
             <label htmlFor="add-book__examp-img" className="side-bar__label ">Фото разворота*:</label>
             <SideBarInput
@@ -144,17 +133,22 @@ function SideBarAddBook() {
                 </FormLabel>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="no"
+                    defaultValue={book.firstSelfReading}
                     name="radio-buttons-group"
                     sx={{display: "flex", flexDirection: "row", mt: '-10px'}}
                 >
-                    <FormControlLabel value="no" control={<Radio />} label="Нет" />
-                    <FormControlLabel value="yes" control={<Radio />} label="Да" />
+                    <FormControlLabel value={false} control={<Radio />} label="Нет" />
+                    <FormControlLabel value={true} control={<Radio />} label="Да" />
                 </RadioGroup>
             </FormControl>
 
             <ButtonGroup variant="contained" aria-label="Basic button group">
-                <Button sx={{width: '50%', bgcolor: styles.color.green}} onClick={handleClickAddBook}>Добавить</Button>
+                <Button
+                    sx={{width: '50%', bgcolor: styles.color.green}}
+                    onClick={() => dispatch(addBook(book))}
+                >
+                    Добавить
+                </Button>
                 <Button sx={{width: '50%', bgcolor: styles.color.greyDark}} onClick={handleClickClear}>Очистить</Button>
             </ButtonGroup>
         </form>
