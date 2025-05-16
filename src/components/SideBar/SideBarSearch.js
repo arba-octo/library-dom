@@ -1,5 +1,7 @@
 import {useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
+import {styles} from "../../data/mui-styles";
+import {Slider, TextField, Typography, Select, MenuItem, FormControl, InputLabel} from "@mui/material";
 import {
     setFilter,
     selectAge,
@@ -8,9 +10,8 @@ import {
     changeValueAction,
     clearAllFiltersAction, selectSeries,
 } from '../../features/search/search-slice';
-import {Slider, TextField, Typography, Select, MenuItem, FormControl, InputLabel} from "@mui/material";
+import {selectBooks} from "../../features/books-slice";
 import {useValue} from "../../features/search/use-value";
-import {styles} from "../../data/mui-styles";
 
 function SideBarSearch() {
     const dispatch = useDispatch();
@@ -28,11 +29,7 @@ function SideBarSearch() {
     const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
     const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
     const [series, handleChangeSeries] = useValue(selectSeries, changeValueAction);
-
-    /*const [ser, setSer] = useState('');
-    const handleChangeSer = (evt) => {
-        setSer(evt.target.value);
-    };*/
+    const books = useSelector(selectBooks); // массив с книгами из БД
 
     return (
         <div className="side-bar__inputs">
@@ -50,7 +47,7 @@ function SideBarSearch() {
                 marks={marks}
                 sx={{color: styles.color.green}}
                 onChange={(evt) => dispatch(changeValueAction({id: "age", value: evt.target.value}))}
-                onClick={(evt) => dispatch(setFilter({id: "ageToFilter", value: age}))}
+                onClick={(evt) => dispatch(setFilter({id: "ageToFilter", value: age, books}))}
             />
             <TextField
                 id="title"
@@ -58,7 +55,7 @@ function SideBarSearch() {
                 label="Название / ключевое слово"
                 value={title}
                 onChange={handleChangeTitle}
-                onBlur={(evt) => dispatch(setFilter({id: "title", value: title}))}
+                onBlur={(evt) => dispatch(setFilter({id: "title", value: title, books}))}
                 sx={{ mt: 1, minWidth: 120 }}
             />
             <FormControl id="series" variant="standard" sx={{ mt: 1, minWidth: 120 }}>
@@ -68,7 +65,7 @@ function SideBarSearch() {
                     id="demo-simple-select-standard"
                     value={series}
                     onChange={(evt) => dispatch(changeValueAction({id: "series", value: evt.target.value}))}
-                    onBlur={(evt) => dispatch(setFilter({id: "series", value: series}))}
+                    onBlur={(evt) => dispatch(setFilter({id: "series", value: series, books}))}
                     label="Series"
                 >
                     <MenuItem value="">
@@ -85,13 +82,13 @@ function SideBarSearch() {
                 label="Автор"
                 value={author}
                 onChange={handleChangeAuthor}
-                onBlur={(evt) => dispatch(setFilter({id: "author", value: author}))}
+                onBlur={(evt) => dispatch(setFilter({id: "author", value: author, books}))}
                 sx={{ mt: 1, minWidth: 120 }}
             />
             <button
                 className="clear side-bar__clear-button"
                 onClick={(evt) => {
-                    dispatch(clearAllFiltersAction())
+                    dispatch(clearAllFiltersAction(books))
                 }}
             >Очистить фильтр</button>
         </div>

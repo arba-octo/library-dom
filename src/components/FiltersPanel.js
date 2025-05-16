@@ -9,6 +9,7 @@ import {
     selectActiveFilters, selectSeries,
 } from "../features/search/search-slice";
 import {AGE_TO_FILTER, AGE, TITLE, SERIES, AUTHOR} from "../data/constants";
+import {selectBooks} from "../features/books-slice";
 
 function FiltersPanel() {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function FiltersPanel() {
     const title = useSelector(selectTitle);
     const series = useSelector(selectSeries);
     const author = useSelector(selectAuthor);
+    const books = useSelector(selectBooks);
     const filters = {
         // Фильтр-слайдер для Side-Bar Search
         ageFilter: {
@@ -69,7 +71,7 @@ function FiltersPanel() {
                         id={filterItem.id}
                         filterName={currentFilter.name}
                         filterValue={filterItem.value}
-                        onClick={() => dispatch(removeFilterAction(currentFilter))}
+                        onClick={ () => dispatch(removeFilterAction({currentFilter, books})) }
                         filterType={currentFilter.type}
                     />
                 )} else {
@@ -79,7 +81,7 @@ function FiltersPanel() {
                             id={filterItem.id}
                             filterName={currentFilter.name}
                             filterValue={filterItem.value}
-                            onClick={() => dispatch(removeFilterAction(currentFilter))}
+                            onClick={ () => dispatch(removeFilterAction({currentFilter, books})) }
                             filterType={currentFilter.type}
                         />
                     )

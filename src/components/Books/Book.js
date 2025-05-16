@@ -19,7 +19,8 @@ const style = {
 
 
 function Book(props) {
-    const book = useSelector(selectFilteredBooks).find(bookItem => props.id === bookItem.id);
+    const filteredBooks = useSelector(selectFilteredBooks);
+    const book = filteredBooks.find(bookItem => props.id === bookItem.id);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

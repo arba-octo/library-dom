@@ -11,6 +11,7 @@ function SideBarInput(props) {
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
+                multiple={props.multiple}
             />
         </div>
 

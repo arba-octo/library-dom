@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {AGE_TO_FILTER} from "../../data/constants";
-import {dataBooks} from "../../data/data-books";
 
 export const initialState = {
     age: [0, 18],
@@ -8,13 +7,13 @@ export const initialState = {
     title: '',
     author: '',
     series: '',
-    activeFilters: [], // массив объектов, где каждый объект = фильтр для панели фильтров с id и value
-    filteredBooks: dataBooks,
-    search: '',
+    activeFilters: [], // массив объектов (фильтров), где каждый объект = фильтр для панели фильтров с id и value
+    filteredBooks: [], // массив отображаемых с учетом активных фильтров книг
+    search: '', // строка поиска в Header
 };
 
-const toDisplayBooks = (activeFilters) => {
-    return dataBooks.filter((bookItem) => {
+const toDisplayBooks = (activeFilters, books) => {
+    return books.filter((bookItem) => {
         return !activeFilters.some((filterItem) => {
             if (filterItem.id === "ageToFilter") {
                 return !(bookItem.age[0] <= filterItem.value[1] && bookItem.age[1] >= filterItem.value[0]);
@@ -24,9 +23,8 @@ const toDisplayBooks = (activeFilters) => {
         });
     })
 };
-const toDisplayBooksBySearch = (value) => {
-  return dataBooks.filter((bookItem) => {
-      console.log('bookItem.title.toLowerCase() = ', bookItem.title.toLowerCase());
+const toDisplayBooksBySearch = (value, books) => {
+  return books.filter((bookItem) => {
       if (bookItem.author) {
           return bookItem.title.toLowerCase().includes(value.toLowerCase()) || bookItem.author.toLowerCase().includes(value.toLowerCase());
       } else {return bookItem.title.toLowerCase().includes(value.toLowerCase())}
@@ -38,7 +36,11 @@ const searchSlice = createSlice({
     name: "@@search",
     initialState,
     reducers: {
-        // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel
+        //
+        setFilteredBooks: (state, action) => {
+            state.filteredBooks = action.payload;
+        },
+        // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel, используется в SideBarSearch
         setFilter(state, { payload }) {
             if (!state.activeFilters.some(filterItem => filterItem.id === payload.id) && payload.value !== "") {
                 state.activeFilters = state.activeFilters.concat(payload);
@@ -50,22 +52,22 @@ const searchSlice = createSlice({
                     return item;
                 })
             }
-            state.filteredBooks = toDisplayBooks(state.activeFilters);
+            state.filteredBooks = toDisplayBooks(state.activeFilters, payload.books);
         },
-        // Обрабатывает отображение книг в соответствии с заданным value поиска
+        // Обрабатывает отображение книг в соответствии с заданным value поиска. Используется в Header (поиск)
         setSearch(state, { payload }) {
-            state.filteredBooks = toDisplayBooksBySearch(payload)
+            state.filteredBooks = toDisplayBooksBySearch(payload.search, payload.books);
         },
         // Обрабатывает отображение value в поляз SideBarSearch
         changeValueAction: (state, { payload }) => {
             state[payload.id] = payload.value;
         },
-        removeFilterAction: (state, action) => {
-            state[action.payload.id] = initialState[action.payload.id];
-            if (action.payload.id === "ageToFilter") {state.age = initialState.age; state.ageToFilter = initialState.ageToFilter};
-            state.activeFilters = state.activeFilters.filter((item) => item.id !== action.payload.id);
-            console.log('state.activeFilters = ', state.activeFilters);
-            state.filteredBooks = toDisplayBooks(state.activeFilters);
+        removeFilterAction: (state, { payload }) => {
+            console.log(payload)
+            state[payload.currentFilter.id] = initialState[payload.currentFilter.id];
+            if (payload.currentFilter.id === "ageToFilter") {state.age = initialState.age; state.ageToFilter = initialState.ageToFilter};
+            state.activeFilters = state.activeFilters.filter((item) => item.id !== payload.currentFilter.id);
+            state.filteredBooks = toDisplayBooks(state.activeFilters, payload.books);
         },
         clearAllFiltersAction: (state, action) => {
             state.activeFilters.map((item) => {
@@ -73,12 +75,13 @@ const searchSlice = createSlice({
                 state[item.id] = initialState[item.id]
             })
             state.activeFilters = initialState.activeFilters;
-            state.filteredBooks = dataBooks;
+            state.filteredBooks = action.payload;
         }
     },
 });
 
 export const {
+    setFilteredBooks,
     setFilter,
     setSearch,
     changeValueAction,
