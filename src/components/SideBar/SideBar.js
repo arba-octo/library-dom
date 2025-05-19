@@ -1,15 +1,27 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import searchIcon from "../../images/icon_seach.png";
 import addBook from "../../images/icon-book.svg";
 import SideBarSearch from "./SideBarSearch";
 import SideBarAddBook from "./SideBarAddBook";
 import LineSeparate from "../LineSeparate";
+import {selectAllSeries, setSeries} from "../../features/series-slice";
+import {useDispatch, useSelector} from "react-redux";
 
 function SideBar() {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const handleOpenAddBook = () => {
         setIsOpen(true);
     }
+    useEffect(() => {
+        fetch('http://localhost:4000/series')
+            .then(res => res.json())
+            .then((result) => {
+                dispatch(setSeries(result))
+            })
+            .catch((error) => {console.log(error)})
+    }, [dispatch]);
+    const series = useSelector(selectAllSeries);
 
     return (
         <div className="side-bar">
@@ -18,7 +30,7 @@ function SideBar() {
                     <img src={searchIcon} alt="Иконка к тексту"/>
                     <h2>Найти книгу</h2>
                 </div>
-                <SideBarSearch/>
+                <SideBarSearch series={series}/>
             </div>
             <div className="side-bar__item side-bar__add-book" onClick={handleOpenAddBook}>
                 <div className="side-bar__title side-bar__title_add-book">
