@@ -1,7 +1,7 @@
 
-function LineSeparate() {
+function LineSeparate(props) {
     return (
-        <hr className="line__section-separate" />
+        <div className={`line__section-separate ${props.after}`}></div>
     )
 }
 export default LineSeparate;

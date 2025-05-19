@@ -113,11 +113,13 @@
 }
 .side-bar__add-book_line {
   width: 100%;
+  height: 1px;
+  margin-top: 10px;
   border-color: #CBE21D;
-  color: #CBE21D;
+  background-color: #CBE21D;
   position: relative;
 }
-.side-bar__add-book_line:after {
+.after:after {
   content: "";
   background-image: url("./images/add-book_open.svg");
   background-size: 51px 27px;
@@ -125,7 +127,8 @@
   height: 27px;
   position: absolute;
   top: 0;
-  left: 0
+  left: calc(50% - 25px);
+  cursor: pointer;
 }
 /*--------------------- FILTERS PANEL -------------------*/
 .filters-panel {

@@ -3,6 +3,7 @@ import searchIcon from "../../images/icon_seach.png";
 import addBook from "../../images/icon-book.svg";
 import SideBarSearch from "./SideBarSearch";
 import SideBarAddBook from "./SideBarAddBook";
+import LineSeparate from "../LineSeparate";
 
 function SideBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ function SideBar() {
                     <img src={addBook} alt="Добавить"/>
                     <h2>Добавить свою книгу в БиблиоDом</h2>
                 </div>
-                {isOpen === false && <div className="side-bar__add-book_line"></div>}
+                {isOpen === false && <LineSeparate after="after" />}
                 {isOpen === true && <SideBarAddBook/>}
             </div>
         </div>
