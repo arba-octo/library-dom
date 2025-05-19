@@ -24,7 +24,7 @@ const toDisplayBooks = (activeFilters, books) => {
     })
 };
 const toDisplayBooksBySearch = (value, books) => {
-  return books.filter((bookItem) => {
+    return books.filter((bookItem) => {
       if (bookItem.author) {
           return bookItem.title.toLowerCase().includes(value.toLowerCase()) || bookItem.author.toLowerCase().includes(value.toLowerCase());
       } else {return bookItem.title.toLowerCase().includes(value.toLowerCase())}

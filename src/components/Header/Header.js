@@ -21,7 +21,7 @@ function Header() {
                 placeholder="Поиск"
                 value={search}
                 onChange={handleChangeSearch}
-                onBlur={() => dispatch(setSearch(search, books))}
+                onBlur={() => dispatch(setSearch({search, books}))}
             />
             <div className="header__menu">
                 <HeaderMenuItem name={'Войти / Зарегистрироваться'} href="#" />
