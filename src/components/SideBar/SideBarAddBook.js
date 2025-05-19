@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button} from "@mui/material";
+import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button, InputLabel, Select, MenuItem} from "@mui/material";
 import SideBarInput from "./SideBarInput";
 import {styles} from "../../data/mui-styles";
 import {useDispatch} from "react-redux";
@@ -34,7 +34,6 @@ const initialState = {
 }
 
 function SideBarAddBook() {
-    // Отображение данных набираемых в полях input типа text и number
     const dispatch = useDispatch();
     const [book, setBook] = useState(initialState);
     const handleChange = (bookField, newdata) => {
@@ -76,21 +75,40 @@ function SideBarAddBook() {
                 onChange={(evt) => handleChange('author', evt.target.value)}
             />
             <TextField
-                id="add-book__collection"
+                id="add-book__title"
                 variant="standard"
                 label="Название*"
                 sx={{fontFamily: styles.font.fontFamily}}
                 value={book.title}
                 onChange={(evt) => handleChange('title', evt.target.value)}
             />
+
             <TextField
-                id="add-book__collection"
+                id="add-book__series"
                 variant="standard"
                 label="Серия книг"
                 sx={{fontFamily: styles.font.fontFamily, fontSize: styles.font.fontSize.medium}}
-                value={book.collection}
-                onChange={(evt) => handleChange('collection', evt.target.value)}
+                value={book.series}
+                onChange={(evt) => handleChange('series', evt.target.value)}
             />
+            <FormControl variant="standard" sx={{ mt: 1, minWidth: 120 }}>
+                <InputLabel id="demo-simple-select-standard-label">Серия книг</InputLabel>
+                <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={book.series}
+                    onChange={(evt) => handleChange('series', evt.target.value)}
+                    label="Серия книг"
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+            </FormControl>
+
             <TextField
                 id="add-book__pages"
                 variant="standard"
@@ -99,6 +117,9 @@ function SideBarAddBook() {
                 value={book.pages}
                 onChange={(evt) => handleChange('pages', evt.target.value)}
             />
+
+
+
             <label htmlFor="add-book__face-img" className="side-bar__label">Фото обложки*:</label>
             <SideBarInput
                 id="add-book__face-img"

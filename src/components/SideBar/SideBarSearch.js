@@ -13,7 +13,7 @@ import {
 import {selectBooks} from "../../features/books-slice";
 import {useValue} from "../../features/search/use-value";
 
-function SideBarSearch() {
+function SideBarSearch(props) {
     const dispatch = useDispatch();
     const marks = [
         {
@@ -71,9 +71,12 @@ function SideBarSearch() {
                     <MenuItem value="">
                         <em>Без серии</em>
                     </MenuItem>
-                    <MenuItem value="Котенок Шмяк">Котенок Шмяк</MenuItem>
-                    <MenuItem value="Мейзи Хитчинс. Приключения девочки-детектива">Мейзи Хитчинс</MenuItem>
-                    <MenuItem value="Земляничная Фея">Земляничная Фея</MenuItem>
+                    {props.series.map((item) => {
+                        if (!item.shortName) {
+                            <MenuItem value={item.name} key={item.key}>{item.name}</MenuItem>
+                        }
+                        <MenuItem value={item.name} key={item.key}>{item.shortName}</MenuItem>
+                    })}
                 </Select>
             </FormControl>
             <TextField
