@@ -24,7 +24,7 @@ function SideBar() {
                     <img src={addBook} alt="Добавить"/>
                     <h2>Добавить свою книгу в БиблиоDом</h2>
                 </div>
-                {isOpen === false && <hr className="side-bar__add-book_line"/>}
+                {isOpen === false && <div className="side-bar__add-book_line"></div>}
                 {isOpen === true && <SideBarAddBook/>}
             </div>
         </div>
