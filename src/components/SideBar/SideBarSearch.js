@@ -71,11 +71,11 @@ function SideBarSearch(props) {
                     <MenuItem value="">
                         <em>Без серии</em>
                     </MenuItem>
-                    {props.series.map((item) => {
+                    {props.seriesFromBD.map((item) => {
                         if (!item.shortName) {
-                            <MenuItem value={item.name} key={item.key}>{item.name}</MenuItem>
+                            return <MenuItem value={item.name} key={item.key}>{item.name}</MenuItem>
                         }
-                        <MenuItem value={item.name} key={item.key}>{item.shortName}</MenuItem>
+                        return <MenuItem value={item.name} key={item.key}>{item.shortName}</MenuItem>
                     })}
                 </Select>
             </FormControl>

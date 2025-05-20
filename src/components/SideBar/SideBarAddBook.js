@@ -33,7 +33,7 @@ const initialState = {
     comments: []
 }
 
-function SideBarAddBook() {
+function SideBarAddBook({seriesFromBD}) {
     const dispatch = useDispatch();
     const [book, setBook] = useState(initialState);
     const handleChange = (bookField, newdata) => {
@@ -66,6 +66,7 @@ function SideBarAddBook() {
                     marks={marks}
                 />
             </div>
+
             <TextField
                 id="add-book__author"
                 variant="standard"
@@ -74,6 +75,7 @@ function SideBarAddBook() {
                 value={book.author}
                 onChange={(evt) => handleChange('author', evt.target.value)}
             />
+
             <TextField
                 id="add-book__title"
                 variant="standard"
@@ -83,14 +85,6 @@ function SideBarAddBook() {
                 onChange={(evt) => handleChange('title', evt.target.value)}
             />
 
-            <TextField
-                id="add-book__series"
-                variant="standard"
-                label="Серия книг"
-                sx={{fontFamily: styles.font.fontFamily, fontSize: styles.font.fontSize.medium}}
-                value={book.series}
-                onChange={(evt) => handleChange('series', evt.target.value)}
-            />
             <FormControl variant="standard" sx={{ mt: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-standard-label">Серия книг</InputLabel>
                 <Select
@@ -98,14 +92,14 @@ function SideBarAddBook() {
                     id="demo-simple-select-standard"
                     value={book.series}
                     onChange={(evt) => handleChange('series', evt.target.value)}
-                    label="Серия книг"
+                    label="Series"
                 >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    { seriesFromBD.map((item) => {
+                        if (!item.shortName) {
+                            return <MenuItem value={item.shortName}>{item.name}</MenuItem>
+                        }
+                        return <MenuItem value={item.name}>{item.name}</MenuItem>
+                    }) }
                 </Select>
             </FormControl>
 
@@ -118,8 +112,6 @@ function SideBarAddBook() {
                 onChange={(evt) => handleChange('pages', evt.target.value)}
             />
 
-
-
             <label htmlFor="add-book__face-img" className="side-bar__label">Фото обложки*:</label>
             <SideBarInput
                 id="add-book__face-img"
@@ -130,6 +122,7 @@ function SideBarAddBook() {
                 onChange={(evt) => handleChange('faceImg', evt.target.value)}
             />
             <label htmlFor="add-book__toc-img" className="side-bar__label">Фото оглавления:</label>
+
             <SideBarInput
                 id="add-book__toc-img"
                 name="add-book__toc-img"
@@ -138,6 +131,7 @@ function SideBarAddBook() {
                 classInput="side-bar__input_add-book side-bar__input-loading"
                 multiple
             />
+
             <label htmlFor="add-book__examp-img" className="side-bar__label ">Фото разворота*:</label>
             <SideBarInput
                 id="add-book__examp-img"
@@ -146,6 +140,7 @@ function SideBarAddBook() {
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
             />
+
             <FormControl>
                 <FormLabel
                     id="demo-radio-buttons-group-label"
