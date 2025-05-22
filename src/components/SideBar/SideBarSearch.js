@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {styles} from "../../data/mui-styles";
 import {Slider, TextField, Typography, Select, MenuItem, FormControl, InputLabel} from "@mui/material";
@@ -8,7 +7,7 @@ import {
     selectTitle,
     selectAuthor,
     changeValueAction,
-    clearAllFiltersAction, selectSeries,
+    clearAllFiltersAction, selectSeriesId,
 } from '../../features/search/search-slice';
 import {selectBooks} from "../../features/books-slice";
 import {useValue} from "../../features/search/use-value";
@@ -28,7 +27,7 @@ function SideBarSearch(props) {
     const [age, handleChangeAge] = useValue(selectAge, changeValueAction);
     const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
     const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
-    const [series, handleChangeSeries] = useValue(selectSeries, changeValueAction);
+    const [seriesId, handleChangeSeriesId] = useValue(selectSeriesId, changeValueAction); // серия книги, выбранная в фильтре
     const books = useSelector(selectBooks); // массив с книгами из БД
 
     return (
@@ -51,6 +50,7 @@ function SideBarSearch(props) {
             />
             <TextField
                 id="title"
+                className="input-error"
                 variant="standard"
                 label="Название / ключевое слово"
                 value={title}
@@ -58,14 +58,17 @@ function SideBarSearch(props) {
                 onBlur={(evt) => dispatch(setFilter({id: "title", value: title, books}))}
                 sx={{ mt: 1, minWidth: 120 }}
             />
+
             <FormControl id="series" variant="standard" sx={{ mt: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-standard-label">Серия книг</InputLabel>
                 <Select
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
-                    value={series}
-                    onChange={(evt) => dispatch(changeValueAction({id: "series", value: evt.target.value}))}
-                    onBlur={(evt) => dispatch(setFilter({id: "series", value: series, books}))}
+                    value={seriesId}
+                    onChange={ (evt) => {
+                        dispatch(changeValueAction({id: "seriesId", value: evt.target.value}))
+                        dispatch(setFilter({id: "seriesId", value: evt.target.value, books}))
+                    } }
                     label="Series"
                 >
                     <MenuItem value="">
@@ -73,9 +76,9 @@ function SideBarSearch(props) {
                     </MenuItem>
                     {props.seriesFromBD.map((item) => {
                         if (!item.shortName) {
-                            return <MenuItem value={item.name} key={item.key}>{item.name}</MenuItem>
+                            return <MenuItem value={item.id} key={item.key}>{item.name}</MenuItem>
                         }
-                        return <MenuItem value={item.name} key={item.key}>{item.shortName}</MenuItem>
+                        return <MenuItem value={item.id} key={item.key}>{item.shortName}</MenuItem>
                     })}
                 </Select>
             </FormControl>

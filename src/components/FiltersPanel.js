@@ -6,10 +6,11 @@ import {
     selectTitle,
     selectAuthor,
     removeFilterAction,
-    selectActiveFilters, selectSeries,
+    selectActiveFilters, selectSeriesId,
 } from "../features/search/search-slice";
-import {AGE_TO_FILTER, AGE, TITLE, SERIES, AUTHOR} from "../data/constants";
+import {AGE_TO_FILTER, AGE, TITLE, SERIESID, AUTHOR} from "../data/constants";
 import {selectBooks} from "../features/books-slice";
+import {selectAllSeries} from "../features/series-slice";
 
 function FiltersPanel() {
     const dispatch = useDispatch();
@@ -17,7 +18,8 @@ function FiltersPanel() {
     const age = useSelector(selectAge);
     const ageToFilter = useSelector(selectAgeToFilter);
     const title = useSelector(selectTitle);
-    const series = useSelector(selectSeries);
+    const seriesId = useSelector(selectSeriesId);
+    const seriesAll = useSelector(selectAllSeries);
     const author = useSelector(selectAuthor);
     const books = useSelector(selectBooks);
     const filters = {
@@ -26,7 +28,7 @@ function FiltersPanel() {
             id: AGE,
             name: "Возраст",
             value: age,
-            type: "slider"
+            type: "input-slider"
         },
         // Фильтр-слайдер для FilterPanel
         ageFilterToPanel: {
@@ -42,10 +44,10 @@ function FiltersPanel() {
             type: "input-text"
         },
         seriesFilter: {
-            id: SERIES,
+            id: SERIESID,
             name: "Серия",
-            value: series,
-            type: "input-text"
+            value: seriesAll.find(item => item.id === seriesId)?.name ?? null,
+            type: "input-select"
         },
         authorFilter: {
             id: AUTHOR,
@@ -58,34 +60,45 @@ function FiltersPanel() {
     return (
         <div className="filters-panel">
             {activeFilters.map((filterItem) => {
-                let currentFilter = {};
+                let currentFilter = null;
                 if (filterItem.id === AGE_TO_FILTER) {currentFilter = filters.ageFilterToPanel}
                 if (filterItem.id === TITLE) {currentFilter = filters.titleFilter}
-                if (filterItem.id === SERIES) {currentFilter = filters.seriesFilter}
+                if (filterItem.id === SERIESID) {currentFilter = filters.seriesFilter}
                 if (filterItem.id === AUTHOR) {currentFilter = filters.authorFilter}
 
                 if (currentFilter.type === "slider") {
                     return (
                     <Filter
-                        key={filterItem.id}
-                        id={filterItem.id}
+                        key={currentFilter.id}
+                        id={currentFilter.id}
                         filterName={currentFilter.name}
                         filterValue={filterItem.value}
                         onClick={ () => dispatch(removeFilterAction({currentFilter, books})) }
                         filterType={currentFilter.type}
                     />
-                )} else {
+                )}
+                if (currentFilter.id === SERIESID) {
                     return (
                         <Filter
-                            key={filterItem.id}
-                            id={filterItem.id}
+                            key={currentFilter.id}
+                            id={currentFilter.id}
                             filterName={currentFilter.name}
-                            filterValue={filterItem.value}
+                            filterValue={currentFilter.value}
                             onClick={ () => dispatch(removeFilterAction({currentFilter, books})) }
                             filterType={currentFilter.type}
                         />
                     )
                 }
+                return (
+                    <Filter
+                        key={currentFilter.id}
+                        id={currentFilter.id}
+                        filterName={currentFilter.name}
+                        filterValue={currentFilter.value}
+                        onClick={ () => dispatch(removeFilterAction({currentFilter, books})) }
+                        filterType={currentFilter.type}
+                    />
+                )
             })}
         </div>
     )

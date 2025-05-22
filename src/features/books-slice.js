@@ -17,8 +17,7 @@ const booksSlice = createSlice({
         addBook: {
             reducer: (state, action) => {
                 if (!state.books.some(bookItem => bookItem.id === action.payload.id)) {
-                    state.books.concat(action.payload);
-                    newBooks.concat(action.payload);
+                    state.books = state.books.concat(action.payload);
                 }
             },
             prepare: (newBook) => ({
