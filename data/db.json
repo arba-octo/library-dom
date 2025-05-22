@@ -1,15 +1,31 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Роболты. Улётная история!!!",
       "author": "Матюшкина Катя, Сильвер Саша",
-      "series": "Роболты",
+      "seriesId": "2bee",
       "pages": 192,
-      "age": [4, 10],
-      "faceImg": ["/library-dom/images/robolts_preview.jpg", "/library-dom/images/robolts_face.jpg"],
-      "tocImg": [["/library-dom/images/robolts_toc_sm.jpg"], ["/library-dom/images/robolts_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/robolts_examp_sm.jpg", "/library-dom/images/robolts_examp.jpg"],
+      "age": [
+        4,
+        10
+      ],
+      "faceImg": [
+        "/library-dom/images/robolts_preview.jpg",
+        "/library-dom/images/robolts_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/robolts_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/robolts_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/robolts_examp_sm.jpg",
+        "/library-dom/images/robolts_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -22,18 +38,31 @@
           "text": "Детективная история-приключение в железном придуманном мире роболтов. Очень захватывает детей и читается на одном дыхании. Первая книга из серии.",
           "data": "01.04.2025"
         }
-      ]
+      ],
+      "checked": true
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Драконы. Твоя первая энциклопедия",
       "author": null,
-      "series": null,
+      "seriesId": null,
       "pages": 128,
-      "age": [3, 8],
-      "faceImg": ["/library-dom/images/dragons_first-ciclopedia_preview.jpg", "/library-dom/images/dragons_first-ciclopedia_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/dragons_first-ciclopedia_examp_sm.jpg", "/library-dom/images/dragons_first-ciclopedia_examp.jpg"],
+      "age": [
+        3,
+        8
+      ],
+      "faceImg": [
+        "/library-dom/images/dragons_first-ciclopedia_preview.jpg",
+        "/library-dom/images/dragons_first-ciclopedia_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/dragons_first-ciclopedia_examp_sm.jpg",
+        "/library-dom/images/dragons_first-ciclopedia_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -46,18 +75,35 @@
           "text": "В книге рассказывается о разных сказочных драконах и истории о них, много ярких картинок, которые очень нравятся детям. Рекомендую для мальчиков, девочке книга у нас не зашла",
           "data": "01.04.2025"
         }
-      ]
+      ],
+      "checked": true
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Сказки и картинки",
       "author": "Сутеев В.",
-      "series": null,
+      "seriesId": null,
       "pages": 124,
-      "age": [1, 7],
-      "faceImg": ["/library-dom/images/tales-and-pictures_suteev_preview.jpg", "/library-dom/images/tales-and-pictures_suteev_face.jpg"],
-      "tocImg": [["/library-dom/images/tales-and-pictures_suteev_toc_sm.jpg"], ["/library-dom/images/tales-and-pictures_suteev_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/tales-and-pictures_suteev_examp_sm.jpg", "/library-dom/images/tales-and-pictures_suteev_examp.jpg"],
+      "age": [
+        1,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/tales-and-pictures_suteev_preview.jpg",
+        "/library-dom/images/tales-and-pictures_suteev_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/tales-and-pictures_suteev_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/tales-and-pictures_suteev_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/tales-and-pictures_suteev_examp_sm.jpg",
+        "/library-dom/images/tales-and-pictures_suteev_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -70,18 +116,35 @@
           "text": "Сначала читали эту книжку в 1-2-3 года, сейчас еврнулись к ней - одна из первых книг для самостоятельного чтения. Много картинок, тексты максимально простые.",
           "data": "01.04.2025"
         }
-      ]
+      ],
+      "checked": true
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Всё-всё-всё о муми-троллях для малышей",
       "author": "Янссон Т.",
-      "series": null,
+      "seriesId": null,
       "pages": 224,
-      "age": [2, 7],
-      "faceImg": ["/library-dom/images/mumy-trolls_preview.jpg", "/library-dom/images/mumy-trolls_face.jpg"],
-      "tocImg": [["/library-dom/images/mumy-trolls_toc_sm.jpg"], ["/library-dom/images/mumy-trolls_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/mumy-trolls_examp_sm.jpg", "/library-dom/images/mumy-trolls_examp.jpg"],
+      "age": [
+        2,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/mumy-trolls_preview.jpg",
+        "/library-dom/images/mumy-trolls_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/mumy-trolls_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/mumy-trolls_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/mumy-trolls_examp_sm.jpg",
+        "/library-dom/images/mumy-trolls_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -90,15 +153,27 @@
       "comments": []
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "400 самых дюбимых вредных советов",
       "author": "Остер Г.",
-      "series": null,
+      "seriesId": null,
       "pages": 414,
-      "age": [7, 13],
-      "faceImg": ["/library-dom/images/400-harm-advice_oster_preview.jpg", "/library-dom/images/400-harm-advice_oster_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/400-harm-advice_oster_examp_sm.jpg", "/library-dom/images/400-harm-advice_oster_examp.jpg"],
+      "age": [
+        7,
+        13
+      ],
+      "faceImg": [
+        "/library-dom/images/400-harm-advice_oster_preview.jpg",
+        "/library-dom/images/400-harm-advice_oster_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/400-harm-advice_oster_examp_sm.jpg",
+        "/library-dom/images/400-harm-advice_oster_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -111,240 +186,482 @@
           "text": "Часть советов будет понятна и дошкольникам, но етсь много по школьной теме, поэтому больше вс-таки книга ориентирована на младших школьников. Картинки есть, но не так много и они чб.",
           "data": "01.04.2025"
         }
-      ]
+      ],
+      "checked": true
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Повесть Маугли и сказки",
       "author": "Киплинг Р.",
-      "series": null,
+      "seriesId": null,
       "pages": 384,
-      "age": [6, 13],
-      "faceImg": ["/library-dom/images/kipling_preview.jpg", "/library-dom/images/kipling_face.jpg"],
-      "tocImg": [["/library-dom/images/kipling_toc_sm.jpg"], ["/library-dom/images/kipling_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/kipling_examp_sm.jpg", "/library-dom/images/kipling_examp.jpg"],
+      "age": [
+        6,
+        13
+      ],
+      "faceImg": [
+        "/library-dom/images/kipling_preview.jpg",
+        "/library-dom/images/kipling_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/kipling_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/kipling_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/kipling_examp_sm.jpg",
+        "/library-dom/images/kipling_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Земляничная Фея. Удивительное заклинание",
       "author": "Дале Ш.",
-      "series": "Земляничная Фея",
+      "seriesId": "84f3",
       "pages": 48,
-      "age": [3, 7],
-      "faceImg": ["/library-dom/images/zeml-feya-amazing-spells_preview.jpg", "/library-dom/images/zeml-feya-amazing-spells_fase.jpg"],
-      "tocImg": [["/library-dom/images/zeml-feya-amazing-spells_toc_sm.jpg"], ["/library-dom/images/zeml-feya-amazing-spells_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/zeml-feya-amazing-spells_examp_sm.jpg", "/library-dom/images/zeml-feya-amazing-spells_examp.jpg"],
+      "age": [
+        3,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/zeml-feya-amazing-spells_preview.jpg",
+        "/library-dom/images/zeml-feya-amazing-spells_fase.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/zeml-feya-amazing-spells_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/zeml-feya-amazing-spells_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/zeml-feya-amazing-spells_examp_sm.jpg",
+        "/library-dom/images/zeml-feya-amazing-spells_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
       "title": "Земляничная Фея. Три волшебные ягодки",
-      "id": 8,
+      "id": "8",
       "author": "Дале Ш.",
-      "series": "Земляничная Фея",
+      "seriesId": "84f3",
       "pages": 48,
-      "age": [3, 7],
-      "faceImg": ["/library-dom/images/zeml-feya-3wildb_preview.jpg", "/library-dom/images/zeml-feya-3wildb_face.jpg"],
-      "tocImg": [["/library-dom/images/zeml-feya-3wildb_toc_sm.jpg"], ["/library-dom/images/zeml-feya-3wildb_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/zeml-feya-3wildb_examp_sm.jpg", "/library-dom/images/zeml-feya-3wildb_examp.jpg"],
+      "age": [
+        3,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/zeml-feya-3wildb_preview.jpg",
+        "/library-dom/images/zeml-feya-3wildb_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/zeml-feya-3wildb_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/zeml-feya-3wildb_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/zeml-feya-3wildb_examp_sm.jpg",
+        "/library-dom/images/zeml-feya-3wildb_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Котенок Шмяк идёт к доктору",
       "author": "Скоттон Р.",
-      "series": "Котенок Шмяк",
+      "seriesId": "d70e",
       "pages": 32,
-      "age": [1, 7],
-      "faceImg": ["/library-dom/images/shmyak-to-doctor_preview.jpg", "/library-dom/images/shmyak-to-doctor_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/shmyak-to-doctor_examp_sm.jpg", "/library-dom/images/shmyak-to-doctor_examp.jpg"],
+      "age": [
+        1,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/shmyak-to-doctor_preview.jpg",
+        "/library-dom/images/shmyak-to-doctor_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/shmyak-to-doctor_examp_sm.jpg",
+        "/library-dom/images/shmyak-to-doctor_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": true,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Спокойной ночи, Шмяк!",
       "author": "Скоттон Р.",
-      "series": "Котенок Шмяк",
+      "seriesId": "d70e",
       "pages": 31,
-      "age": [1, 7],
-      "faceImg": ["/library-dom/images/shmyak-good-night_preview.jpg", "/library-dom/images/shmyak-good-night_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/shmyak-good-night_examp_sm.jpg", "/library-dom/images/shmyak-good-night_examp.jpg"],
+      "age": [
+        1,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/shmyak-good-night_preview.jpg",
+        "/library-dom/images/shmyak-good-night_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/shmyak-good-night_examp_sm.jpg",
+        "/library-dom/images/shmyak-good-night_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "firstSelfReading": true,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Котенок Шмяк и морские истории",
       "author": "Скоттон Р.",
-      "series": "Котенок Шмяк",
+      "seriesId": "d70e",
       "pages": 31,
-      "age": [1, 7],
-      "faceImg": ["/library-dom/images/shmyak-sea-histories_preview.jpg", "/library-dom/images/shmyak-sea-histories_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/shmyak-sea-histories_examp_sm.jpg", "/library-dom/images/shmyak-sea-histories_examp.jpg"],
+      "age": [
+        1,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/shmyak-sea-histories_preview.jpg",
+        "/library-dom/images/shmyak-sea-histories_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/shmyak-sea-histories_examp_sm.jpg",
+        "/library-dom/images/shmyak-sea-histories_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": true,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Новая детская энциклопедия",
       "author": null,
-      "series": null,
+      "seriesId": null,
       "pages": 320,
-      "age": [6, 10],
-      "faceImg": ["/library-dom/images/new-child-encic_preview.jpg", "/library-dom/images/new-child-encic_face.jpg"],
-      "tocImg": [["/library-dom/images/new-child-encic_toc1_sm.jpg", "/library-dom/images/new-child-encic_toc2_sm.jpg", "/library-dom/images/new-child-encic_toc3_sm.jpg", "/library-dom/images/new-child-encic_toc4_sm.jpg"], ["/library-dom/images/new-child-encic_toc1.jpg", "/library-dom/images/new-child-encic_toc2.jpg", "/library-dom/images/new-child-encic_toc3.jpg", "/library-dom/images/new-child-encic_toc4.jpg"]],
-      "exampleImg": ["/library-dom/images/new-child-encic_examp_sm.jpg", "/library-dom/images/new-child-encic_examp.jpg"],
+      "age": [
+        6,
+        10
+      ],
+      "faceImg": [
+        "/library-dom/images/new-child-encic_preview.jpg",
+        "/library-dom/images/new-child-encic_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/new-child-encic_toc1_sm.jpg",
+          "/library-dom/images/new-child-encic_toc2_sm.jpg",
+          "/library-dom/images/new-child-encic_toc3_sm.jpg",
+          "/library-dom/images/new-child-encic_toc4_sm.jpg"
+        ],
+        [
+          "/library-dom/images/new-child-encic_toc1.jpg",
+          "/library-dom/images/new-child-encic_toc2.jpg",
+          "/library-dom/images/new-child-encic_toc3.jpg",
+          "/library-dom/images/new-child-encic_toc4.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/new-child-encic_examp_sm.jpg",
+        "/library-dom/images/new-child-encic_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Мои эмоции. 20 терапевтических сказок",
       "author": "Хонина И., Смирнова Е.",
-      "series": null,
+      "seriesId": null,
       "pages": 63,
-      "age": [3, 7],
-      "faceImg": ["/library-dom/images/my-emotions-20-tales_preview.jpg", "/library-dom/images/my-emotions-20-tales_face.jpg"],
-      "tocImg": [["/library-dom/images/my-emotions-20-tales_toc_sm.jpg"], ["/library-dom/images/my-emotions-20-tales_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/my-emotions-20-tales_examp_sm.jpg", "/library-dom/images/my-emotions-20-tales_examp.jpg"],
+      "age": [
+        3,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/my-emotions-20-tales_preview.jpg",
+        "/library-dom/images/my-emotions-20-tales_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/my-emotions-20-tales_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/my-emotions-20-tales_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/my-emotions-20-tales_examp_sm.jpg",
+        "/library-dom/images/my-emotions-20-tales_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Детская энциклопедия динозавров",
       "author": null,
-      "series": null,
+      "seriesId": null,
       "pages": 100,
-      "age": [4, 10],
-      "faceImg": ["/library-dom/images/child-encic-dinosaurs_preview.jpg", "/library-dom/images/child-encic-dinosaurs_face.jpg"],
-      "tocImg": [["/library-dom/images/child-encic-dinosaurs_toc_sm.jpg"], ["/library-dom/images/child-encic-dinosaurs_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/child-encic-dinosaurs_examp_sm.jpg", "/library-dom/images/child-encic-dinosaurs_examp.jpg"],
+      "age": [
+        4,
+        10
+      ],
+      "faceImg": [
+        "/library-dom/images/child-encic-dinosaurs_preview.jpg",
+        "/library-dom/images/child-encic-dinosaurs_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/child-encic-dinosaurs_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/child-encic-dinosaurs_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/child-encic-dinosaurs_examp_sm.jpg",
+        "/library-dom/images/child-encic-dinosaurs_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Вредные советы",
       "author": "Остер Г.",
-      "series": null,
+      "seriesId": null,
       "pages": 160,
-      "age": [4, 10],
-      "faceImg": ["/library-dom/images/harm-advices-oster_preview.jpg", "/library-dom/images/harm-advices-oster_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/harm-advices-oster_examp_sm.jpg", "/library-dom/images/harm-advices-oster_examp.jpg"],
+      "age": [
+        4,
+        10
+      ],
+      "faceImg": [
+        "/library-dom/images/harm-advices-oster_preview.jpg",
+        "/library-dom/images/harm-advices-oster_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/harm-advices-oster_examp_sm.jpg",
+        "/library-dom/images/harm-advices-oster_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Мейзи Хитчинс. Тайна мальчика из джунглей",
       "author": "Вебб Х.",
-      "series": "Мейзи Хитчинс. Приключения девочки-детектива",
+      "seriesId": "f572",
       "pages": 124,
-      "age": [6, 12],
-      "faceImg": ["/library-dom/images/meizi-secret-boy-from-jungles_preview.jpg", "/library-dom/images/meizi-secret-boy-from-jungles_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/meizi-secret-boy-from-jungles_examp_sm.jpg", "/library-dom/images/meizi-secret-boy-from-jungles_examp.jpg"],
+      "age": [
+        6,
+        12
+      ],
+      "faceImg": [
+        "/library-dom/images/meizi-secret-boy-from-jungles_preview.jpg",
+        "/library-dom/images/meizi-secret-boy-from-jungles_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/meizi-secret-boy-from-jungles_examp_sm.jpg",
+        "/library-dom/images/meizi-secret-boy-from-jungles_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Зоки и Бада",
       "author": "Тюхтяевы И. и Л.",
       "series": null,
       "pages": 144,
-      "age": [4, 7],
-      "faceImg": ["/library-dom/images/zokies-and-bada_preview.jpg", "/library-dom/images/zokies-and-bada_face.jpg"],
-      "tocImg": [["/library-dom/images/zokies-and-bada_toc_sm.jpg"], ["/library-dom/images/zokies-and-bada_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/zokies-and-bada_toc_sm.jpg", "/library-dom/images/zokies-and-bada_toc.jpg"],
+      "age": [
+        4,
+        7
+      ],
+      "faceImg": [
+        "/library-dom/images/zokies-and-bada_preview.jpg",
+        "/library-dom/images/zokies-and-bada_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/zokies-and-bada_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/zokies-and-bada_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/zokies-and-bada_toc_sm.jpg",
+        "/library-dom/images/zokies-and-bada_toc.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Путешествие в королевство эльфов",
       "author": "Савченко Е.",
-      "series": null,
+      "seriesId": null,
       "pages": 143,
-      "age": [4, 10],
-      "faceImg": ["/library-dom/images/trip-to-elfs-kingdom_preview.jpg", "/library-dom/images/trip-to-elfs-kingdom_face.jpg"],
-      "tocImg": [null, null],
-      "exampleImg": ["/library-dom/images/trip-to-elfs-kingdom_examp_sm.jpg", "/library-dom/images/trip-to-elfs-kingdom_examp.jpg"],
+      "age": [
+        4,
+        10
+      ],
+      "faceImg": [
+        "/library-dom/images/trip-to-elfs-kingdom_preview.jpg",
+        "/library-dom/images/trip-to-elfs-kingdom_face.jpg"
+      ],
+      "tocImg": [
+        null,
+        null
+      ],
+      "exampleImg": [
+        "/library-dom/images/trip-to-elfs-kingdom_examp_sm.jpg",
+        "/library-dom/images/trip-to-elfs-kingdom_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Спящая красавица. Кот в сапогах",
       "author": "Перро Ш.",
-      "series": null,
+      "seriesId": null,
       "pages": 47,
-      "age": [3, 8],
-      "faceImg": ["/library-dom/images/pero-sleep-beauty-cat-in-boots_preview.jpg", "/library-dom/images/pero-sleep-beauty-cat-in-boots_face.jpg"],
-      "tocImg": [["/library-dom/images/pero-sleep-beauty-cat-in-boots_toc_sm.jpg"], ["/library-dom/images/pero-sleep-beauty-cat-in-boots_toc.jpg"]],
-      "exampleImg": ["/library-dom/images/pero-sleep-beauty-cat-in-boots_examp_sm.jpg", "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp.jpg"],
+      "age": [
+        3,
+        8
+      ],
+      "faceImg": [
+        "/library-dom/images/pero-sleep-beauty-cat-in-boots_preview.jpg",
+        "/library-dom/images/pero-sleep-beauty-cat-in-boots_face.jpg"
+      ],
+      "tocImg": [
+        [
+          "/library-dom/images/pero-sleep-beauty-cat-in-boots_toc_sm.jpg"
+        ],
+        [
+          "/library-dom/images/pero-sleep-beauty-cat-in-boots_toc.jpg"
+        ]
+      ],
+      "exampleImg": [
+        "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp_sm.jpg",
+        "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp.jpg"
+      ],
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": false,
-      "comments": []
+      "comments": [],
+      "checked": true
+    },
+    {
+      "id": null,
+      "title": "",
+      "author": "",
+      "series": null,
+      "pages": "",
+      "age": [
+        0,
+        18
+      ],
+      "faceImg": "",
+      "tocImg": "",
+      "exampleImg": "",
+      "statusFree": true,
+      "occupiedTo": null,
+      "owner": "",
+      "user": null,
+      "firstSelfReading": false,
+      "comments": [],
+      "checked": false
     }
   ],
   "users": [
@@ -355,27 +672,31 @@
       "telegramm": true,
       "email": "nevarus@yandex.ru",
       "regData": "01.05.2025",
-      "rating": 10
+      "rating": 10,
+      "id": "2e74"
     }
   ],
   "series": [
     {
       "key": "zeml-feya",
-      "name": "Земляничная Фея"
+      "name": "Земляничная Фея",
+      "id": "84f3"
     },
     {
       "key": "cat-shmyak",
-      "name": "Котенок Шмяк"
+      "name": "Котенок Шмяк",
+      "id": "d70e"
     },
     {
       "key": "meyzi-hitchins",
-      "name": "Мейзи Хитчинс: приключения девочки-детектива",
-      "shortName": "Мейзи Хитчинс"
+      "nameFull": "Мейзи Хитчинс: приключения девочки-детектива",
+      "name": "Мейзи Хитчинс",
+      "id": "f572"
     },
-
     {
       "key": "robolts",
-      "name": "Роболты"
+      "name": "Роболты",
+      "id": "2bee"
     }
   ]
 }

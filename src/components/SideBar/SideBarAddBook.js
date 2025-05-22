@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Slider, TextField, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, ButtonGroup, Button, InputLabel, Select, MenuItem} from "@mui/material";
 import SideBarInput from "./SideBarInput";
 import {styles} from "../../data/mui-styles";
@@ -16,34 +16,46 @@ const marks = [
     }
 ];
 const initialState = {
-    id: null,
-    title: "",
-    author: "",
-    series: null,
-    pages: "",
-    age: [0, 18],
-    faceImg: "",
-    tocImg: "",
-    exampleImg: "",
-    statusFree: true,
-    occupiedTo: null,
-    owner: "",
-    user: null,
-    firstSelfReading: false,
-    comments: []
+    "id": null,
+    "title": "",
+    "author": "",
+    "series": null,
+    "pages": "",
+    "age": [0, 18],
+    "faceImg": "",
+    "tocImg": "",
+    "exampleImg": "",
+    "statusFree": true,
+    "occupiedTo": null,
+    "owner": "",
+    "user": null,
+    "firstSelfReading": false,
+    "comments": [],
+    "checked": false
 }
 
 function SideBarAddBook({seriesFromBD}) {
     const dispatch = useDispatch();
-    const [book, setBook] = useState(initialState);
+    const [newBook, setNewBook] = useState(initialState);
     const handleChange = (bookField, newdata) => {
-        setBook({
-            ...book,
+        setNewBook({
+            ...newBook,
             [bookField]: newdata,
         })
     };
     const handleClickClear = () => {
-        setBook(initialState);
+        setNewBook(initialState);
+    }
+    const handleAddBook = () => {
+        // dispatch(addBook(newBook))
+        fetch('http://localhost:4000/books', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newBook)
+        })
+            .then(res => res.json())
+            .then(data => dispatch(addBook(data)))
+        setNewBook(initialState);
     }
 
     return (
@@ -56,7 +68,7 @@ function SideBarAddBook({seriesFromBD}) {
                 <Slider
                     aria-labelledby="add-book__age"
                     getAriaLabel={() => 'Возраст читателя'}
-                    value={book.age}
+                    value={newBook.age}
                     onChange={(evt) => handleChange('age', evt.target.value)}
                     step={1}
                     min={0}
@@ -71,18 +83,26 @@ function SideBarAddBook({seriesFromBD}) {
                 id="add-book__author"
                 variant="standard"
                 label="Автор*"
+                className="input-error"
                 sx={{fontFamily: styles.font.fontFamily, placeholder: styles.font.fontFamily, fontSize: styles.font.fontSize.small}}
-                value={book.author}
+                value={newBook.author}
+                minlength="2"
+                maxlength="30"
                 onChange={(evt) => handleChange('author', evt.target.value)}
+                required
             />
 
             <TextField
                 id="add-book__title"
                 variant="standard"
                 label="Название*"
+                className="input-error"
                 sx={{fontFamily: styles.font.fontFamily}}
-                value={book.title}
+                value={newBook.title}
+                minlength="2"
+                maxlength="30"
                 onChange={(evt) => handleChange('title', evt.target.value)}
+                required
             />
 
             <FormControl variant="standard" sx={{ mt: 1, minWidth: 120 }}>
@@ -90,7 +110,7 @@ function SideBarAddBook({seriesFromBD}) {
                 <Select
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
-                    value={book.series}
+                    value={newBook.series}
                     onChange={(evt) => handleChange('series', evt.target.value)}
                     label="Series"
                 >
@@ -108,8 +128,12 @@ function SideBarAddBook({seriesFromBD}) {
                 variant="standard"
                 label="Количество страниц*"
                 sx={{fontFamily: styles.font.fontFamily}}
-                value={book.pages}
+                value={newBook.pages}
+                minlength="1"
+                maxlength="4"
+                className="input-error"
                 onChange={(evt) => handleChange('pages', evt.target.value)}
+                required
             />
 
             <label htmlFor="add-book__face-img" className="side-bar__label">Фото обложки*:</label>
@@ -120,6 +144,7 @@ function SideBarAddBook({seriesFromBD}) {
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
                 onChange={(evt) => handleChange('faceImg', evt.target.value)}
+                required
             />
             <label htmlFor="add-book__toc-img" className="side-bar__label">Фото оглавления:</label>
 
@@ -130,6 +155,7 @@ function SideBarAddBook({seriesFromBD}) {
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
                 multiple
+                required
             />
 
             <label htmlFor="add-book__examp-img" className="side-bar__label ">Фото разворота*:</label>
@@ -139,6 +165,7 @@ function SideBarAddBook({seriesFromBD}) {
                 type="file"
                 accept="image/*"
                 classInput="side-bar__input_add-book side-bar__input-loading"
+                required
             />
 
             <FormControl>
@@ -149,7 +176,7 @@ function SideBarAddBook({seriesFromBD}) {
                 </FormLabel>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue={book.firstSelfReading}
+                    defaultValue={newBook.firstSelfReading}
                     name="radio-buttons-group"
                     sx={{display: "flex", flexDirection: "row", mt: '-10px'}}
                 >
@@ -161,11 +188,16 @@ function SideBarAddBook({seriesFromBD}) {
             <ButtonGroup variant="contained" aria-label="Basic button group">
                 <Button
                     sx={{width: '50%', bgcolor: styles.color.green}}
-                    onClick={() => dispatch(addBook(book))}
+                    onClick={handleAddBook}
                 >
                     Добавить
                 </Button>
-                <Button sx={{width: '50%', bgcolor: styles.color.greyDark}} onClick={handleClickClear}>Очистить</Button>
+                <Button
+                    sx={{width: '50%', bgcolor: styles.color.greyDark}}
+                    onClick={handleClickClear}
+                >
+                    Очистить
+                </Button>
             </ButtonGroup>
         </form>
     )

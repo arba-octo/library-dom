@@ -48,3 +48,6 @@ h2 {
 .visible-block {
   display: block;
 }
+.input-error:invalid {
+  border-bottom-color: red;
+}
