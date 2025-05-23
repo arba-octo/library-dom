@@ -48,7 +48,7 @@ const searchSlice = createSlice({
         // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel, используется в SideBarSearch
         setFilter(state, { payload }) {
             // Если среди активных фильтров нового фильтра нет и новый фильтрне пустая строка
-            if (!(state.activeFilters.some(filterItem => filterItem.id === payload.id) && payload.value !== "")) {
+            if (( !state.activeFilters.some(filterItem => filterItem.id === payload.id ) && payload.value !== "")) {
                 state.activeFilters = state.activeFilters.concat({id: payload.id, value : payload.value});
             }
             // Если фильтр уже активен и новое значение фильтра не является пустой строкой
@@ -59,6 +59,8 @@ const searchSlice = createSlice({
                     }
                     return item;
                 })
+            } else {
+                return
             }
             state.filteredBooks = toDisplayBooks(state.activeFilters, payload.books);
         },
