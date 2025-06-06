@@ -1,9 +1,12 @@
+import {useDispatch, useSelector} from "react-redux";
+import {changeValueAction, selectSearch, setSearch} from "../../features/search/search-slice";
+import {useValue} from "../../features/search/use-value";
+import {selectBooks} from "../../features/books-slice";
 import logo from "../../images/logo.svg";
 import HeaderMenuItem from "./HeaderMenuItem";
-import {useValue} from "../../features/search/use-value";
-import {changeValueAction, selectSearch, setSearch} from "../../features/search/search-slice";
-import {selectBooks} from "../../features/books-slice";
-import {useDispatch, useSelector} from "react-redux";
+import LinkToOpenModal from "../LinkToOpenModal";
+import Auth from "./Auth";
+import Reg from "./Reg";
 
 function Header() {
     const [search, handleChangeSearch] = useValue(selectSearch, changeValueAction);
@@ -24,7 +27,8 @@ function Header() {
                 onBlur={() => dispatch(setSearch({search, books}))}
             />
             <div className="header__menu">
-                <HeaderMenuItem name={'Войти / Зарегистрироваться'} href="#" />
+                <LinkToOpenModal width={600} name="Войти" content={Auth} />
+                <LinkToOpenModal width={600} name="Зарегистрироваться" content={Reg} />
                 <HeaderMenuItem name={'Избранное'} href="#" />
             </div>
         </header>

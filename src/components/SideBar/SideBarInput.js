@@ -1,16 +1,14 @@
-function SideBarInput(props) {
 
+function SideBarInput(props) {
     return (
-        <div className="side-bar__input-wrapper">
-            { props.label && <label htmlFor={props.id} className="side-bar__label">{props.label}</label> }
+        <div>
+            <label htmlFor={props.id} className="side-bar__label">{props.label}</label>
             <input
+                name={props.name}
                 id={props.id}
-                className={`side-bar__input ${props.classInput}`}
                 type={props.type}
-                value={props.value}
-                placeholder={props.placeholder}
-                onChange={props.onChange}
-                onBlur={props.onBlur}
+                accept={props.accept}
+                className={props.classNameInput}
                 multiple={props.multiple}
             />
         </div>

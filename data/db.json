@@ -39,7 +39,7 @@
           "data": "01.04.2025"
         }
       ],
-      "checked": true
+      "checked": false
     },
     {
       "id": "2",
@@ -150,7 +150,8 @@
       "owner": "DanaArb",
       "user": "DanaArb",
       "firstSelfReading": true,
-      "comments": []
+      "comments": [],
+      "checked": true
     },
     {
       "id": "5",
@@ -258,8 +259,8 @@
       "checked": true
     },
     {
-      "title": "Земляничная Фея. Три волшебные ягодки",
       "id": "8",
+      "title": "Земляничная Фея. Три волшебные ягодки",
       "author": "Дале Ш.",
       "seriesId": "84f3",
       "pages": 48,
@@ -609,7 +610,6 @@
       "checked": true
     },
     {
-      "id": "19",
       "title": "Спящая красавица. Кот в сапогах",
       "author": "Перро Ш.",
       "seriesId": null,
@@ -636,32 +636,12 @@
       ],
       "statusFree": true,
       "occupiedTo": null,
-      "owner": "DanaArb",
-      "user": "DanaArb",
+      "owner": "2e74",
+      "user": "2e74",
       "firstSelfReading": false,
       "comments": [],
-      "checked": true
-    },
-    {
-      "id": null,
-      "title": "",
-      "author": "",
-      "series": null,
-      "pages": "",
-      "age": [
-        0,
-        18
-      ],
-      "faceImg": "",
-      "tocImg": "",
-      "exampleImg": "",
-      "statusFree": true,
-      "occupiedTo": null,
-      "owner": "",
-      "user": null,
-      "firstSelfReading": false,
-      "comments": [],
-      "checked": false
+      "checked": true,
+      "id": "19"
     }
   ],
   "users": [
