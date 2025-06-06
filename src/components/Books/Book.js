@@ -39,7 +39,7 @@ function Book(props) {
                         }}
                      onClick={handleOpen}
                 >
-                    <img className="book__preview" src={book.faceImg[0]} alt="Изображение"/>
+                    { book.faceImg[0] && <img className="book__preview" src={book.faceImg[0]} alt="Изображение"/> }
                     <Box sx={{fontSize: '18px', color: '#020202', textAlign: 'center'}}>{book.title}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center'}}>{book.author}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center', mt: '5px'}}>{book.pages} стр.</Box>

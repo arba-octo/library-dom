@@ -13,22 +13,16 @@ const booksSlice = createSlice({
         setBooks: (state, action) => {
             state.books = action.payload;
         },
-        // Добавляет новую книгу из форма SideBar, используется в SideBarAddBook
-        addBook: {
-            reducer: (state, action) => {
+        // Добавляет новую книгу из формы SideBar, используется в SideBarAddBook
+        addBook: (state, action) => {
+                const newBook = action.payload;
+                console.log('newBook = ', newBook);
                 if (!state.books.some(bookItem => bookItem.id === action.payload.id)) {
-                    state.books = state.books.concat(action.payload);
+                    console.log('action.payload в addBook в booksSlice', action.payload);
+                    state.books = state.books.concat(newBook);
                 }
-            },
-            prepare: (newBook) => ({
-                payload: {
-                    newBook,
-                    id: newBook.id,
-                    owner: "DanaArb"
-                }
-            })
+            }
         }
-    }
 });
 
 export const {setBooks, addBook} = booksSlice.actions;

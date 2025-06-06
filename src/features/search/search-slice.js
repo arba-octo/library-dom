@@ -43,6 +43,7 @@ const searchSlice = createSlice({
         // При загрузке страницы выгружает книги, используется в BooksCatalogPreview
         setFilteredBooks: (state, action) => {
             state.filteredBooks = action.payload;
+            state.filteredBooks = state.filteredBooks.filter(itemBook => itemBook.checked)
         },
 
         // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel, используется в SideBarSearch

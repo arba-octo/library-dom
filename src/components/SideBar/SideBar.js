@@ -35,9 +35,10 @@ function SideBar() {
             <div className="side-bar__item side-bar__add-book" onClick={handleOpenAddBook}>
                 <div className="side-bar__title side-bar__title_add-book">
                     <img src={addBook} alt="Добавить"/>
-                    <h2>Добавить свою книгу в БиблиоDом</h2>
+                    <h2>Добавить свою книгу</h2>
                 </div>
                     {isOpen === false && <LineSeparate after="after" />}
+                    {isOpen === true && <LineSeparate />}
                     {isOpen === true && <SideBarAddBook seriesFromBD={series}/>}
             </div>
         </div>
