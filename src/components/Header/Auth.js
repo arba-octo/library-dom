@@ -10,15 +10,17 @@ function Auth() {
                 if (values.phone) {
                     errors.phone = 'Введите номер вашего телефона в формате 999-111-22-33';
                 } else if (
-                    !/\[+78]/i.test(values.phone)
+                    !/\+*[78]?\-?9\d{2}\-?\d{3}\-?\d{2}\-?\d{2}/i.test(values.phone)
                 ) {
                     errors.phone = 'Некорректный номер телефона. Используйте, например, такой формат: 999-111-22-33';
                 }
                 if (values.password) {
-                    errors.password = 'Введите пароль (не менее 4х знаков из латинских букв и цифр)'
+                    errors.password = 'Введите пароль (не менее 4х знаков - латинские буквы, цифры, "-" и "_")'
                 } else if (values.password.length < 4) {
-
-                }
+                    errors.password = 'В пароле должно быть не менее 4х знаков (латинские буквы, цифры, "-" и "_")'
+                } else if (
+                    !/[\w\-]{4,}/i.test(values.password)
+                )
                 return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
