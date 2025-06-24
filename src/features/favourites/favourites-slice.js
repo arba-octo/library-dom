@@ -1,20 +1,28 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+const initialState = {
+    favourites: []
+}
 
 const favouritesSlice = createSlice({
     name: "@@favourites",
-    initialState: [],
+    initialState,
     reducers: {
-        addFavourBook(state, { payload }) {
+        addFavourite(state, { payload }) {
             if (!state.favourites.some(favItem => favItem.id === payload.id)) {
-                return state.favourites.concat(payload);
-            }
-            return;
+                state.favourites = state.favourites.concat(payload);
+            } else {
+                return
+            };
         },
-        removeFavourites(state, { payload }) {
-
+        removeFavourite(state, { payload }) {
+            state.favourites = state.favourites.filter(favItem => favItem.id !== payload.id)
+        },
+        clearFavourites(state) {
+            state.favourites = [];
         }
     }
 })
 export const favouritesReducer = favouritesSlice.reducer;
-export const {addFavourBook} = favouritesSlice.actions;
+export const {addFavourite, removeFavourite, clearFavourites} = favouritesSlice.actions;
+export const selectFavourites = (state) => state.favourites.favourites;

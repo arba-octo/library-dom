@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {selectFilteredBooks} from "../../features/search/search-slice";
-import {Box, ButtonGroup, Button, createTheme} from "@mui/material";
-import {addFavourBook} from "../../features/favourites/favourites-slice";
+import {Box, ButtonGroup, Button } from "@mui/material";
+import {addFavourite} from "../../features/favourites/favourites-slice";
 
 function BookCard(props) {
     const dispatch = useDispatch();
@@ -75,7 +75,7 @@ function BookCard(props) {
                             }}
                         >
                             <ButtonGroup variant="text" aria-label="Basic button group">
-                                <Button onClick={() => dispatch(addFavourBook(book))}>Добавить в Избранное</Button>
+                                <Button onClick={() => dispatch(addFavourite(book))}>Добавить в Избранное</Button>
                                 <Button>Взять книгу</Button>
                             </ButtonGroup>
                         </Box>

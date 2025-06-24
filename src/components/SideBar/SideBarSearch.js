@@ -56,7 +56,7 @@ function SideBarSearch(props) {
                 value={title}
                 onChange={handleChangeTitle}
                 onBlur={(evt) => dispatch(setFilter({id: "title", value: title, books}))}
-                sx={{ mt: 1, minWidth: 120 }}
+                sx={{ mt: 1, minWidth: 120, '& label.Mui-focused': {color: '#9eb017'}, '&.Mui-focused fieldset': {borderColor: '#9eb017'} }}
             />
 
             <FormControl id="series" variant="standard" sx={{ mt: 1, minWidth: 120 }}>
@@ -89,7 +89,7 @@ function SideBarSearch(props) {
                 value={author}
                 onChange={handleChangeAuthor}
                 onBlur={(evt) => dispatch(setFilter({id: "author", value: author, books}))}
-                sx={{ mt: 1, minWidth: 120 }}
+                sx={{ mt: 1, minWidth: 120, '& label.Mui-focused': {color: '#9eb017'}, '&.Mui-focused fieldset': {borderColor: '#9eb017'} }}
             />
             <button
                 className="clear side-bar__clear-button"

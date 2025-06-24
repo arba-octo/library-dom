@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {newBooks} from '../data/new-books';
 
 const initialState = {
     books: [],

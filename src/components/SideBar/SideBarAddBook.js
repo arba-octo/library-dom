@@ -51,7 +51,6 @@ function SideBarAddBook({seriesFromBD}) {
                 "checked": false
             }}
             validate={values => {
-                //console.log('values (Formik) = ', values); // OK
                 const errors = {};
                 if (values.author) {
                     if (values.author.length < 3) {
@@ -114,12 +113,13 @@ function SideBarAddBook({seriesFromBD}) {
                             name="author"
                             variant="standard"
                             label="Автор"
-                            //className="input-error"
                             sx={{
                                 fontFamily: styles.font.fontFamily,
                                 placeholder: styles.font.fontFamily,
                                 fontSize: styles.font.fontSize.small,
                                 width: '100%',
+                                '& label.Mui-focused': {color: '#9eb017'},
+                                '&.Mui-focused fieldset': {borderColor: '#9eb017'}
                             }}
                             value={values.author}
                             minLength="2"
@@ -135,7 +135,7 @@ function SideBarAddBook({seriesFromBD}) {
                         variant="standard"
                         label="Название*"
                         //className="input-error"
-                        sx={{fontFamily: styles.font.fontFamily, width: '100%',}}
+                        sx={{ fontFamily: styles.font.fontFamily, width: '100%', '& label.Mui-focused': {color: '#9eb017'}, '&.Mui-focused fieldset': {borderColor: '#9eb017'} }}
                         value={values.title}
                         minLength="2"
                         maxLength="30"
@@ -153,6 +153,7 @@ function SideBarAddBook({seriesFromBD}) {
                             onChange={handleChange}
                             label="Series"
                             variant="standard"
+                            sx={{ '& label.Mui-focused': {color: '#9eb017'}, '&.Mui-focused fieldset': {borderColor: '#9eb017'} }}
                         >
                             {seriesFromBD.map((item) => {
                                 if (!item.shortName) {
@@ -168,7 +169,7 @@ function SideBarAddBook({seriesFromBD}) {
                         name="pages"
                         variant="standard"
                         label="Количество страниц*"
-                        sx={{fontFamily: styles.font.fontFamily, width: '100%'}}
+                        sx={{ fontFamily: styles.font.fontFamily, width: '100%', '& label.Mui-focused': {color: '#9eb017'}, '&.Mui-focused fieldset': {borderColor: '#9eb017'} }}
                         value={values.pages}
                         minLength="1"
                         maxLength="4"
