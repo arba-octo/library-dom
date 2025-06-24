@@ -32,6 +32,7 @@ function SideBar() {
                 </div>
                 <SideBarSearch seriesFromBD={series}/>
             </div>
+            {/* Скрываем добавление книг пока не настроен сервер
             <div className="side-bar__item side-bar__add-book" onClick={handleOpenAddBook}>
                 <div className="side-bar__title side-bar__title_add-book">
                     <img src={addBook} alt="Добавить"/>
@@ -41,6 +42,7 @@ function SideBar() {
                     {isOpen === true && <LineSeparate />}
                     {isOpen === true && <SideBarAddBook seriesFromBD={series}/>}
             </div>
+            */}
         </div>
     )
 }

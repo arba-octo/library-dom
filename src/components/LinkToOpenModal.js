@@ -12,7 +12,8 @@ function LinkToOpenModal(props) {
         transform: 'translate(-50%, -50%)',
         width: props.width,
         bgcolor: 'background.paper',
-        border: '2px solid #000',
+        border: '2px solid #CBE21D',
+        borderRadius: '20px',
         boxShadow: 24,
         p: 4,
     };

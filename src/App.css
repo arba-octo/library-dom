@@ -167,18 +167,18 @@
   margin-top: 15px;
   margin-bottom: 0;
   font-size: 18px;
-  color: #020202;
+  color: var(--color-black);
   text-align: center;
 }
 .book__author {
   font-size: 16px;
-  color: #787878;
+  color: var(--color-grey);
   text-align: center;
   margin: 5px 0 0 0;
 }
 .book__pages {
   font-size: 16px;
-  color: #787878;
+  color: var(--color-grey);
   margin: 5px 0 0 0;
 }
 /* -------------------- BOOK CARD -----------------------*/
@@ -223,7 +223,7 @@
 }
 .book__title {
   font-size: 21px;
-  color: #787878;
+  color: var(--color-grey);
 }
 .book_author {
   text-align: center;
@@ -241,4 +241,45 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
+}
+/*--------------------- favourites ---------------------*/
+.favour-content {
+  margin-top: 50px;
+}
+.favourites {
+  color: var(--color-dark-green);
+  position: relative;
+}
+.favourites::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 21s-6.5-4.35-9.17-7.72C.74 10.52 1.5 6.5 5 5.12a5.46 5.46 0 0 1 7 2.04 5.46 5.46 0 0 1 7-2.04c3.5 1.38 4.26 5.4 2.17 8.16C18.5 16.65 12 21 12 21z' fill='red'/></svg>");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: -24px;
+  top: 2px
+}
+.favour-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.favourite {
+  margin-top: 10px;
+  display: flex;
+  column-gap: 10px;
+}
+.favourite__book-img {
+  width: 60px;
+}
+.favourite__descript_item {
+  display: block;
+}
+/*------------------------ NOT-FOUND -----------------------------*/
+.not-found {
+  margin: 50px auto 0 auto;
+
 }
