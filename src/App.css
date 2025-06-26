@@ -278,6 +278,9 @@
 .favourite__descript_item {
   display: block;
 }
+.favourite__modal_button-text {
+  font-size: 18px;
+}
 /*------------------------ NOT-FOUND -----------------------------*/
 .not-found {
   margin: 50px auto 0 auto;

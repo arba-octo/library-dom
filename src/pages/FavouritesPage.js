@@ -2,6 +2,7 @@ import Header from "../components/Header/Header";
 import {useSelector} from "react-redux";
 import {selectFavourites} from "../features/favourites/favourites-slice";
 import Favourite from "../components/Favourite";
+import { Button } from "@mui/material";
 
 function FavouritesPage() {
     const favourites = useSelector(selectFavourites); // получили массив с книгами из избранного (имеет поля title, author и все другие поля из БД)
@@ -17,6 +18,7 @@ function FavouritesPage() {
                         <Favourite book={favourItem} key={favourItem.id} />
                     ))}
                 </div>
+                <Button variant="text">Читать все книги из избранного ()</Button>
             </div>
         </div>
     )

@@ -2,40 +2,46 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFavourite } from "../features/favourites/favourites-slice";
 import {Button, Modal, Box, Typography, TextField} from "@mui/material";
-import {Formik} from "formik";
+import { Link } from "react-router-dom";
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
 };
 
-// Отправляет данные (любые, приходят в props) на сервер, который их перенаправляет в Telegram
-const sendToTelegram = (data) => {
-    fetch("http://localhost:3001/send-to-telegram", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: JSON.stringify(data, null, 2) }),
-    })
-        .then(() => alert("Ваш запрос на книгу отправлен в Telegram-канал БиблиоDom!"));
-};
+function CopyComponent({ data }) {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(data);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500); // через 1.5 сек убираем уведомление
+        } catch (err) {
+            alert('Ошибка копирования');
+        }
+    };
+
+    return (
+        <div>
+            <button onClick={handleCopy} className="favourite__modal_button-text">
+                {copied ? 'скопировано!' : 'скопируйте'}
+            </button>
+        </div>
+    );
+}
 
 function Favourite ({book}) {
-    // локальное хранилище с номером телефона в telegram пользователя
-    const [userTelegram, setUserTelegram] = useState("");
 
     // Данные которые передаются на сервер и далее в телеграмм
-    const dataBook = {
-    title: book.title,
-    author: book.author,
-    userPhone: userTelegram
-    }
+    const dataBook = `Читать ${book.title} (${book.author})`;
 
     // Используется при удалении книги из Избранного
     const dispatch = useDispatch();
@@ -43,13 +49,7 @@ function Favourite ({book}) {
     // Состояние и его отслеживание для модального окна с запросом номер в Telegram
     const [openModal, setOpenModal] = useState(false);
     const handleCloseModal = () => setOpenModal(false);
-
-    // Отслеживает клик по кнопке "Читать", и если пользователь уже передал свой номер - сразу отправляет данные на сервер,
-    // если нет, то открывает модальное окно с запросом телефона
-    const handleClickToRead = () => {
-        // Если в стейте userTelegram нет номера телефона пользователя, то открываем модальное окно и запрашиваем его
-        if (userTelegram === "") { setOpenModal(true) } else { sendToTelegram(dataBook) }
-    }
+    const handleClickToRead = () => {setOpenModal(true)}
 
     return (
         <div className="favourite">
@@ -70,22 +70,20 @@ function Favourite ({book}) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <form onSubmit={(e) => {
-                        e.preventDefault();
-                        sendToTelegram(dataBook);
-                        setOpenModal(false);
-                    }}>
-                        <label id="phone">Введите Ваш номер телефона в формате +7-9**-***-**-**</label>
-                        <input
-                            type="tel"
-                            name="phone"
-                            id="phone"
-                            value={userTelegram}
-                            placeholder="Введите ваш номер"
-                            onChange={(e) => setUserTelegram(e.target.value)}
-                        />
-                        <button type="submit">Отправить запрос на книгу с номером телефона</button>
-                    </form>
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            Внимание!
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            Чтобы взять данную книгу на чтение,
+                            {' '}
+                            <CopyComponent data={dataBook} />
+                            {' '}
+                            данные книги и переходите в телеграмм-канал
+                            {' '}
+                            <Link to="https://t.me/+WA1jwbcj6xlhMzli">БиблиоDom</Link>
+                        </Typography>
+                    </Box>
                 </Modal>
 
         </div>
