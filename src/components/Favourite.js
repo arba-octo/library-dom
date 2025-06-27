@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFavourite } from "../features/favourites/favourites-slice";
-import {Button, Modal, Box, Typography, TextField} from "@mui/material";
+import {Button, Modal, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import CopyComponent from "./CopyComponent";
 
 const style = {
     position: 'absolute',
@@ -14,34 +15,13 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    borderRadius: 4,
 };
-
-function CopyComponent({ data }) {
-    const [copied, setCopied] = useState(false);
-
-    const handleCopy = async () => {
-        try {
-            await navigator.clipboard.writeText(data);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500); // через 1.5 сек убираем уведомление
-        } catch (err) {
-            alert('Ошибка копирования');
-        }
-    };
-
-    return (
-        <div>
-            <button onClick={handleCopy} className="favourite__modal_button-text">
-                {copied ? 'скопировано!' : 'скопируйте'}
-            </button>
-        </div>
-    );
-}
 
 function Favourite ({book}) {
 
     // Данные которые передаются на сервер и далее в телеграмм
-    const dataBook = `Читать ${book.title} (${book.author})`;
+    const dataBook = `Читать книгу: ${book.title} (${book.author})`;
 
     // Используется при удалении книги из Избранного
     const dispatch = useDispatch();
@@ -79,13 +59,16 @@ function Favourite ({book}) {
                             {' '}
                             <CopyComponent data={dataBook} />
                             {' '}
-                            данные книги и переходите в телеграмм-канал
+                            её данные и отправьте в телеграмм-канал
                             {' '}
-                            <Link to="https://t.me/+WA1jwbcj6xlhMzli">БиблиоDom</Link>
+                            <Link
+                                to="https://t.me/+WA1jwbcj6xlhMzli"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><button className="favourite__modal_button-text">БиблиоDom</button></Link>
                         </Typography>
                     </Box>
                 </Modal>
-
         </div>
     )
 }
