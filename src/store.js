@@ -6,6 +6,7 @@ import {favouritesReducer} from './features/favourites/favourites-slice';
 import {booksReducer} from "./features/books-slice";
 import {seriesReducer} from "./features/series-slice";
 import {usersReducer} from "./features/users-slice";
+import {modalReducer} from "./features/modal-slice";
 
 const persistConfig = {
     key: 'root',
@@ -21,6 +22,7 @@ export const store = configureStore({
         series: seriesReducer,
         users: usersReducer,
         favourites: persistedReducer,
+        modal: modalReducer,
     },
 })
 
