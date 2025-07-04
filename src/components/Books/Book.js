@@ -5,18 +5,18 @@ import BookCard from "./BookCard";
 import {useSelector} from "react-redux";
 import {selectFilteredBooks} from "../../features/search/search-slice";
 
+// Стили для модального окна
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1250,
+    width: 1200,
+    height: 600,
     bgcolor: '#EFEDED',
     borderRadius: '35px',
     p: 4,
 };
-
-
 
 function Book(props) {
     const filteredBooks = useSelector(selectFilteredBooks);
@@ -39,7 +39,7 @@ function Book(props) {
                         }}
                      onClick={handleOpen}
                 >
-                    { book.faceImg[0] && <img className="book__preview" src={book.faceImg[0]} alt="Изображение"/> }
+                    { book.faceImg && <img className="book__preview" src={book.faceImg} alt="Книга"/> }
                     <Box sx={{fontSize: '18px', color: '#020202', textAlign: 'center'}}>{book.title}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center'}}>{book.author}</Box>
                     <Box sx={{fontSize: '16px', color: '#787878', textAlign: 'center', mt: '5px'}}>{book.pages} стр.</Box>
