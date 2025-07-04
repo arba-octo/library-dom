@@ -1,69 +1,74 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
+import useEmblaCarousel from 'embla-carousel-react';
 import {selectFilteredBooks} from "../../features/search/search-slice";
 import {Box, ButtonGroup, Button } from "@mui/material";
 import {addFavourite} from "../../features/favourites/favourites-slice";
+import ImageZoom from "../ImageZoom";
+
 
 function BookCard(props) {
+    // Для галереи, выполненной на Embla Crausel
+    const [emblaRef] = useEmblaCarousel()
     const dispatch = useDispatch();
+    // Выбранная по клику книга, включает ВСЕ поля из БД:
     const book = useSelector(selectFilteredBooks).find(bookItem => bookItem.id === props.id);
-    const [mainImg, setMainImg] = useState(book.faceImg[1]);
-    const handleClickToChangeImg = (type) => { setMainImg(type) };
+    // Вытаскиваем из book только картинки - создаем масив с массивом картинок из БД
+    const images = [
+        ...(book.faceImg ? [book.faceImg] : []),
+        ...(Array.isArray(book.tocImg) ? book.tocImg.flat(Infinity) : book.tocImg ? [book.tocImg] : []),
+        ...(Array.isArray(book.exampleImg) ? book.exampleImg.flat(Infinity) : book.exampleImg ? [book.exampleImg] : []),
+    ];
+    // Локальный стейт и отслеживатель для отображения комментариев:
     const [comments, setComments] = useState(false);
-    const handleClickToView = () => {
-        setComments(!comments);
-    }
+    const handleClickToView = () => { setComments(!comments); }
+    // Локальный стект для отображения главной картинки:
+    const [selectedImg, setSelectedImg] = useState(images[0]);
 
     return (
         <div className="book__card">
-            <div className="book__descript">
-                <div className="book_top">
-                    <div className="book__descript-mainImg">
-                        <img className="mainImg__img" src={mainImg} alt="Главное изображение"/>
-                    </div>
-                    <div className="book__descript-content">
-                        <div className="book__text">
-                            <p className="book__title">{book.title}</p>
-                            <p className="book_author">{book.author}</p>
-                            <table className="book__text-descript">
-                                <tbody>
-                                <tr>
-                                    <td className="table__first-column">Серия</td>
-                                    <td>{book.series}</td>
-                                </tr>
-                                <tr>
-                                    <td>Страниц</td>
-                                    <td>{book.pages}</td>
-                                </tr>
-                                <tr>
-                                    <td>Возраст</td>
-                                    <td>{book.age[0]} - {book.age[1]}</td>
-                                </tr>
-                                <tr>
-                                    <td>Статус</td>
-                                    <td>{book.statusFree === true ? 'свободна' : 'занята'}</td>
-                                </tr>
-                                {book.statusFree === false && <tr>
-                                    <td>Освободиться</td>
-                                    <td>04.02.2025</td>
-                                </tr>}
-                                <tr>
-                                    <td>Владелец книги</td>
-                                    <td>{book.owner}</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                       <button className="book__comments" onClick={handleClickToView}>Отзывы ({book.comments.length})</button>
-                                        {comments && book.comments.map((commentItem) => {
-                                            return <div>{commentItem.user}: {commentItem.text}</div>
-                                        })}
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <p>Подходит для первого самостоятельного чтения: {book.firstSelfReading === true ? "ДА" : "НЕТ"}</p>
-                        </div>
-                        <Box
+           {/* Область для увеличенного изображения */}
+           <ImageZoom
+               src={selectedImg}
+               alt="Главная"
+               className="book__mainImg"
+               width="auto"
+               height="600px"
+           />
+           <div className="book__descript-content">
+               <div className="book__text">
+                   <p className="book__title">{book.title}</p>
+                   <p className="book_author">{book.author}</p>
+                       <table className="book__text-descript">
+                            <tbody>
+                            <tr>
+                                <td className="table__first-column">Серия</td>
+                                <td>{book.series}</td>
+                            </tr>
+                            <tr>
+                                <td>Страниц</td>
+                                <td>{book.pages}</td>
+                            </tr>
+                            <tr>
+                                <td>Возраст</td>
+                                <td>{book.age[0]} - {book.age[1]}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button className="book__comments" onClick={handleClickToView}>Отзывы
+                                        ({book.comments.length})
+                                    </button>
+                                    {comments && book.comments.map((commentItem) => {
+                                        return <div>{commentItem.user}: {commentItem.text}</div>
+                                    })}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                       <p>Подходит для первого самостоятельного
+                            чтения: {book.firstSelfReading === true ? "ДА" : "НЕТ"}
+                       </p>
+                       <Box
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -73,35 +78,31 @@ function BookCard(props) {
                                 },
 
                             }}
-                        >
+                       >
                             <ButtonGroup variant="text" aria-label="Basic button group">
                                 <Button onClick={() => dispatch(addFavourite(book))}>Добавить в Избранное</Button>
                                 <Button>Взять книгу</Button>
                             </ButtonGroup>
-                        </Box>
-                    </div>
-                </div>
-                <hr className="line__section-separate" />
-                <div className="book_bottom">
-                    <img
-                        className="book_face-preview"
-                        src={book.faceImg[0]}
-                        alt="обложка"
-                        onClick={() => handleClickToChangeImg(book.faceImg[1])}
-                    />
-                    {book.tocImg[0] !== null && book.tocImg[0].map((imgSmallItem) => {
-                        const idx = book.tocImg[0].indexOf(imgSmallItem);
-                        return <img src={imgSmallItem} alt="оглавление"
-                                    onClick={() => handleClickToChangeImg(book.tocImg[1][idx])}/>
-                    })}
-                    <img
-                        src={book.exampleImg[0]}
-                        alt="разворот"
-                        onClick={() => handleClickToChangeImg(book.exampleImg[1])}
-                    />
-                </div>
-            </div>
-        </div>
+                       </Box>
+                   </div>
+                   <hr className="line__section-separate"/>
+
+                   {/* Галерея превью */}
+                   <div className="embla-gallery" ref={emblaRef}>
+                       <div className="embla-gallery__container">
+                            {images.map((imgItem) => (
+                                    <img
+                                        key={imgItem}
+                                        onClick={() => setSelectedImg(imgItem)}
+                                        src={imgItem} alt="Изображение"
+                                        className="embla-gallery__slide"
+                                    />
+                            ))}
+                       </div>
+                   </div>
+
+               </div>
+           </div>
     )
 }
 

@@ -10,22 +10,11 @@
         4,
         10
       ],
-      "faceImg": [
-        "/library-dom/images/robolts_preview.jpg",
-        "/library-dom/images/robolts_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/robolts_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/robolts_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/robolts_toc.jpg"
-        ]
+        "/library-dom/images/robolts_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/robolts_examp_sm.jpg",
-        "/library-dom/images/robolts_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/robolts_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -51,18 +40,9 @@
         3,
         8
       ],
-      "faceImg": [
-        "/library-dom/images/dragons_first-ciclopedia_preview.jpg",
-        "/library-dom/images/dragons_first-ciclopedia_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/dragons_first-ciclopedia_examp_sm.jpg",
-        "/library-dom/images/dragons_first-ciclopedia_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/dragons_first-ciclopedia_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/dragons_first-ciclopedia_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -88,22 +68,11 @@
         1,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/tales-and-pictures_suteev_preview.jpg",
-        "/library-dom/images/tales-and-pictures_suteev_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/tales-and-pictures_suteev_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/tales-and-pictures_suteev_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/tales-and-pictures_suteev_toc.jpg"
-        ]
+        "/library-dom/images/tales-and-pictures_suteev_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/tales-and-pictures_suteev_examp_sm.jpg",
-        "/library-dom/images/tales-and-pictures_suteev_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/tales-and-pictures_suteev_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -129,22 +98,11 @@
         2,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/mumy-trolls_preview.jpg",
-        "/library-dom/images/mumy-trolls_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/mumy-trolls_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/mumy-trolls_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/mumy-trolls_toc.jpg"
-        ]
+        "/library-dom/images/mumy-trolls_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/mumy-trolls_examp_sm.jpg",
-        "/library-dom/images/mumy-trolls_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/mumy-trolls_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -163,18 +121,9 @@
         7,
         13
       ],
-      "faceImg": [
-        "/library-dom/images/400-harm-advice_oster_preview.jpg",
-        "/library-dom/images/400-harm-advice_oster_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/400-harm-advice_oster_examp_sm.jpg",
-        "/library-dom/images/400-harm-advice_oster_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/400-harm-advice_oster_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/400-harm-advice_oster_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -200,22 +149,11 @@
         6,
         13
       ],
-      "faceImg": [
-        "/library-dom/images/kipling_preview.jpg",
-        "/library-dom/images/kipling_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/kipling_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/kipling_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/kipling_toc.jpg"
-        ]
+        "/library-dom/images/kipling_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/kipling_examp_sm.jpg",
-        "/library-dom/images/kipling_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/kipling_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -234,22 +172,11 @@
         3,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/zeml-feya-amazing-spells_preview.jpg",
-        "/library-dom/images/zeml-feya-amazing-spells_fase.jpg"
-      ],
+      "faceImg": "/library-dom/images/zeml-feya-amazing-spells_fase.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/zeml-feya-amazing-spells_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/zeml-feya-amazing-spells_toc.jpg"
-        ]
+        "/library-dom/images/zeml-feya-amazing-spells_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/zeml-feya-amazing-spells_examp_sm.jpg",
-        "/library-dom/images/zeml-feya-amazing-spells_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/zeml-feya-amazing-spells_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -268,22 +195,11 @@
         3,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/zeml-feya-3wildb_preview.jpg",
-        "/library-dom/images/zeml-feya-3wildb_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/zeml-feya-3wildb_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/zeml-feya-3wildb_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/zeml-feya-3wildb_toc.jpg"
-        ]
+        "/library-dom/images/zeml-feya-3wildb_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/zeml-feya-3wildb_examp_sm.jpg",
-        "/library-dom/images/zeml-feya-3wildb_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/zeml-feya-3wildb_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -302,18 +218,9 @@
         1,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/shmyak-to-doctor_preview.jpg",
-        "/library-dom/images/shmyak-to-doctor_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/shmyak-to-doctor_examp_sm.jpg",
-        "/library-dom/images/shmyak-to-doctor_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/shmyak-to-doctor_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/shmyak-to-doctor_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -332,18 +239,9 @@
         1,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/shmyak-good-night_preview.jpg",
-        "/library-dom/images/shmyak-good-night_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/shmyak-good-night_examp_sm.jpg",
-        "/library-dom/images/shmyak-good-night_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/shmyak-good-night_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/shmyak-good-night_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -361,18 +259,9 @@
         1,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/shmyak-sea-histories_preview.jpg",
-        "/library-dom/images/shmyak-sea-histories_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/shmyak-sea-histories_examp_sm.jpg",
-        "/library-dom/images/shmyak-sea-histories_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/shmyak-sea-histories_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/shmyak-sea-histories_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -391,28 +280,14 @@
         6,
         10
       ],
-      "faceImg": [
-        "/library-dom/images/new-child-encic_preview.jpg",
-        "/library-dom/images/new-child-encic_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/new-child-encic_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/new-child-encic_toc1_sm.jpg",
-          "/library-dom/images/new-child-encic_toc2_sm.jpg",
-          "/library-dom/images/new-child-encic_toc3_sm.jpg",
-          "/library-dom/images/new-child-encic_toc4_sm.jpg"
-        ],
-        [
-          "/library-dom/images/new-child-encic_toc1.jpg",
-          "/library-dom/images/new-child-encic_toc2.jpg",
-          "/library-dom/images/new-child-encic_toc3.jpg",
-          "/library-dom/images/new-child-encic_toc4.jpg"
-        ]
+        "/library-dom/images/new-child-encic_toc1.jpg",
+        "/library-dom/images/new-child-encic_toc2.jpg",
+        "/library-dom/images/new-child-encic_toc3.jpg",
+        "/library-dom/images/new-child-encic_toc4.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/new-child-encic_examp_sm.jpg",
-        "/library-dom/images/new-child-encic_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/new-child-encic_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -431,22 +306,11 @@
         3,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/my-emotions-20-tales_preview.jpg",
-        "/library-dom/images/my-emotions-20-tales_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/my-emotions-20-tales_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/my-emotions-20-tales_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/my-emotions-20-tales_toc.jpg"
-        ]
+        "/library-dom/images/my-emotions-20-tales_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/my-emotions-20-tales_examp_sm.jpg",
-        "/library-dom/images/my-emotions-20-tales_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/my-emotions-20-tales_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -465,22 +329,11 @@
         4,
         10
       ],
-      "faceImg": [
-        "/library-dom/images/child-encic-dinosaurs_preview.jpg",
-        "/library-dom/images/child-encic-dinosaurs_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/child-encic-dinosaurs_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/child-encic-dinosaurs_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/child-encic-dinosaurs_toc.jpg"
-        ]
+        "/library-dom/images/child-encic-dinosaurs_toc.jpg"
       ],
-      "exampleImg": [
-        "/library-dom/images/child-encic-dinosaurs_examp_sm.jpg",
-        "/library-dom/images/child-encic-dinosaurs_examp.jpg"
-      ],
+      "exampleImg": "/library-dom/images/child-encic-dinosaurs_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -498,18 +351,9 @@
         4,
         10
       ],
-      "faceImg": [
-        "/library-dom/images/harm-advices-oster_preview.jpg",
-        "/library-dom/images/harm-advices-oster_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/harm-advices-oster_examp_sm.jpg",
-        "/library-dom/images/harm-advices-oster_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/harm-advices-oster_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/harm-advices-oster_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -527,18 +371,9 @@
         6,
         12
       ],
-      "faceImg": [
-        "/library-dom/images/meizi-secret-boy-from-jungles_preview.jpg",
-        "/library-dom/images/meizi-secret-boy-from-jungles_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/meizi-secret-boy-from-jungles_examp_sm.jpg",
-        "/library-dom/images/meizi-secret-boy-from-jungles_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/meizi-secret-boy-from-jungles_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/meizi-secret-boy-from-jungles_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -556,22 +391,11 @@
         4,
         7
       ],
-      "faceImg": [
-        "/library-dom/images/zokies-and-bada_preview.jpg",
-        "/library-dom/images/zokies-and-bada_face.jpg"
-      ],
+      "faceImg": "/library-dom/images/zokies-and-bada_face.jpg",
       "tocImg": [
-        [
-          "/library-dom/images/zokies-and-bada_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/zokies-and-bada_toc.jpg"
-        ]
-      ],
-      "exampleImg": [
-        "/library-dom/images/zokies-and-bada_toc_sm.jpg",
         "/library-dom/images/zokies-and-bada_toc.jpg"
       ],
+      "exampleImg": "/library-dom/images/zokies-and-bada_toc.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
@@ -589,18 +413,9 @@
         4,
         10
       ],
-      "faceImg": [
-        "/library-dom/images/trip-to-elfs-kingdom_preview.jpg",
-        "/library-dom/images/trip-to-elfs-kingdom_face.jpg"
-      ],
-      "tocImg": [
-        null,
-        null
-      ],
-      "exampleImg": [
-        "/library-dom/images/trip-to-elfs-kingdom_examp_sm.jpg",
-        "/library-dom/images/trip-to-elfs-kingdom_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/trip-to-elfs-kingdom_face.jpg",
+      "tocImg": null,
+      "exampleImg": "/library-dom/images/trip-to-elfs-kingdom_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "DanaArb",
