@@ -1,18 +1,15 @@
 import React, {useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import useEmblaCarousel from 'embla-carousel-react';
-import {selectFilteredBooks} from "../../features/search/search-slice";
 import {Box, ButtonGroup, Button } from "@mui/material";
 import {addFavourite} from "../../features/favourites/favourites-slice";
 import ImageZoom from "../ImageZoom";
 
 
-function BookCard(props) {
+function BookCard({book}) {
     // Для галереи, выполненной на Embla Crausel
     const [emblaRef] = useEmblaCarousel()
     const dispatch = useDispatch();
-    // Выбранная по клику книга, включает ВСЕ поля из БД:
-    const book = useSelector(selectFilteredBooks).find(bookItem => bookItem.id === props.id);
     // Вытаскиваем из book только картинки - создаем масив с массивом картинок из БД
     const images = [
         ...(book.faceImg ? [book.faceImg] : []),

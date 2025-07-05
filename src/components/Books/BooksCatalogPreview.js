@@ -6,7 +6,7 @@ import {selectFilteredBooks, setFilteredBooks} from "../../features/search/searc
 
 function BooksCatalogPreview() {
     const dispatch = useDispatch();
-    const fiteredBooks = useSelector(selectFilteredBooks);
+    const filteredBooks = useSelector(selectFilteredBooks);
 
     useEffect(() => {
         fetch('http://localhost:4000/books')
@@ -18,17 +18,17 @@ function BooksCatalogPreview() {
             .catch(err => console.log("Ошибка загрузка книг из базы данных:", err));
     }, [dispatch])
 
-    if (fiteredBooks.length === 0) {
+    if (filteredBooks.length === 0) {
         return <div>Идет загрузка данных ...</div>;
     }
 
     return (
         <div className="books__catalog">
-            {fiteredBooks.map((itemBook) => {
+            {filteredBooks.map((itemBook) => {
                 return (
                     <Book
+                        book={itemBook}
                         key={itemBook.id}
-                        id={itemBook.id}
                     />
                 )
             })}

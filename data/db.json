@@ -5,6 +5,7 @@
       "title": "Роболты. Улётная история!!!",
       "author": "Матюшкина Катя, Сильвер Саша",
       "seriesId": "2bee",
+      "type": "childet",
       "pages": 192,
       "age": [
         4,
@@ -35,6 +36,7 @@
       "title": "Драконы. Твоя первая энциклопедия",
       "author": null,
       "seriesId": null,
+      "type": "Энциклопедия",
       "pages": 128,
       "age": [
         3,
@@ -63,6 +65,7 @@
       "title": "Сказки и картинки",
       "author": "Сутеев В.",
       "seriesId": null,
+      "type": null,
       "pages": 124,
       "age": [
         1,
@@ -93,6 +96,7 @@
       "title": "Всё-всё-всё о муми-троллях для малышей",
       "author": "Янссон Т.",
       "seriesId": null,
+      "type": null,
       "pages": 224,
       "age": [
         2,
@@ -116,6 +120,7 @@
       "title": "400 самых дюбимых вредных советов",
       "author": "Остер Г.",
       "seriesId": null,
+      "type": null,
       "pages": 414,
       "age": [
         7,
@@ -144,6 +149,7 @@
       "title": "Повесть Маугли и сказки",
       "author": "Киплинг Р.",
       "seriesId": null,
+      "type": null,
       "pages": 384,
       "age": [
         6,
@@ -167,6 +173,7 @@
       "title": "Земляничная Фея. Удивительное заклинание",
       "author": "Дале Ш.",
       "seriesId": "84f3",
+      "type": null,
       "pages": 48,
       "age": [
         3,
@@ -190,6 +197,7 @@
       "title": "Земляничная Фея. Три волшебные ягодки",
       "author": "Дале Ш.",
       "seriesId": "84f3",
+      "type": null,
       "pages": 48,
       "age": [
         3,
@@ -213,6 +221,7 @@
       "title": "Котенок Шмяк идёт к доктору",
       "author": "Скоттон Р.",
       "seriesId": "d70e",
+      "type": null,
       "pages": 32,
       "age": [
         1,
@@ -234,6 +243,7 @@
       "title": "Спокойной ночи, Шмяк!",
       "author": "Скоттон Р.",
       "seriesId": "d70e",
+      "type": null,
       "pages": 31,
       "age": [
         1,
@@ -254,6 +264,7 @@
       "title": "Котенок Шмяк и морские истории",
       "author": "Скоттон Р.",
       "seriesId": "d70e",
+      "type": null,
       "pages": 31,
       "age": [
         1,
@@ -275,6 +286,7 @@
       "title": "Новая детская энциклопедия",
       "author": null,
       "seriesId": null,
+      "type": "encic",
       "pages": 320,
       "age": [
         6,
@@ -301,6 +313,7 @@
       "title": "Мои эмоции. 20 терапевтических сказок",
       "author": "Хонина И., Смирнова Е.",
       "seriesId": null,
+      "type": "educ",
       "pages": 63,
       "age": [
         3,
@@ -324,6 +337,7 @@
       "title": "Детская энциклопедия динозавров",
       "author": null,
       "seriesId": null,
+      "type": "encic",
       "pages": 100,
       "age": [
         4,
@@ -346,6 +360,7 @@
       "title": "Вредные советы",
       "author": "Остер Г.",
       "seriesId": null,
+      "type": null,
       "pages": 160,
       "age": [
         4,
@@ -366,6 +381,7 @@
       "title": "Мейзи Хитчинс. Тайна мальчика из джунглей",
       "author": "Вебб Х.",
       "seriesId": "f572",
+      "type": "childet",
       "pages": 124,
       "age": [
         6,
@@ -386,6 +402,7 @@
       "title": "Зоки и Бада",
       "author": "Тюхтяевы И. и Л.",
       "series": null,
+      "type": null,
       "pages": 144,
       "age": [
         4,
@@ -408,6 +425,7 @@
       "title": "Путешествие в королевство эльфов",
       "author": "Савченко Е.",
       "seriesId": null,
+      "type": null,
       "pages": 143,
       "age": [
         4,
@@ -428,27 +446,15 @@
       "title": "Спящая красавица. Кот в сапогах",
       "author": "Перро Ш.",
       "seriesId": null,
+      "type": null,
       "pages": 47,
       "age": [
         3,
         8
       ],
-      "faceImg": [
-        "/library-dom/images/pero-sleep-beauty-cat-in-boots_preview.jpg",
-        "/library-dom/images/pero-sleep-beauty-cat-in-boots_face.jpg"
-      ],
-      "tocImg": [
-        [
-          "/library-dom/images/pero-sleep-beauty-cat-in-boots_toc_sm.jpg"
-        ],
-        [
-          "/library-dom/images/pero-sleep-beauty-cat-in-boots_toc.jpg"
-        ]
-      ],
-      "exampleImg": [
-        "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp_sm.jpg",
-        "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp.jpg"
-      ],
+      "faceImg": "/library-dom/images/pero-sleep-beauty-cat-in-boots_face.jpg",
+      "tocImg": ["/library-dom/images/pero-sleep-beauty-cat-in-boots_toc.jpg"],
+      "exampleImg": "/library-dom/images/pero-sleep-beauty-cat-in-boots_examp.jpg",
       "statusFree": true,
       "occupiedTo": null,
       "owner": "2e74",
@@ -493,6 +499,28 @@
       "key": "robolts",
       "name": "Роболты",
       "id": "2bee"
+    }
+  ],
+  "bookType": [
+    {
+      "key": "encyclopedia",
+      "name": "Энциклопедия",
+      "id": "encic"
+    },
+    {
+      "key": "child-detective",
+      "name": "Детский детектив",
+      "id": "childet"
+    },
+    {
+      "key": "comics",
+      "name": "Комиксы",
+      "id": "comics"
+    },
+    {
+      "key": "education",
+      "name": "Обучающие",
+      "id": "educ"
     }
   ]
 }

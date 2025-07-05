@@ -2,8 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import BookCard from "./BookCard";
-import {useSelector} from "react-redux";
-import {selectFilteredBooks} from "../../features/search/search-slice";
 
 // Стили для модального окна
 const style = {
@@ -18,9 +16,8 @@ const style = {
     p: 4,
 };
 
-function Book(props) {
-    const filteredBooks = useSelector(selectFilteredBooks);
-    const book = filteredBooks.find(bookItem => props.id === bookItem.id);
+function Book({book}) {
+    //console.log('book (приходит в Book) = ', book);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -52,6 +49,7 @@ function Book(props) {
                 <Box sx={style}>
                     <BookCard
                         id={book.id}
+                        book={book}
                     />
                 </Box>
             </Modal>
