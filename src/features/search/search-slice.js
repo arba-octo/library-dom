@@ -2,12 +2,12 @@ import {createSlice} from "@reduxjs/toolkit";
 import {AGE_TO_FILTER} from "../../data/constants";
 
 export const initialState = {
-    age: [0, 18],
+    age: [0, 18], // значение в инпуте sidebar "Возраст"
     ageToFilter: [0, 18], // Отделили от age, чтобы в фильтре панели фильтров изменения отображались только после отпускания мыши со слайдера
-    title: '',
-    author: '',
-    seriesId: '',
-    activeFilters: [], // массив объектов (фильтров), где каждый объект = фильтр для панели фильтров с id и value
+    title: '', // значение в инпуте sidebar "Название"
+    author: '', // значение в инпуте sidebar "Автор"
+    seriesId: '', // значение в инпуте sidebar "Серия"
+    activeFilters: [], // массив объектов (фильтров), в payload передается id, value и массивом книг books
     filteredBooks: [], // массив отображаемых с учетом активных фильтров книг
     search: '', // строка поиска в Header
 };
@@ -21,17 +21,27 @@ const toDisplayBooks = (activeFilters, books) => {
             if (filterItem.id === "seriesId") {
                 return !(bookItem.seriesId === filterItem.value);
             }
-            else if (filterItem.value !== '') {return !bookItem[filterItem.id].toLowerCase().includes(filterItem.value.toLowerCase())}
+            if (filterItem.value !== '') {
+                // так как в некоторых книгах не указан автор (значение null в БД) - надо проверить есть ли у книги автор
+                if (bookItem[filterItem.id] !== null) {
+                    return !bookItem[filterItem.id].toLowerCase().includes(filterItem.value.toLowerCase())
+                } else {return false} // если автора нет, то данная книга не отображается при заполненном инпуте Автор
+            }
             return true;
         });
     })
 };
 const toDisplayBooksBySearch = (value, books) => {
     return books.filter((bookItem) => {
-      if (bookItem.author) {
+      if (bookItem.author !== null && bookItem.title !== '') {
           return bookItem.title.toLowerCase().includes(value.toLowerCase()) || bookItem.author.toLowerCase().includes(value.toLowerCase());
-      } else {return bookItem.title.toLowerCase().includes(value.toLowerCase())}
-
+      }
+      if (bookItem.author !== null && bookItem.title === '') {
+          return bookItem.author.toLowerCase().includes(value.toLowerCase())
+      }
+      if (bookItem.author === null && bookItem.title !== '') {
+          return bookItem.title.toLowerCase().includes(value.toLowerCase())
+      }
   })
 };
 
@@ -47,6 +57,7 @@ const searchSlice = createSlice({
         },
 
         // Обрабатывает добавление и изменение значений активных фильтров на FilterPanel, используется в SideBarSearch
+        // в payload приходит id, value (из инпута), books
         setFilter(state, { payload }) {
             // Если среди активных фильтров нового фильтра нет и новый фильтрне пустая строка
             if (( !state.activeFilters.some(filterItem => filterItem.id === payload.id ) && payload.value !== "")) {
@@ -81,8 +92,10 @@ const searchSlice = createSlice({
             state.activeFilters = state.activeFilters.filter((item) => item.id !== payload.currentFilter.id);
             state.filteredBooks = toDisplayBooks(state.activeFilters, payload.books);
         },
+        // стоит на кнопке очистки всех фильтров в SideBarSearch, в payload заходит books (все книги из БД)
         clearAllFiltersAction: (state, action) => {
             state.activeFilters.map((item) => {
+                console.log('item.id (в clearAllFiltersAction) = ', item.id);
                 if (item.id === AGE_TO_FILTER) {state.age = initialState.age}
                 state[item.id] = initialState[item.id]
             })

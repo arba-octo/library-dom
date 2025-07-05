@@ -24,9 +24,9 @@ function SideBarSearch(props) {
             label: '12 лет'
         }
     ]
-    const [age, handleChangeAge] = useValue(selectAge, changeValueAction);
-    const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction);
-    const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction);
+    const [age, handleChangeAge] = useValue(selectAge, changeValueAction); // состояние поля 'Возраст'
+    const [title, handleChangeTitle] = useValue(selectTitle, changeValueAction); // состояние поля 'Название'
+    const [author, handleChangeAuthor] = useValue(selectAuthor, changeValueAction); // состояние поля 'Автор'
     const [seriesId, handleChangeSeriesId] = useValue(selectSeriesId, changeValueAction); // серия книги, выбранная в фильтре
     const books = useSelector(selectBooks); // массив с книгами из БД
 
@@ -94,7 +94,7 @@ function SideBarSearch(props) {
             <button
                 className="clear side-bar__clear-button"
                 onClick={(evt) => {
-                    dispatch(clearAllFiltersAction(books))
+                    dispatch(clearAllFiltersAction(books));
                 }}
             >Очистить фильтр</button>
         </div>

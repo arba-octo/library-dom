@@ -8,7 +8,7 @@ function Filter(props) {
         >
             {props.filterName}:
             &ensp;
-            {props.filterType === "input-slider" && (
+            {props.filterType === "slider" && (
                 <span>{props.filterValue[0]} - {props.filterValue[1]}</span>
             )}
             {props.filterType === "input-text" && (
